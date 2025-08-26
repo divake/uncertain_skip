@@ -1,8 +1,17 @@
-torch>=1.9.0
-torchvision>=0.10.0
-transformers>=4.30.0
-pillow>=8.2.0
-numpy>=1.19.0
-matplotlib>=3.3.0
-pandas>=1.2.0
-tqdm>=4.60.0
+# Core dependencies for YOLOv8 MOT17 baseline evaluation
+ultralytics>=8.0.0      # YOLOv8 models
+motmetrics>=1.4.0       # MOT metrics calculation
+lap>=0.4.0              # Hungarian algorithm for tracking
+scipy>=1.10.0           # Scientific computing
+numpy>=1.24.0           # Array processing
+pandas>=2.0.0           # Data handling
+matplotlib>=3.7.0       # Plotting
+seaborn>=0.12.0         # Statistical visualization
+opencv-python>=4.8.0    # Computer vision
+torch>=2.0.0            # PyTorch for GPU operations
+torchvision>=0.15.0     # Vision utilities
+tqdm>=4.65.0            # Progress bars
+PyYAML>=6.0             # Configuration files
+filterpy>=1.4.5         # Kalman filters for SORT
+scikit-learn>=1.3.0     # Machine learning utilities
+Pillow>=10.0.0          # Image processing

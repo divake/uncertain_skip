@@ -1,66 +1,118 @@
-# AdaDetect: Adaptive Layer-Skipping Object Detection
+# Adaptive YOLO: Dynamic Model Selection for MOT17
 
-Efficient object detection through dynamic transformer layer skipping using YOLOS on BDD100K dataset.
+Comprehensive baseline evaluation framework for YOLOv8 models on MOT17 dataset to enable adaptive model selection based on scene complexity.
 
 ## Project Structure
 
 ```
 uncertain_skip/
-├── test_layer_skipping.py    # Main experiment with layer skipping
-├── test_full_model.py         # Baseline YOLOS test
-├── bdd100k_dataset.py         # BDD100K dataset loader
-├── requirements.txt           # Python dependencies
-├── layer_skipping_results.csv # Experiment results
-├── layer_skipping_results.json # Raw metrics
-├── layer_skipping_analysis_simple.png # Visualizations
-└── bdd100k/                   # Dataset (images + annotations)
-    └── 100k/
-        ├── train/
-        ├── val/
-        └── test/
+├── src/
+│   ├── evaluation/         # Model evaluation scripts
+│   ├── tracking/           # SORT tracking implementation
+│   ├── utils/              # MOT format utilities
+│   └── visualization/      # Results plotting
+├── configs/                # Experiment configurations
+├── data/
+│   └── MOT17/             # Dataset location
+├── models/
+│   └── yolo_weights/      # Downloaded YOLO models
+├── results/
+│   └── baseline/          # Evaluation results
+└── requirements.txt       # Dependencies
 ```
+
+## Features
+
+- **Multi-Model Evaluation**: Tests YOLOv8 nano, small, medium, large, and xlarge models
+- **MOT17 Integration**: Full support for MOT Challenge format and metrics
+- **SORT Tracking**: Simple Online and Realtime Tracking implementation
+- **Comprehensive Metrics**: MOTA, MOTP, IDF1, MT/ML, FP/FN, ID switches
+- **Performance Monitoring**: FPS, GPU memory usage, inference time tracking
+- **Visualization Tools**: Automated generation of comparison plots and analysis
 
 ## Quick Start
 
+1. **Install Dependencies**
 ```bash
-# Install dependencies
 pip install -r requirements.txt
-
-# Test baseline model
-python test_full_model.py
-
-# Run layer skipping experiment
-python test_layer_skipping.py
 ```
 
-## Results Summary
+2. **Download MOT17 Dataset**
+```bash
+# Download from https://motchallenge.net/data/MOT17/
+# Extract to data/MOT17/
+```
 
-| Configuration | Layers | FPS  | Speedup | Detection Quality |
-|--------------|--------|------|---------|------------------|
-| Full         | 12/12  | 170  | 1.0x    | 100%            |
-| Heavy        | 10/12  | 195  | 1.14x   | 17.5%           |
-| Standard     | 8/12   | 226  | 1.33x   | 3.1%            |
-| **Light**    | **6/12** | **270** | **1.59x** | **56.0%**    |
-| Minimal      | 4/12   | 335  | 1.97x   | 46.0%           |
+3. **Run Evaluation**
+```bash
+python src/evaluation/baseline_mot_evaluation.py
+```
 
-**Optimal Configuration**: 6 layers provides best speed/accuracy tradeoff
+4. **Analyze Results**
+```bash
+python analyze_results.py
+```
 
-## Key Findings
+## Initial Results
 
-1. **Linear Speedup**: ~2x speedup achievable by skipping 8 layers
-2. **Non-linear Accuracy**: Detection quality varies non-monotonically with layer count
-3. **Sweet Spot**: 6-layer configuration retains >50% detection quality with 1.59x speedup
+| Model | FPS | Memory | Parameters | MOTA | IDF1 |
+|-------|-----|--------|------------|------|------|
+| YOLOv8n | 18.42 | 32 MB | 3.16M | 0.50% | 1.18% |
+| YOLOv8s | 18.67 | <1 MB | 11.17M | 0.56% | 1.20% |
 
-## Model Details
+*Note: MOTA/IDF1 scores need tuning - detection pipeline is working but tracking parameters require adjustment.*
 
-- Base Model: YOLOS-Tiny (6.5M parameters)
-- Dataset: BDD100K validation set
-- Device: CUDA GPU
-- Input Size: 512x512
+## Key Components
+
+### 1. Baseline Evaluation (`src/evaluation/baseline_mot_evaluation.py`)
+- Loads and tests multiple YOLO models
+- Processes MOT17 sequences frame by frame
+- Calculates comprehensive tracking metrics
+- Generates performance comparisons
+
+### 2. SORT Tracker (`src/tracking/sort.py`)
+- Kalman filter-based state estimation
+- Hungarian algorithm for association
+- Configurable tracking parameters
+
+### 3. MOT Utilities (`src/utils/mot_utils.py`)
+- MOT format I/O operations
+- Bounding box format conversions
+- IoU calculations
+- Track interpolation
+
+### 4. Visualization (`src/visualization/plot_results.py`)
+- Speed-accuracy tradeoff plots
+- Memory usage comparisons
+- Performance radar charts
+- Detection quality analysis
+
+## Configuration
+
+Edit `configs/experiment_configs.yaml` to adjust:
+- Detection parameters (confidence, NMS thresholds)
+- Tracking parameters (max_age, min_hits, IoU threshold)
+- Evaluation settings
+- Output preferences
 
 ## Next Steps
 
-- [ ] Add uncertainty quantification for adaptive selection
-- [ ] Implement RL policy for automatic configuration selection
-- [ ] Test on video sequences for temporal consistency
-- [ ] Analyze performance vs scene complexity
+1. **Fix Tracking Metrics**: Tune detection confidence and tracker parameters
+2. **Complete Evaluation**: Test all 5 YOLO models on all sequences
+3. **Implement Adaptive Selection**: Create scene complexity analyzer
+4. **Optimize Switching**: Develop smooth model transition strategy
+
+## License
+
+MIT
+
+## Citation
+
+If you use this code, please cite:
+```
+@software{adaptive_yolo_2024,
+  title = {Adaptive YOLO: Dynamic Model Selection for MOT17},
+  year = {2024},
+  url = {https://github.com/yourusername/uncertain_skip}
+}
+```

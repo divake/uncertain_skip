@@ -1,0 +1,154 @@
+# YOLOv8 MOT17 Baseline Evaluation Configuration
+
+# Dataset settings
+dataset:
+  name: "MOT17"
+  root_dir: "data/MOT17"
+  split: "train"  # Use train split for evaluation (has ground truth)
+  
+  # Sequences to evaluate (FRCNN detector variants)
+  sequences:
+    - "MOT17-02-FRCNN"  # Indoor mall, 600 frames
+    - "MOT17-04-FRCNN"  # Street view, 1050 frames  
+    - "MOT17-05-FRCNN"  # Night scene, 837 frames
+
+# Model configurations
+models:
+  yolov8n:
+    name: "yolov8n"
+    weights: "yolov8n.pt"
+    description: "Nano - Fastest, least accurate"
+    
+  yolov8s:
+    name: "yolov8s"
+    weights: "yolov8s.pt"
+    description: "Small - Fast, good for real-time"
+    
+  yolov8m:
+    name: "yolov8m"
+    weights: "yolov8m.pt"
+    description: "Medium - Balanced speed/accuracy"
+    
+  yolov8l:
+    name: "yolov8l"
+    weights: "yolov8l.pt"
+    description: "Large - Slower, more accurate"
+    
+  yolov8x:
+    name: "yolov8x"
+    weights: "yolov8x.pt"
+    description: "Extra Large - Slowest, most accurate"
+
+# Detection parameters (consistent across all models)
+detection:
+  conf_threshold: 0.25      # Confidence threshold
+  nms_threshold: 0.45       # NMS IoU threshold
+  input_size: 640           # Input image size
+  device: "cuda"            # cuda or cpu
+  batch_size: 1             # Batch size for inference
+  person_class_id: 0        # COCO person class ID
+
+# Tracking parameters (SORT)
+tracking:
+  algorithm: "SORT"         # Tracking algorithm to use
+  max_age: 5                # Max frames to keep track without detection
+  min_hits: 3               # Min detections before creating track
+  iou_threshold: 0.3        # IoU threshold for association
+  
+  # Optional: DeepSORT parameters (if implemented)
+  deepsort:
+    max_dist: 0.2           # Max cosine distance
+    min_confidence: 0.3     # Min detection confidence
+    max_iou_distance: 0.7   # Max IoU distance
+    max_age: 70             # Max frames without association
+    n_init: 3               # Frames to confirm track
+    nn_budget: 100          # Max samples per track
+
+# Evaluation metrics
+evaluation:
+  metrics:
+    - "mota"                # Multiple Object Tracking Accuracy
+    - "motp"                # Multiple Object Tracking Precision
+    - "idf1"                # ID F1-Score
+    - "mt"                  # Mostly Tracked targets
+    - "ml"                  # Mostly Lost targets
+    - "fp"                  # False Positives
+    - "fn"                  # False Negatives
+    - "id_switches"         # ID Switches
+    - "fragmentations"      # Track fragmentations
+    
+  # IoU threshold for matching predictions to ground truth
+  iou_threshold: 0.5
+  
+  # Minimum visibility for ground truth consideration
+  min_visibility: 0.25
+  
+  # Track coverage thresholds
+  mostly_tracked_threshold: 0.8   # 80% coverage for MT
+  mostly_lost_threshold: 0.2      # 20% coverage for ML
+
+# Performance monitoring
+performance:
+  measure_fps: true         # Measure inference FPS
+  measure_memory: true      # Monitor GPU memory usage
+  warmup_frames: 10         # Frames for warmup before timing
+
+# Output settings
+output:
+  base_dir: "results/baseline"
+  
+  # Save formats
+  save_detections: true     # Save raw detections
+  save_tracks: true         # Save tracking results
+  save_metrics: true        # Save evaluation metrics
+  save_plots: true          # Generate visualization plots
+  save_videos: false        # Generate tracking videos (slower)
+  
+  # Video settings (if enabled)
+  video:
+    max_frames: 100         # Max frames per video
+    fps: 30                 # Output video FPS
+    codec: "mp4v"           # Video codec
+    
+  # Plot settings
+  plots:
+    dpi: 300                # Plot resolution
+    format: "png"           # Plot format
+    style: "seaborn-v0_8-darkgrid"  # Matplotlib style
+
+# Logging
+logging:
+  level: "INFO"             # Logging level
+  save_logs: true           # Save logs to file
+  log_dir: "logs"           # Log directory
+
+# Experiment settings
+experiment:
+  name: "yolov8_mot17_baseline"
+  description: "Comprehensive baseline evaluation of YOLOv8 models on MOT17"
+  author: "AutoML System"
+  date: "2024"
+  
+  # Reproducibility
+  seed: 42                  # Random seed
+  deterministic: true       # Use deterministic algorithms
+  
+  # Resource management
+  clear_cache: true         # Clear GPU cache between models
+  max_gpu_memory: null      # Limit GPU memory (GB), null for unlimited
+
+# Adaptive strategy hints (for future implementation)
+adaptive:
+  scene_complexity_metrics:
+    - "object_density"      # Number of objects per frame
+    - "occlusion_level"     # Estimated occlusion
+    - "motion_complexity"   # Movement patterns
+    - "lighting_condition"  # Scene brightness
+    
+  model_selection_strategy:
+    low_complexity: "yolov8n"     # For simple scenes
+    medium_complexity: "yolov8m"   # For moderate scenes
+    high_complexity: "yolov8x"     # For complex scenes
+    
+  switching_threshold: 0.1  # Confidence drop to trigger switch
+  stability_frames: 30      # Frames before allowing switch

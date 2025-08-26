@@ -44,3 +44,5 @@ temp/
 tmp/
 
 bdd100k/
+*.md
+MOT17/
