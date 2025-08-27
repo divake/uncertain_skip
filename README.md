@@ -6,18 +6,21 @@ Comprehensive baseline evaluation framework for YOLOv8 models on MOT17 dataset t
 
 ```
 uncertain_skip/
+├── scripts/
+│   ├── evaluation/         # Main evaluation scripts
+│   ├── testing/           # Quick test scripts
+│   └── debugging/         # Debug and diagnostic tools
 ├── src/
-│   ├── evaluation/         # Model evaluation scripts
+│   ├── evaluation/         # Core evaluation modules
+│   │   ├── baseline_mot_evaluation.py
+│   │   └── scene_complexity.py
 │   ├── tracking/           # SORT tracking implementation
 │   ├── utils/              # MOT format utilities
 │   └── visualization/      # Results plotting
-├── configs/                # Experiment configurations
+├── results/
+│   └── baseline/          # Evaluation outputs and metrics
 ├── data/
 │   └── MOT17/             # Dataset location
-├── models/
-│   └── yolo_weights/      # Downloaded YOLO models
-├── results/
-│   └── baseline/          # Evaluation results
 └── requirements.txt       # Dependencies
 ```
 
@@ -37,30 +40,33 @@ uncertain_skip/
 pip install -r requirements.txt
 ```
 
-2. **Download MOT17 Dataset**
+2. **Dataset Setup**
 ```bash
-# Download from https://motchallenge.net/data/MOT17/
-# Extract to data/MOT17/
+# MOT17 dataset already available at: data/MOT17/
 ```
 
-3. **Run Evaluation**
+3. **Run Quick Accuracy Test**
 ```bash
-python src/evaluation/baseline_mot_evaluation.py
+python scripts/testing/quick_accuracy_test.py
 ```
 
-4. **Analyze Results**
+4. **Run Full Evaluation**
 ```bash
-python analyze_results.py
+python scripts/evaluation/evaluate_detection_accuracy.py
 ```
 
-## Initial Results
+## Latest Results (50 frames, GPU 1)
 
-| Model | FPS | Memory | Parameters | MOTA | IDF1 |
-|-------|-----|--------|------------|------|------|
-| YOLOv8n | 18.42 | 32 MB | 3.16M | 0.50% | 1.18% |
-| YOLOv8s | 18.67 | <1 MB | 11.17M | 0.56% | 1.20% |
+### Detection Accuracy
+| Model | Precision | Recall | F1 Score | Parameters |
+|-------|-----------|--------|----------|------------|
+| YOLOv8n | 0.654 | 0.381 | 0.481 | 3.2M |
+| YOLOv8s | 0.757 | 0.503 | 0.604 | 11.2M |
+| YOLOv8m | 0.687 | 0.552 | 0.612 | 25.9M |
+| YOLOv8l | 0.691 | 0.549 | 0.612 | 43.7M |
+| YOLOv8x | 0.709 | 0.633 | 0.669 | 68.2M |
 
-*Note: MOTA/IDF1 scores need tuning - detection pipeline is working but tracking parameters require adjustment.*
+**Key Finding**: 39% F1 score improvement from nano to xlarge model
 
 ## Key Components
 

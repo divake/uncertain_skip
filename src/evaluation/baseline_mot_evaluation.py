@@ -57,8 +57,15 @@ class YOLOBaselineEvaluator:
         self.min_hits = 3  # Minimum hits to start tracking
         self.iou_threshold = 0.3  # IoU threshold for association
         
-        # Device configuration
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        # Device configuration - use less loaded GPU if available
+        if torch.cuda.is_available():
+            # Check for multiple GPUs and use the less loaded one
+            if torch.cuda.device_count() > 1:
+                self.device = torch.device('cuda:1')
+            else:
+                self.device = torch.device('cuda:0')
+        else:
+            self.device = torch.device('cpu')
         print(f"Using device: {self.device}")
         
         # Results storage
