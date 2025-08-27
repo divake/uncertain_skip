@@ -11,7 +11,8 @@ Real-time adaptive model selection system that dynamically switches between YOLO
 
 ### MOT17-04: 398 Frames Tracked (High Confidence Object)
 
-[Watch Video: MOT17-04 Adaptive Tracking (398 frames)](results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4)
+<!-- PASTE YOUR FIRST VIDEO URL HERE (MOT17-04_adaptive_tracking_1050frames.mp4) -->
+[Upload video via GitHub issue and paste URL here]
 
 - **398 consecutive frames** tracked before loss
 - **10 model switches** including 3 bidirectional (scaling down)
@@ -19,7 +20,8 @@ Real-time adaptive model selection system that dynamically switches between YOLO
 
 ### MOT17-02: Initial Demo (Medium Confidence Object)
 
-[Watch Video: MOT17-02 Adaptive Tracking Demo](results/adaptive/adaptive_tracking_demo.mp4)
+<!-- PASTE YOUR SECOND VIDEO URL HERE (adaptive_tracking_demo.mp4) -->
+[Upload video via GitHub issue and paste URL here]
 
 - 75 frames tracked with 5 model switches
 - Demonstrates initial adaptive concept
