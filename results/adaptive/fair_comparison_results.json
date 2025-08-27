@@ -1,0 +1,3840 @@
+{
+  "yolov8n": {
+    "model": "yolov8n",
+    "parameters_M": 3.151904,
+    "total_frames": 390,
+    "tracked_frames": 384,
+    "tracking_rate": 0.9846153846153847,
+    "avg_confidence": 0.6828266758626947,
+    "avg_inference_ms": 14.61865799023937,
+    "fps": 68.40573195348595,
+    "lost_at_frame": 390,
+    "frame_results": [
+      {
+        "frame": 0,
+        "confidence": 0.733553946018219,
+        "status": "tracked",
+        "inference_ms": 250.7573999464512
+      },
+      {
+        "frame": 1,
+        "confidence": 0.7410666942596436,
+        "status": "tracked",
+        "inference_ms": 13.2146580144763
+      },
+      {
+        "frame": 2,
+        "confidence": 0.7409496903419495,
+        "status": "tracked",
+        "inference_ms": 13.930073007941246
+      },
+      {
+        "frame": 3,
+        "confidence": 0.7495364546775818,
+        "status": "tracked",
+        "inference_ms": 21.251574624329805
+      },
+      {
+        "frame": 4,
+        "confidence": 0.7457579970359802,
+        "status": "tracked",
+        "inference_ms": 11.148517020046711
+      },
+      {
+        "frame": 5,
+        "confidence": 0.7316662669181824,
+        "status": "tracked",
+        "inference_ms": 15.46788401901722
+      },
+      {
+        "frame": 6,
+        "confidence": 0.7433675527572632,
+        "status": "tracked",
+        "inference_ms": 12.569870799779892
+      },
+      {
+        "frame": 7,
+        "confidence": 0.7522600293159485,
+        "status": "tracked",
+        "inference_ms": 15.252696815878153
+      },
+      {
+        "frame": 8,
+        "confidence": 0.7535561323165894,
+        "status": "tracked",
+        "inference_ms": 11.246196925640106
+      },
+      {
+        "frame": 9,
+        "confidence": 0.7535172700881958,
+        "status": "tracked",
+        "inference_ms": 12.887997087091208
+      },
+      {
+        "frame": 10,
+        "confidence": 0.7513524889945984,
+        "status": "tracked",
+        "inference_ms": 12.675839010626078
+      },
+      {
+        "frame": 11,
+        "confidence": 0.7662442922592163,
+        "status": "tracked",
+        "inference_ms": 12.580113019794226
+      },
+      {
+        "frame": 12,
+        "confidence": 0.7492363452911377,
+        "status": "tracked",
+        "inference_ms": 12.470929883420467
+      },
+      {
+        "frame": 13,
+        "confidence": 0.7584304809570312,
+        "status": "tracked",
+        "inference_ms": 11.220037937164307
+      },
+      {
+        "frame": 14,
+        "confidence": 0.7738416194915771,
+        "status": "tracked",
+        "inference_ms": 12.374456971883774
+      },
+      {
+        "frame": 15,
+        "confidence": 0.7786968946456909,
+        "status": "tracked",
+        "inference_ms": 9.98917780816555
+      },
+      {
+        "frame": 16,
+        "confidence": 0.7748579382896423,
+        "status": "tracked",
+        "inference_ms": 10.541939176619053
+      },
+      {
+        "frame": 17,
+        "confidence": 0.7678366899490356,
+        "status": "tracked",
+        "inference_ms": 10.236258152872324
+      },
+      {
+        "frame": 18,
+        "confidence": 0.7800009846687317,
+        "status": "tracked",
+        "inference_ms": 14.78142011910677
+      },
+      {
+        "frame": 19,
+        "confidence": 0.7759458422660828,
+        "status": "tracked",
+        "inference_ms": 11.774026788771152
+      },
+      {
+        "frame": 20,
+        "confidence": 0.7759910821914673,
+        "status": "tracked",
+        "inference_ms": 13.091660104691982
+      },
+      {
+        "frame": 21,
+        "confidence": 0.775725781917572,
+        "status": "tracked",
+        "inference_ms": 10.363942012190819
+      },
+      {
+        "frame": 22,
+        "confidence": 0.7792061567306519,
+        "status": "tracked",
+        "inference_ms": 18.766799941658974
+      },
+      {
+        "frame": 23,
+        "confidence": 0.7642244696617126,
+        "status": "tracked",
+        "inference_ms": 11.18111191317439
+      },
+      {
+        "frame": 24,
+        "confidence": 0.7720996737480164,
+        "status": "tracked",
+        "inference_ms": 12.701627798378468
+      },
+      {
+        "frame": 25,
+        "confidence": 0.7574104070663452,
+        "status": "tracked",
+        "inference_ms": 12.9962507635355
+      },
+      {
+        "frame": 26,
+        "confidence": 0.7483310103416443,
+        "status": "tracked",
+        "inference_ms": 16.20248705148697
+      },
+      {
+        "frame": 27,
+        "confidence": 0.7516812682151794,
+        "status": "tracked",
+        "inference_ms": 12.112227734178305
+      },
+      {
+        "frame": 28,
+        "confidence": 0.7566483020782471,
+        "status": "tracked",
+        "inference_ms": 11.369064915925264
+      },
+      {
+        "frame": 29,
+        "confidence": 0.7659688591957092,
+        "status": "tracked",
+        "inference_ms": 11.110744904726744
+      },
+      {
+        "frame": 30,
+        "confidence": 0.7501105666160583,
+        "status": "tracked",
+        "inference_ms": 18.687024246901274
+      },
+      {
+        "frame": 31,
+        "confidence": 0.7751960158348083,
+        "status": "tracked",
+        "inference_ms": 10.475711897015572
+      },
+      {
+        "frame": 32,
+        "confidence": 0.7815711498260498,
+        "status": "tracked",
+        "inference_ms": 17.657319083809853
+      },
+      {
+        "frame": 33,
+        "confidence": 0.7811238169670105,
+        "status": "tracked",
+        "inference_ms": 10.82328101620078
+      },
+      {
+        "frame": 34,
+        "confidence": 0.7770863175392151,
+        "status": "tracked",
+        "inference_ms": 12.15065410360694
+      },
+      {
+        "frame": 35,
+        "confidence": 0.7622678875923157,
+        "status": "tracked",
+        "inference_ms": 11.97991892695427
+      },
+      {
+        "frame": 36,
+        "confidence": 0.7720535397529602,
+        "status": "tracked",
+        "inference_ms": 14.848930761218071
+      },
+      {
+        "frame": 37,
+        "confidence": 0.7727336287498474,
+        "status": "tracked",
+        "inference_ms": 9.896012023091316
+      },
+      {
+        "frame": 38,
+        "confidence": 0.7781953811645508,
+        "status": "tracked",
+        "inference_ms": 16.551621723920107
+      },
+      {
+        "frame": 39,
+        "confidence": 0.7743047475814819,
+        "status": "tracked",
+        "inference_ms": 9.432407096028328
+      },
+      {
+        "frame": 40,
+        "confidence": 0.7734484076499939,
+        "status": "tracked",
+        "inference_ms": 19.098734948784113
+      },
+      {
+        "frame": 41,
+        "confidence": 0.7841259837150574,
+        "status": "tracked",
+        "inference_ms": 10.513508226722479
+      },
+      {
+        "frame": 42,
+        "confidence": 0.7860250473022461,
+        "status": "tracked",
+        "inference_ms": 18.10407405719161
+      },
+      {
+        "frame": 43,
+        "confidence": 0.7755339741706848,
+        "status": "tracked",
+        "inference_ms": 12.645110953599215
+      },
+      {
+        "frame": 44,
+        "confidence": 0.7728664875030518,
+        "status": "tracked",
+        "inference_ms": 17.897274810820818
+      },
+      {
+        "frame": 45,
+        "confidence": 0.7895135283470154,
+        "status": "tracked",
+        "inference_ms": 12.165284249931574
+      },
+      {
+        "frame": 46,
+        "confidence": 0.7934584617614746,
+        "status": "tracked",
+        "inference_ms": 19.517996348440647
+      },
+      {
+        "frame": 47,
+        "confidence": 0.797027587890625,
+        "status": "tracked",
+        "inference_ms": 12.007338926196098
+      },
+      {
+        "frame": 48,
+        "confidence": 0.7994329929351807,
+        "status": "tracked",
+        "inference_ms": 15.098241157829762
+      },
+      {
+        "frame": 49,
+        "confidence": 0.8009580373764038,
+        "status": "tracked",
+        "inference_ms": 10.35296032205224
+      },
+      {
+        "frame": 50,
+        "confidence": 0.7930701971054077,
+        "status": "tracked",
+        "inference_ms": 16.306690871715546
+      },
+      {
+        "frame": 51,
+        "confidence": 0.7953711152076721,
+        "status": "tracked",
+        "inference_ms": 10.960632935166359
+      },
+      {
+        "frame": 52,
+        "confidence": 0.7881792187690735,
+        "status": "tracked",
+        "inference_ms": 14.99095419421792
+      },
+      {
+        "frame": 53,
+        "confidence": 0.7910498380661011,
+        "status": "tracked",
+        "inference_ms": 10.800744872540236
+      },
+      {
+        "frame": 54,
+        "confidence": 0.7908245921134949,
+        "status": "tracked",
+        "inference_ms": 13.096745125949383
+      },
+      {
+        "frame": 55,
+        "confidence": 0.7946012020111084,
+        "status": "tracked",
+        "inference_ms": 10.708500165492296
+      },
+      {
+        "frame": 56,
+        "confidence": 0.798713743686676,
+        "status": "tracked",
+        "inference_ms": 19.125671591609716
+      },
+      {
+        "frame": 57,
+        "confidence": 0.7928915023803711,
+        "status": "tracked",
+        "inference_ms": 10.237329639494419
+      },
+      {
+        "frame": 58,
+        "confidence": 0.7899613380432129,
+        "status": "tracked",
+        "inference_ms": 18.12978321686387
+      },
+      {
+        "frame": 59,
+        "confidence": 0.7686864733695984,
+        "status": "tracked",
+        "inference_ms": 11.63910562172532
+      },
+      {
+        "frame": 60,
+        "confidence": 0.7577601671218872,
+        "status": "tracked",
+        "inference_ms": 21.57224202528596
+      },
+      {
+        "frame": 61,
+        "confidence": 0.7521935701370239,
+        "status": "tracked",
+        "inference_ms": 12.419647071510553
+      },
+      {
+        "frame": 62,
+        "confidence": 0.7571633458137512,
+        "status": "tracked",
+        "inference_ms": 19.247472751885653
+      },
+      {
+        "frame": 63,
+        "confidence": 0.7608264088630676,
+        "status": "tracked",
+        "inference_ms": 12.326728086918592
+      },
+      {
+        "frame": 64,
+        "confidence": 0.7857875823974609,
+        "status": "tracked",
+        "inference_ms": 16.83908887207508
+      },
+      {
+        "frame": 65,
+        "confidence": 0.7733696699142456,
+        "status": "tracked",
+        "inference_ms": 12.42900500074029
+      },
+      {
+        "frame": 66,
+        "confidence": 0.7615257501602173,
+        "status": "tracked",
+        "inference_ms": 21.007825154811144
+      },
+      {
+        "frame": 67,
+        "confidence": 0.76411372423172,
+        "status": "tracked",
+        "inference_ms": 12.375801801681519
+      },
+      {
+        "frame": 68,
+        "confidence": 0.744857668876648,
+        "status": "tracked",
+        "inference_ms": 16.422956250607967
+      },
+      {
+        "frame": 69,
+        "confidence": 0.7558536529541016,
+        "status": "tracked",
+        "inference_ms": 11.01722614839673
+      },
+      {
+        "frame": 70,
+        "confidence": 0.7493084073066711,
+        "status": "tracked",
+        "inference_ms": 17.57525186985731
+      },
+      {
+        "frame": 71,
+        "confidence": 0.7537906169891357,
+        "status": "tracked",
+        "inference_ms": 10.875679086893797
+      },
+      {
+        "frame": 72,
+        "confidence": 0.744427502155304,
+        "status": "tracked",
+        "inference_ms": 13.26563535258174
+      },
+      {
+        "frame": 73,
+        "confidence": 0.7411749958992004,
+        "status": "tracked",
+        "inference_ms": 10.60422696173191
+      },
+      {
+        "frame": 74,
+        "confidence": 0.7438293695449829,
+        "status": "tracked",
+        "inference_ms": 11.707369238138199
+      },
+      {
+        "frame": 75,
+        "confidence": 0.731121301651001,
+        "status": "tracked",
+        "inference_ms": 12.233434710651636
+      },
+      {
+        "frame": 76,
+        "confidence": 0.7469929456710815,
+        "status": "tracked",
+        "inference_ms": 10.122539009898901
+      },
+      {
+        "frame": 77,
+        "confidence": 0.7603682279586792,
+        "status": "tracked",
+        "inference_ms": 17.470793332904577
+      },
+      {
+        "frame": 78,
+        "confidence": 0.7465897798538208,
+        "status": "tracked",
+        "inference_ms": 9.748935233801603
+      },
+      {
+        "frame": 79,
+        "confidence": 0.755729079246521,
+        "status": "tracked",
+        "inference_ms": 21.354869939386845
+      },
+      {
+        "frame": 80,
+        "confidence": 0.7564780116081238,
+        "status": "tracked",
+        "inference_ms": 9.17151477187872
+      },
+      {
+        "frame": 81,
+        "confidence": 0.759467363357544,
+        "status": "tracked",
+        "inference_ms": 20.72611590847373
+      },
+      {
+        "frame": 82,
+        "confidence": 0.7764566540718079,
+        "status": "tracked",
+        "inference_ms": 11.254977900534868
+      },
+      {
+        "frame": 83,
+        "confidence": 0.7871896624565125,
+        "status": "tracked",
+        "inference_ms": 23.001279681921005
+      },
+      {
+        "frame": 84,
+        "confidence": 0.7899551391601562,
+        "status": "tracked",
+        "inference_ms": 11.966160964220762
+      },
+      {
+        "frame": 85,
+        "confidence": 0.7785175442695618,
+        "status": "tracked",
+        "inference_ms": 17.867921851575375
+      },
+      {
+        "frame": 86,
+        "confidence": 0.7756736278533936,
+        "status": "tracked",
+        "inference_ms": 12.649999931454659
+      },
+      {
+        "frame": 87,
+        "confidence": 0.7564767599105835,
+        "status": "tracked",
+        "inference_ms": 21.604673005640507
+      },
+      {
+        "frame": 88,
+        "confidence": 0.7556072473526001,
+        "status": "tracked",
+        "inference_ms": 12.30156933888793
+      },
+      {
+        "frame": 89,
+        "confidence": 0.7554066181182861,
+        "status": "tracked",
+        "inference_ms": 12.145464308559895
+      },
+      {
+        "frame": 90,
+        "confidence": 0.7609149813652039,
+        "status": "tracked",
+        "inference_ms": 13.892728835344315
+      },
+      {
+        "frame": 91,
+        "confidence": 0.7612243890762329,
+        "status": "tracked",
+        "inference_ms": 13.192673213779926
+      },
+      {
+        "frame": 92,
+        "confidence": 0.7537973523139954,
+        "status": "tracked",
+        "inference_ms": 12.783658690750599
+      },
+      {
+        "frame": 93,
+        "confidence": 0.7457741498947144,
+        "status": "tracked",
+        "inference_ms": 9.660908952355385
+      },
+      {
+        "frame": 94,
+        "confidence": 0.7456547021865845,
+        "status": "tracked",
+        "inference_ms": 13.78847798332572
+      },
+      {
+        "frame": 95,
+        "confidence": 0.7505876421928406,
+        "status": "tracked",
+        "inference_ms": 10.158124845474958
+      },
+      {
+        "frame": 96,
+        "confidence": 0.7597368359565735,
+        "status": "tracked",
+        "inference_ms": 21.328246220946312
+      },
+      {
+        "frame": 97,
+        "confidence": 0.7640848755836487,
+        "status": "tracked",
+        "inference_ms": 11.21585676446557
+      },
+      {
+        "frame": 98,
+        "confidence": 0.7719606161117554,
+        "status": "tracked",
+        "inference_ms": 12.608697172254324
+      },
+      {
+        "frame": 99,
+        "confidence": 0.7750025987625122,
+        "status": "tracked",
+        "inference_ms": 9.840834885835648
+      }
+    ]
+  },
+  "yolov8s": {
+    "model": "yolov8s",
+    "parameters_M": 11.156544,
+    "total_frames": 392,
+    "tracked_frames": 386,
+    "tracking_rate": 0.9846938775510204,
+    "avg_confidence": 0.7496442560859294,
+    "avg_inference_ms": 14.267316592942771,
+    "fps": 70.09026494124642,
+    "lost_at_frame": 392,
+    "frame_results": [
+      {
+        "frame": 0,
+        "confidence": 0.8220626711845398,
+        "status": "tracked",
+        "inference_ms": 305.589291267097
+      },
+      {
+        "frame": 1,
+        "confidence": 0.8303252458572388,
+        "status": "tracked",
+        "inference_ms": 13.466001953929663
+      },
+      {
+        "frame": 2,
+        "confidence": 0.8312814831733704,
+        "status": "tracked",
+        "inference_ms": 14.04611673206091
+      },
+      {
+        "frame": 3,
+        "confidence": 0.8317230939865112,
+        "status": "tracked",
+        "inference_ms": 14.50628275051713
+      },
+      {
+        "frame": 4,
+        "confidence": 0.8328222632408142,
+        "status": "tracked",
+        "inference_ms": 13.486902695149183
+      },
+      {
+        "frame": 5,
+        "confidence": 0.834814190864563,
+        "status": "tracked",
+        "inference_ms": 12.422461062669754
+      },
+      {
+        "frame": 6,
+        "confidence": 0.8294664025306702,
+        "status": "tracked",
+        "inference_ms": 13.579898979514837
+      },
+      {
+        "frame": 7,
+        "confidence": 0.8254287838935852,
+        "status": "tracked",
+        "inference_ms": 12.939316220581532
+      },
+      {
+        "frame": 8,
+        "confidence": 0.822512686252594,
+        "status": "tracked",
+        "inference_ms": 12.236730195581913
+      },
+      {
+        "frame": 9,
+        "confidence": 0.8204270601272583,
+        "status": "tracked",
+        "inference_ms": 12.515486218035221
+      },
+      {
+        "frame": 10,
+        "confidence": 0.827567994594574,
+        "status": "tracked",
+        "inference_ms": 11.829799041152
+      },
+      {
+        "frame": 11,
+        "confidence": 0.8268911242485046,
+        "status": "tracked",
+        "inference_ms": 13.97594390437007
+      },
+      {
+        "frame": 12,
+        "confidence": 0.8244050145149231,
+        "status": "tracked",
+        "inference_ms": 12.897376902401447
+      },
+      {
+        "frame": 13,
+        "confidence": 0.8240546584129333,
+        "status": "tracked",
+        "inference_ms": 15.295507851988077
+      },
+      {
+        "frame": 14,
+        "confidence": 0.8279359936714172,
+        "status": "tracked",
+        "inference_ms": 11.930704116821289
+      },
+      {
+        "frame": 15,
+        "confidence": 0.8237257599830627,
+        "status": "tracked",
+        "inference_ms": 15.72509203106165
+      },
+      {
+        "frame": 16,
+        "confidence": 0.8256219625473022,
+        "status": "tracked",
+        "inference_ms": 11.82847609743476
+      },
+      {
+        "frame": 17,
+        "confidence": 0.8265436291694641,
+        "status": "tracked",
+        "inference_ms": 14.949396252632141
+      },
+      {
+        "frame": 18,
+        "confidence": 0.8223181962966919,
+        "status": "tracked",
+        "inference_ms": 11.258611921221018
+      },
+      {
+        "frame": 19,
+        "confidence": 0.8215343356132507,
+        "status": "tracked",
+        "inference_ms": 13.976695947349072
+      },
+      {
+        "frame": 20,
+        "confidence": 0.8223155736923218,
+        "status": "tracked",
+        "inference_ms": 11.741915717720985
+      },
+      {
+        "frame": 21,
+        "confidence": 0.8233697414398193,
+        "status": "tracked",
+        "inference_ms": 15.272304881364107
+      },
+      {
+        "frame": 22,
+        "confidence": 0.8230687975883484,
+        "status": "tracked",
+        "inference_ms": 11.662757024168968
+      },
+      {
+        "frame": 23,
+        "confidence": 0.8280616402626038,
+        "status": "tracked",
+        "inference_ms": 15.080605167895555
+      },
+      {
+        "frame": 24,
+        "confidence": 0.8288915753364563,
+        "status": "tracked",
+        "inference_ms": 12.069181073457003
+      },
+      {
+        "frame": 25,
+        "confidence": 0.8297165036201477,
+        "status": "tracked",
+        "inference_ms": 15.266407281160355
+      },
+      {
+        "frame": 26,
+        "confidence": 0.8303871154785156,
+        "status": "tracked",
+        "inference_ms": 11.481557972729206
+      },
+      {
+        "frame": 27,
+        "confidence": 0.8301942348480225,
+        "status": "tracked",
+        "inference_ms": 13.99240829050541
+      },
+      {
+        "frame": 28,
+        "confidence": 0.8363244533538818,
+        "status": "tracked",
+        "inference_ms": 12.824790086597204
+      },
+      {
+        "frame": 29,
+        "confidence": 0.8318660259246826,
+        "status": "tracked",
+        "inference_ms": 14.650369063019753
+      },
+      {
+        "frame": 30,
+        "confidence": 0.830599844455719,
+        "status": "tracked",
+        "inference_ms": 13.352635316550732
+      },
+      {
+        "frame": 31,
+        "confidence": 0.8302615880966187,
+        "status": "tracked",
+        "inference_ms": 14.17553098872304
+      },
+      {
+        "frame": 32,
+        "confidence": 0.8267632722854614,
+        "status": "tracked",
+        "inference_ms": 12.68858416005969
+      },
+      {
+        "frame": 33,
+        "confidence": 0.8289269208908081,
+        "status": "tracked",
+        "inference_ms": 13.663025107234716
+      },
+      {
+        "frame": 34,
+        "confidence": 0.8317769169807434,
+        "status": "tracked",
+        "inference_ms": 11.663250159472227
+      },
+      {
+        "frame": 35,
+        "confidence": 0.8331046104431152,
+        "status": "tracked",
+        "inference_ms": 13.637433759868145
+      },
+      {
+        "frame": 36,
+        "confidence": 0.8299036622047424,
+        "status": "tracked",
+        "inference_ms": 11.262373998761177
+      },
+      {
+        "frame": 37,
+        "confidence": 0.8293518424034119,
+        "status": "tracked",
+        "inference_ms": 14.269197825342417
+      },
+      {
+        "frame": 38,
+        "confidence": 0.8316919207572937,
+        "status": "tracked",
+        "inference_ms": 12.146676424890757
+      },
+      {
+        "frame": 39,
+        "confidence": 0.8287714719772339,
+        "status": "tracked",
+        "inference_ms": 14.969113748520613
+      },
+      {
+        "frame": 40,
+        "confidence": 0.8313797116279602,
+        "status": "tracked",
+        "inference_ms": 13.129006139934063
+      },
+      {
+        "frame": 41,
+        "confidence": 0.8328946232795715,
+        "status": "tracked",
+        "inference_ms": 12.791718821972609
+      },
+      {
+        "frame": 42,
+        "confidence": 0.8363941311836243,
+        "status": "tracked",
+        "inference_ms": 12.669974938035011
+      },
+      {
+        "frame": 43,
+        "confidence": 0.8317797780036926,
+        "status": "tracked",
+        "inference_ms": 12.711545918136835
+      },
+      {
+        "frame": 44,
+        "confidence": 0.8346248865127563,
+        "status": "tracked",
+        "inference_ms": 11.990028899163008
+      },
+      {
+        "frame": 45,
+        "confidence": 0.8307362198829651,
+        "status": "tracked",
+        "inference_ms": 14.432196039706469
+      },
+      {
+        "frame": 46,
+        "confidence": 0.8313669562339783,
+        "status": "tracked",
+        "inference_ms": 12.321942020207644
+      },
+      {
+        "frame": 47,
+        "confidence": 0.8306187987327576,
+        "status": "tracked",
+        "inference_ms": 14.444875065237284
+      },
+      {
+        "frame": 48,
+        "confidence": 0.826163113117218,
+        "status": "tracked",
+        "inference_ms": 13.264873996376991
+      },
+      {
+        "frame": 49,
+        "confidence": 0.827762246131897,
+        "status": "tracked",
+        "inference_ms": 14.480422250926495
+      },
+      {
+        "frame": 50,
+        "confidence": 0.825556218624115,
+        "status": "tracked",
+        "inference_ms": 11.732440907508135
+      },
+      {
+        "frame": 51,
+        "confidence": 0.8215610384941101,
+        "status": "tracked",
+        "inference_ms": 16.512179281562567
+      },
+      {
+        "frame": 52,
+        "confidence": 0.8172231912612915,
+        "status": "tracked",
+        "inference_ms": 11.948506347835064
+      },
+      {
+        "frame": 53,
+        "confidence": 0.8206493854522705,
+        "status": "tracked",
+        "inference_ms": 15.5180380679667
+      },
+      {
+        "frame": 54,
+        "confidence": 0.8241211175918579,
+        "status": "tracked",
+        "inference_ms": 12.222622986882925
+      },
+      {
+        "frame": 55,
+        "confidence": 0.8213563561439514,
+        "status": "tracked",
+        "inference_ms": 13.447538018226624
+      },
+      {
+        "frame": 56,
+        "confidence": 0.8302046060562134,
+        "status": "tracked",
+        "inference_ms": 12.19713082537055
+      },
+      {
+        "frame": 57,
+        "confidence": 0.8292754292488098,
+        "status": "tracked",
+        "inference_ms": 13.239821884781122
+      },
+      {
+        "frame": 58,
+        "confidence": 0.8304367661476135,
+        "status": "tracked",
+        "inference_ms": 12.078611180186272
+      },
+      {
+        "frame": 59,
+        "confidence": 0.8349263072013855,
+        "status": "tracked",
+        "inference_ms": 14.117526356130838
+      },
+      {
+        "frame": 60,
+        "confidence": 0.8314070105552673,
+        "status": "tracked",
+        "inference_ms": 13.452402781695127
+      },
+      {
+        "frame": 61,
+        "confidence": 0.8342117667198181,
+        "status": "tracked",
+        "inference_ms": 14.680436812341213
+      },
+      {
+        "frame": 62,
+        "confidence": 0.8348185420036316,
+        "status": "tracked",
+        "inference_ms": 11.874285992234945
+      },
+      {
+        "frame": 63,
+        "confidence": 0.8265478014945984,
+        "status": "tracked",
+        "inference_ms": 14.398714993149042
+      },
+      {
+        "frame": 64,
+        "confidence": 0.8314428925514221,
+        "status": "tracked",
+        "inference_ms": 11.300737038254738
+      },
+      {
+        "frame": 65,
+        "confidence": 0.8283629417419434,
+        "status": "tracked",
+        "inference_ms": 15.91732818633318
+      },
+      {
+        "frame": 66,
+        "confidence": 0.8287593126296997,
+        "status": "tracked",
+        "inference_ms": 12.0031856931746
+      },
+      {
+        "frame": 67,
+        "confidence": 0.8278796672821045,
+        "status": "tracked",
+        "inference_ms": 15.714047942310572
+      },
+      {
+        "frame": 68,
+        "confidence": 0.8272956013679504,
+        "status": "tracked",
+        "inference_ms": 11.79390400648117
+      },
+      {
+        "frame": 69,
+        "confidence": 0.8255043625831604,
+        "status": "tracked",
+        "inference_ms": 16.46596472710371
+      },
+      {
+        "frame": 70,
+        "confidence": 0.8238616585731506,
+        "status": "tracked",
+        "inference_ms": 11.799409054219723
+      },
+      {
+        "frame": 71,
+        "confidence": 0.8265330791473389,
+        "status": "tracked",
+        "inference_ms": 14.380414970219135
+      },
+      {
+        "frame": 72,
+        "confidence": 0.8233304023742676,
+        "status": "tracked",
+        "inference_ms": 11.453676037490368
+      },
+      {
+        "frame": 73,
+        "confidence": 0.8278746008872986,
+        "status": "tracked",
+        "inference_ms": 14.989660121500492
+      },
+      {
+        "frame": 74,
+        "confidence": 0.8307377099990845,
+        "status": "tracked",
+        "inference_ms": 13.77832517027855
+      },
+      {
+        "frame": 75,
+        "confidence": 0.8335851430892944,
+        "status": "tracked",
+        "inference_ms": 13.429141137748957
+      },
+      {
+        "frame": 76,
+        "confidence": 0.8269035220146179,
+        "status": "tracked",
+        "inference_ms": 12.063540983945131
+      },
+      {
+        "frame": 77,
+        "confidence": 0.830397367477417,
+        "status": "tracked",
+        "inference_ms": 14.129441231489182
+      },
+      {
+        "frame": 78,
+        "confidence": 0.8304465413093567,
+        "status": "tracked",
+        "inference_ms": 11.807034257799387
+      },
+      {
+        "frame": 79,
+        "confidence": 0.8307856321334839,
+        "status": "tracked",
+        "inference_ms": 15.26185916736722
+      },
+      {
+        "frame": 80,
+        "confidence": 0.8321918845176697,
+        "status": "tracked",
+        "inference_ms": 11.545707006007433
+      },
+      {
+        "frame": 81,
+        "confidence": 0.838196337223053,
+        "status": "tracked",
+        "inference_ms": 14.63422179222107
+      },
+      {
+        "frame": 82,
+        "confidence": 0.8344733119010925,
+        "status": "tracked",
+        "inference_ms": 11.895508971065283
+      },
+      {
+        "frame": 83,
+        "confidence": 0.8368138074874878,
+        "status": "tracked",
+        "inference_ms": 15.81201609224081
+      },
+      {
+        "frame": 84,
+        "confidence": 0.8358743190765381,
+        "status": "tracked",
+        "inference_ms": 13.741801958531141
+      },
+      {
+        "frame": 85,
+        "confidence": 0.8356475830078125,
+        "status": "tracked",
+        "inference_ms": 13.06630577892065
+      },
+      {
+        "frame": 86,
+        "confidence": 0.835674524307251,
+        "status": "tracked",
+        "inference_ms": 13.033158611506224
+      },
+      {
+        "frame": 87,
+        "confidence": 0.83360755443573,
+        "status": "tracked",
+        "inference_ms": 12.795683927834034
+      },
+      {
+        "frame": 88,
+        "confidence": 0.835699200630188,
+        "status": "tracked",
+        "inference_ms": 13.556387275457382
+      },
+      {
+        "frame": 89,
+        "confidence": 0.8398441076278687,
+        "status": "tracked",
+        "inference_ms": 13.727623037993908
+      },
+      {
+        "frame": 90,
+        "confidence": 0.838211178779602,
+        "status": "tracked",
+        "inference_ms": 13.513399753719568
+      },
+      {
+        "frame": 91,
+        "confidence": 0.8390757441520691,
+        "status": "tracked",
+        "inference_ms": 12.080090120434761
+      },
+      {
+        "frame": 92,
+        "confidence": 0.8441336154937744,
+        "status": "tracked",
+        "inference_ms": 13.887644745409489
+      },
+      {
+        "frame": 93,
+        "confidence": 0.8441723585128784,
+        "status": "tracked",
+        "inference_ms": 12.410373892635107
+      },
+      {
+        "frame": 94,
+        "confidence": 0.8449769020080566,
+        "status": "tracked",
+        "inference_ms": 14.84390813857317
+      },
+      {
+        "frame": 95,
+        "confidence": 0.8419849276542664,
+        "status": "tracked",
+        "inference_ms": 12.842533644288778
+      },
+      {
+        "frame": 96,
+        "confidence": 0.8376575112342834,
+        "status": "tracked",
+        "inference_ms": 13.171295169740915
+      },
+      {
+        "frame": 97,
+        "confidence": 0.8369237184524536,
+        "status": "tracked",
+        "inference_ms": 13.082177843898535
+      },
+      {
+        "frame": 98,
+        "confidence": 0.8399047255516052,
+        "status": "tracked",
+        "inference_ms": 12.845687102526426
+      },
+      {
+        "frame": 99,
+        "confidence": 0.8416264653205872,
+        "status": "tracked",
+        "inference_ms": 13.355411123484373
+      }
+    ]
+  },
+  "yolov8m": {
+    "model": "yolov8m",
+    "parameters_M": 25.88608,
+    "total_frames": 388,
+    "tracked_frames": 382,
+    "tracking_rate": 0.9845360824742269,
+    "avg_confidence": 0.7206283696190849,
+    "avg_inference_ms": 11.044213965957619,
+    "fps": 90.54514907827506,
+    "lost_at_frame": 388,
+    "frame_results": [
+      {
+        "frame": 0,
+        "confidence": 0.8092166185379028,
+        "status": "tracked",
+        "inference_ms": 213.63722998648882
+      },
+      {
+        "frame": 1,
+        "confidence": 0.8140232563018799,
+        "status": "tracked",
+        "inference_ms": 8.364626206457615
+      },
+      {
+        "frame": 2,
+        "confidence": 0.8198971748352051,
+        "status": "tracked",
+        "inference_ms": 10.923491790890694
+      },
+      {
+        "frame": 3,
+        "confidence": 0.8139300346374512,
+        "status": "tracked",
+        "inference_ms": 10.373129975050688
+      },
+      {
+        "frame": 4,
+        "confidence": 0.809088945388794,
+        "status": "tracked",
+        "inference_ms": 8.53132689371705
+      },
+      {
+        "frame": 5,
+        "confidence": 0.8127384185791016,
+        "status": "tracked",
+        "inference_ms": 12.826161924749613
+      },
+      {
+        "frame": 6,
+        "confidence": 0.8103812336921692,
+        "status": "tracked",
+        "inference_ms": 7.983115967363119
+      },
+      {
+        "frame": 7,
+        "confidence": 0.8148009777069092,
+        "status": "tracked",
+        "inference_ms": 8.638764265924692
+      },
+      {
+        "frame": 8,
+        "confidence": 0.8132768869400024,
+        "status": "tracked",
+        "inference_ms": 14.364594127982855
+      },
+      {
+        "frame": 9,
+        "confidence": 0.8125593662261963,
+        "status": "tracked",
+        "inference_ms": 8.644749876111746
+      },
+      {
+        "frame": 10,
+        "confidence": 0.8113981485366821,
+        "status": "tracked",
+        "inference_ms": 10.403702966868877
+      },
+      {
+        "frame": 11,
+        "confidence": 0.8125668168067932,
+        "status": "tracked",
+        "inference_ms": 10.999687947332859
+      },
+      {
+        "frame": 12,
+        "confidence": 0.812035083770752,
+        "status": "tracked",
+        "inference_ms": 9.582665283232927
+      },
+      {
+        "frame": 13,
+        "confidence": 0.8136153817176819,
+        "status": "tracked",
+        "inference_ms": 11.374555993825197
+      },
+      {
+        "frame": 14,
+        "confidence": 0.8019233345985413,
+        "status": "tracked",
+        "inference_ms": 9.824848268181086
+      },
+      {
+        "frame": 15,
+        "confidence": 0.8167789578437805,
+        "status": "tracked",
+        "inference_ms": 8.464388083666563
+      },
+      {
+        "frame": 16,
+        "confidence": 0.8209009766578674,
+        "status": "tracked",
+        "inference_ms": 10.367250069975853
+      },
+      {
+        "frame": 17,
+        "confidence": 0.8159652948379517,
+        "status": "tracked",
+        "inference_ms": 8.99503193795681
+      },
+      {
+        "frame": 18,
+        "confidence": 0.8093754053115845,
+        "status": "tracked",
+        "inference_ms": 10.088549926877022
+      },
+      {
+        "frame": 19,
+        "confidence": 0.8160289525985718,
+        "status": "tracked",
+        "inference_ms": 12.333789840340614
+      },
+      {
+        "frame": 20,
+        "confidence": 0.8152921795845032,
+        "status": "tracked",
+        "inference_ms": 9.629548992961645
+      },
+      {
+        "frame": 21,
+        "confidence": 0.8155332207679749,
+        "status": "tracked",
+        "inference_ms": 9.219248779118061
+      },
+      {
+        "frame": 22,
+        "confidence": 0.8176036477088928,
+        "status": "tracked",
+        "inference_ms": 13.255837373435497
+      },
+      {
+        "frame": 23,
+        "confidence": 0.815640389919281,
+        "status": "tracked",
+        "inference_ms": 9.837849996984005
+      },
+      {
+        "frame": 24,
+        "confidence": 0.809974730014801,
+        "status": "tracked",
+        "inference_ms": 9.21632256358862
+      },
+      {
+        "frame": 25,
+        "confidence": 0.8065335750579834,
+        "status": "tracked",
+        "inference_ms": 11.555249337106943
+      },
+      {
+        "frame": 26,
+        "confidence": 0.812970757484436,
+        "status": "tracked",
+        "inference_ms": 10.081043932586908
+      },
+      {
+        "frame": 27,
+        "confidence": 0.8086578845977783,
+        "status": "tracked",
+        "inference_ms": 9.973219130188227
+      },
+      {
+        "frame": 28,
+        "confidence": 0.8128336071968079,
+        "status": "tracked",
+        "inference_ms": 10.175107046961784
+      },
+      {
+        "frame": 29,
+        "confidence": 0.8012558817863464,
+        "status": "tracked",
+        "inference_ms": 9.324580896645784
+      },
+      {
+        "frame": 30,
+        "confidence": 0.7980892062187195,
+        "status": "tracked",
+        "inference_ms": 8.701174054294825
+      },
+      {
+        "frame": 31,
+        "confidence": 0.798728883266449,
+        "status": "tracked",
+        "inference_ms": 10.146570857614279
+      },
+      {
+        "frame": 32,
+        "confidence": 0.7934201955795288,
+        "status": "tracked",
+        "inference_ms": 9.639906696975231
+      },
+      {
+        "frame": 33,
+        "confidence": 0.7990955710411072,
+        "status": "tracked",
+        "inference_ms": 9.278361219912767
+      },
+      {
+        "frame": 34,
+        "confidence": 0.7997688055038452,
+        "status": "tracked",
+        "inference_ms": 10.383829940110445
+      },
+      {
+        "frame": 35,
+        "confidence": 0.8004050850868225,
+        "status": "tracked",
+        "inference_ms": 9.40392492339015
+      },
+      {
+        "frame": 36,
+        "confidence": 0.8009422421455383,
+        "status": "tracked",
+        "inference_ms": 10.960702318698168
+      },
+      {
+        "frame": 37,
+        "confidence": 0.8048468232154846,
+        "status": "tracked",
+        "inference_ms": 9.132885839790106
+      },
+      {
+        "frame": 38,
+        "confidence": 0.8036532998085022,
+        "status": "tracked",
+        "inference_ms": 13.081207405775785
+      },
+      {
+        "frame": 39,
+        "confidence": 0.807273805141449,
+        "status": "tracked",
+        "inference_ms": 10.383076034486294
+      },
+      {
+        "frame": 40,
+        "confidence": 0.8092533946037292,
+        "status": "tracked",
+        "inference_ms": 9.411957114934921
+      },
+      {
+        "frame": 41,
+        "confidence": 0.8077011704444885,
+        "status": "tracked",
+        "inference_ms": 11.836315970867872
+      },
+      {
+        "frame": 42,
+        "confidence": 0.8107811212539673,
+        "status": "tracked",
+        "inference_ms": 10.48105675727129
+      },
+      {
+        "frame": 43,
+        "confidence": 0.8063928484916687,
+        "status": "tracked",
+        "inference_ms": 9.848055895417929
+      },
+      {
+        "frame": 44,
+        "confidence": 0.8103976249694824,
+        "status": "tracked",
+        "inference_ms": 9.963342919945717
+      },
+      {
+        "frame": 45,
+        "confidence": 0.8084669709205627,
+        "status": "tracked",
+        "inference_ms": 9.89242922514677
+      },
+      {
+        "frame": 46,
+        "confidence": 0.8087069988250732,
+        "status": "tracked",
+        "inference_ms": 10.03134623169899
+      },
+      {
+        "frame": 47,
+        "confidence": 0.8105126619338989,
+        "status": "tracked",
+        "inference_ms": 11.643840931355953
+      },
+      {
+        "frame": 48,
+        "confidence": 0.8043870329856873,
+        "status": "tracked",
+        "inference_ms": 9.260052349418402
+      },
+      {
+        "frame": 49,
+        "confidence": 0.7978289127349854,
+        "status": "tracked",
+        "inference_ms": 10.763004887849092
+      },
+      {
+        "frame": 50,
+        "confidence": 0.8050079345703125,
+        "status": "tracked",
+        "inference_ms": 9.04992688447237
+      },
+      {
+        "frame": 51,
+        "confidence": 0.7958853244781494,
+        "status": "tracked",
+        "inference_ms": 9.268011897802353
+      },
+      {
+        "frame": 52,
+        "confidence": 0.7830852270126343,
+        "status": "tracked",
+        "inference_ms": 12.210652697831392
+      },
+      {
+        "frame": 53,
+        "confidence": 0.7819390296936035,
+        "status": "tracked",
+        "inference_ms": 8.00756411626935
+      },
+      {
+        "frame": 54,
+        "confidence": 0.7938346862792969,
+        "status": "tracked",
+        "inference_ms": 9.308947715908289
+      },
+      {
+        "frame": 55,
+        "confidence": 0.7922787666320801,
+        "status": "tracked",
+        "inference_ms": 12.08019582554698
+      },
+      {
+        "frame": 56,
+        "confidence": 0.7983739972114563,
+        "status": "tracked",
+        "inference_ms": 10.061866138130426
+      },
+      {
+        "frame": 57,
+        "confidence": 0.793108344078064,
+        "status": "tracked",
+        "inference_ms": 10.115599725395441
+      },
+      {
+        "frame": 58,
+        "confidence": 0.7870568037033081,
+        "status": "tracked",
+        "inference_ms": 11.903870850801468
+      },
+      {
+        "frame": 59,
+        "confidence": 0.7978128790855408,
+        "status": "tracked",
+        "inference_ms": 9.75609291344881
+      },
+      {
+        "frame": 60,
+        "confidence": 0.7950066924095154,
+        "status": "tracked",
+        "inference_ms": 10.43906295672059
+      },
+      {
+        "frame": 61,
+        "confidence": 0.7787232995033264,
+        "status": "tracked",
+        "inference_ms": 11.388814076781273
+      },
+      {
+        "frame": 62,
+        "confidence": 0.786379873752594,
+        "status": "tracked",
+        "inference_ms": 8.696981705725193
+      },
+      {
+        "frame": 63,
+        "confidence": 0.7822981476783752,
+        "status": "tracked",
+        "inference_ms": 8.218646049499512
+      },
+      {
+        "frame": 64,
+        "confidence": 0.7713375091552734,
+        "status": "tracked",
+        "inference_ms": 11.5732760168612
+      },
+      {
+        "frame": 65,
+        "confidence": 0.7704091668128967,
+        "status": "tracked",
+        "inference_ms": 10.436192620545626
+      },
+      {
+        "frame": 66,
+        "confidence": 0.7586426734924316,
+        "status": "tracked",
+        "inference_ms": 11.57485507428646
+      },
+      {
+        "frame": 67,
+        "confidence": 0.7536856532096863,
+        "status": "tracked",
+        "inference_ms": 11.17959525436163
+      },
+      {
+        "frame": 68,
+        "confidence": 0.7731297612190247,
+        "status": "tracked",
+        "inference_ms": 10.442941915243864
+      },
+      {
+        "frame": 69,
+        "confidence": 0.7472639083862305,
+        "status": "tracked",
+        "inference_ms": 10.647451970726252
+      },
+      {
+        "frame": 70,
+        "confidence": 0.7454849481582642,
+        "status": "tracked",
+        "inference_ms": 9.975946974009275
+      },
+      {
+        "frame": 71,
+        "confidence": 0.7569699883460999,
+        "status": "tracked",
+        "inference_ms": 8.504023775458336
+      },
+      {
+        "frame": 72,
+        "confidence": 0.7566916346549988,
+        "status": "tracked",
+        "inference_ms": 9.199726860970259
+      },
+      {
+        "frame": 73,
+        "confidence": 0.7553221583366394,
+        "status": "tracked",
+        "inference_ms": 10.701315943151712
+      },
+      {
+        "frame": 74,
+        "confidence": 0.7562412023544312,
+        "status": "tracked",
+        "inference_ms": 9.052799548953772
+      },
+      {
+        "frame": 75,
+        "confidence": 0.7476641535758972,
+        "status": "tracked",
+        "inference_ms": 10.537180118262768
+      },
+      {
+        "frame": 76,
+        "confidence": 0.7365034222602844,
+        "status": "tracked",
+        "inference_ms": 11.659666895866394
+      },
+      {
+        "frame": 77,
+        "confidence": 0.7500643730163574,
+        "status": "tracked",
+        "inference_ms": 9.338967967778444
+      },
+      {
+        "frame": 78,
+        "confidence": 0.7601788640022278,
+        "status": "tracked",
+        "inference_ms": 10.294335894286633
+      },
+      {
+        "frame": 79,
+        "confidence": 0.7448116540908813,
+        "status": "tracked",
+        "inference_ms": 12.930959928780794
+      },
+      {
+        "frame": 80,
+        "confidence": 0.7443367838859558,
+        "status": "tracked",
+        "inference_ms": 9.246184956282377
+      },
+      {
+        "frame": 81,
+        "confidence": 0.7541561126708984,
+        "status": "tracked",
+        "inference_ms": 9.42646199837327
+      },
+      {
+        "frame": 82,
+        "confidence": 0.7483700513839722,
+        "status": "tracked",
+        "inference_ms": 11.660257820039988
+      },
+      {
+        "frame": 83,
+        "confidence": 0.7368196845054626,
+        "status": "tracked",
+        "inference_ms": 9.39137302339077
+      },
+      {
+        "frame": 84,
+        "confidence": 0.7472740411758423,
+        "status": "tracked",
+        "inference_ms": 8.14799265936017
+      },
+      {
+        "frame": 85,
+        "confidence": 0.7181005477905273,
+        "status": "tracked",
+        "inference_ms": 11.150348000228405
+      },
+      {
+        "frame": 86,
+        "confidence": 0.7291954159736633,
+        "status": "tracked",
+        "inference_ms": 8.988281711935997
+      },
+      {
+        "frame": 87,
+        "confidence": 0.7356659173965454,
+        "status": "tracked",
+        "inference_ms": 7.7026910148561
+      },
+      {
+        "frame": 88,
+        "confidence": 0.7320722937583923,
+        "status": "tracked",
+        "inference_ms": 10.26662066578865
+      },
+      {
+        "frame": 89,
+        "confidence": 0.7171683311462402,
+        "status": "tracked",
+        "inference_ms": 8.961580693721771
+      },
+      {
+        "frame": 90,
+        "confidence": 0.7123817205429077,
+        "status": "tracked",
+        "inference_ms": 10.261191986501217
+      },
+      {
+        "frame": 91,
+        "confidence": 0.7187565565109253,
+        "status": "tracked",
+        "inference_ms": 9.555746801197529
+      },
+      {
+        "frame": 92,
+        "confidence": 0.7126776576042175,
+        "status": "tracked",
+        "inference_ms": 10.59137424454093
+      },
+      {
+        "frame": 93,
+        "confidence": 0.704709529876709,
+        "status": "tracked",
+        "inference_ms": 8.519687224179506
+      },
+      {
+        "frame": 94,
+        "confidence": 0.7265062928199768,
+        "status": "tracked",
+        "inference_ms": 9.504085872322321
+      },
+      {
+        "frame": 95,
+        "confidence": 0.7199957966804504,
+        "status": "tracked",
+        "inference_ms": 9.988643229007721
+      },
+      {
+        "frame": 96,
+        "confidence": 0.7091894745826721,
+        "status": "tracked",
+        "inference_ms": 10.16669487580657
+      },
+      {
+        "frame": 97,
+        "confidence": 0.7200917601585388,
+        "status": "tracked",
+        "inference_ms": 8.21981718763709
+      },
+      {
+        "frame": 98,
+        "confidence": 0.7217019200325012,
+        "status": "tracked",
+        "inference_ms": 11.106505990028381
+      },
+      {
+        "frame": 99,
+        "confidence": 0.748645544052124,
+        "status": "tracked",
+        "inference_ms": 8.830342907458544
+      }
+    ]
+  },
+  "yolov8l": {
+    "model": "yolov8l",
+    "parameters_M": 43.668288,
+    "total_frames": 389,
+    "tracked_frames": 382,
+    "tracking_rate": 0.9820051413881749,
+    "avg_confidence": 0.7205609734613858,
+    "avg_inference_ms": 17.849605279115142,
+    "fps": 56.02364782654583,
+    "lost_at_frame": 389,
+    "frame_results": [
+      {
+        "frame": 0,
+        "confidence": 0.8210375308990479,
+        "status": "tracked",
+        "inference_ms": 614.9741308763623
+      },
+      {
+        "frame": 1,
+        "confidence": 0.8258448243141174,
+        "status": "tracked",
+        "inference_ms": 18.040889874100685
+      },
+      {
+        "frame": 2,
+        "confidence": 0.8267872929573059,
+        "status": "tracked",
+        "inference_ms": 16.67111599817872
+      },
+      {
+        "frame": 3,
+        "confidence": 0.8289332389831543,
+        "status": "tracked",
+        "inference_ms": 21.02895313873887
+      },
+      {
+        "frame": 4,
+        "confidence": 0.8245328664779663,
+        "status": "tracked",
+        "inference_ms": 13.128248043358326
+      },
+      {
+        "frame": 5,
+        "confidence": 0.8244964480400085,
+        "status": "tracked",
+        "inference_ms": 12.93109729886055
+      },
+      {
+        "frame": 6,
+        "confidence": 0.8210923075675964,
+        "status": "tracked",
+        "inference_ms": 15.49653708934784
+      },
+      {
+        "frame": 7,
+        "confidence": 0.817924976348877,
+        "status": "tracked",
+        "inference_ms": 15.899790916591883
+      },
+      {
+        "frame": 8,
+        "confidence": 0.8175838589668274,
+        "status": "tracked",
+        "inference_ms": 13.642130885273218
+      },
+      {
+        "frame": 9,
+        "confidence": 0.8221436738967896,
+        "status": "tracked",
+        "inference_ms": 15.986511949449778
+      },
+      {
+        "frame": 10,
+        "confidence": 0.8211832046508789,
+        "status": "tracked",
+        "inference_ms": 14.746611937880516
+      },
+      {
+        "frame": 11,
+        "confidence": 0.8222835063934326,
+        "status": "tracked",
+        "inference_ms": 16.88447641208768
+      },
+      {
+        "frame": 12,
+        "confidence": 0.8243302702903748,
+        "status": "tracked",
+        "inference_ms": 18.874078057706356
+      },
+      {
+        "frame": 13,
+        "confidence": 0.8232733011245728,
+        "status": "tracked",
+        "inference_ms": 15.60008293017745
+      },
+      {
+        "frame": 14,
+        "confidence": 0.8278719782829285,
+        "status": "tracked",
+        "inference_ms": 17.59913470596075
+      },
+      {
+        "frame": 15,
+        "confidence": 0.8361546397209167,
+        "status": "tracked",
+        "inference_ms": 12.865818105638027
+      },
+      {
+        "frame": 16,
+        "confidence": 0.8351319432258606,
+        "status": "tracked",
+        "inference_ms": 17.217309679836035
+      },
+      {
+        "frame": 17,
+        "confidence": 0.8337196111679077,
+        "status": "tracked",
+        "inference_ms": 14.497803058475256
+      },
+      {
+        "frame": 18,
+        "confidence": 0.8331577777862549,
+        "status": "tracked",
+        "inference_ms": 15.467243734747171
+      },
+      {
+        "frame": 19,
+        "confidence": 0.833214521408081,
+        "status": "tracked",
+        "inference_ms": 18.09926377609372
+      },
+      {
+        "frame": 20,
+        "confidence": 0.8383216857910156,
+        "status": "tracked",
+        "inference_ms": 15.982237178832293
+      },
+      {
+        "frame": 21,
+        "confidence": 0.8406711220741272,
+        "status": "tracked",
+        "inference_ms": 20.63938695937395
+      },
+      {
+        "frame": 22,
+        "confidence": 0.8413237929344177,
+        "status": "tracked",
+        "inference_ms": 14.999102801084518
+      },
+      {
+        "frame": 23,
+        "confidence": 0.8467674851417542,
+        "status": "tracked",
+        "inference_ms": 23.20409007370472
+      },
+      {
+        "frame": 24,
+        "confidence": 0.8430324792861938,
+        "status": "tracked",
+        "inference_ms": 14.552058186382055
+      },
+      {
+        "frame": 25,
+        "confidence": 0.8383960723876953,
+        "status": "tracked",
+        "inference_ms": 20.086650270968676
+      },
+      {
+        "frame": 26,
+        "confidence": 0.8407111167907715,
+        "status": "tracked",
+        "inference_ms": 13.941527809947729
+      },
+      {
+        "frame": 27,
+        "confidence": 0.8439813852310181,
+        "status": "tracked",
+        "inference_ms": 15.707917977124453
+      },
+      {
+        "frame": 28,
+        "confidence": 0.8406236171722412,
+        "status": "tracked",
+        "inference_ms": 14.423440676182508
+      },
+      {
+        "frame": 29,
+        "confidence": 0.8380211591720581,
+        "status": "tracked",
+        "inference_ms": 16.339180059731007
+      },
+      {
+        "frame": 30,
+        "confidence": 0.8443017601966858,
+        "status": "tracked",
+        "inference_ms": 19.66405985876918
+      },
+      {
+        "frame": 31,
+        "confidence": 0.8362671732902527,
+        "status": "tracked",
+        "inference_ms": 15.667967032641172
+      },
+      {
+        "frame": 32,
+        "confidence": 0.8405075073242188,
+        "status": "tracked",
+        "inference_ms": 17.550320830196142
+      },
+      {
+        "frame": 33,
+        "confidence": 0.8339487314224243,
+        "status": "tracked",
+        "inference_ms": 16.607738099992275
+      },
+      {
+        "frame": 34,
+        "confidence": 0.8376587629318237,
+        "status": "tracked",
+        "inference_ms": 16.529565677046776
+      },
+      {
+        "frame": 35,
+        "confidence": 0.8402324914932251,
+        "status": "tracked",
+        "inference_ms": 13.066273182630539
+      },
+      {
+        "frame": 36,
+        "confidence": 0.8440958857536316,
+        "status": "tracked",
+        "inference_ms": 15.87905315682292
+      },
+      {
+        "frame": 37,
+        "confidence": 0.8374099731445312,
+        "status": "tracked",
+        "inference_ms": 16.25915616750717
+      },
+      {
+        "frame": 38,
+        "confidence": 0.8381420373916626,
+        "status": "tracked",
+        "inference_ms": 15.944006387144327
+      },
+      {
+        "frame": 39,
+        "confidence": 0.8336676359176636,
+        "status": "tracked",
+        "inference_ms": 18.586523830890656
+      },
+      {
+        "frame": 40,
+        "confidence": 0.8336809873580933,
+        "status": "tracked",
+        "inference_ms": 16.463068779557943
+      },
+      {
+        "frame": 41,
+        "confidence": 0.8262600898742676,
+        "status": "tracked",
+        "inference_ms": 17.90799619629979
+      },
+      {
+        "frame": 42,
+        "confidence": 0.82379150390625,
+        "status": "tracked",
+        "inference_ms": 16.106052789837122
+      },
+      {
+        "frame": 43,
+        "confidence": 0.8353701233863831,
+        "status": "tracked",
+        "inference_ms": 21.15370286628604
+      },
+      {
+        "frame": 44,
+        "confidence": 0.8283842206001282,
+        "status": "tracked",
+        "inference_ms": 13.01110303029418
+      },
+      {
+        "frame": 45,
+        "confidence": 0.824152946472168,
+        "status": "tracked",
+        "inference_ms": 18.151482101529837
+      },
+      {
+        "frame": 46,
+        "confidence": 0.8285108804702759,
+        "status": "tracked",
+        "inference_ms": 16.4012941531837
+      },
+      {
+        "frame": 47,
+        "confidence": 0.8252431154251099,
+        "status": "tracked",
+        "inference_ms": 12.79218029230833
+      },
+      {
+        "frame": 48,
+        "confidence": 0.8298972249031067,
+        "status": "tracked",
+        "inference_ms": 19.461311865597963
+      },
+      {
+        "frame": 49,
+        "confidence": 0.8265061974525452,
+        "status": "tracked",
+        "inference_ms": 14.030434656888247
+      },
+      {
+        "frame": 50,
+        "confidence": 0.8293411135673523,
+        "status": "tracked",
+        "inference_ms": 20.77723015099764
+      },
+      {
+        "frame": 51,
+        "confidence": 0.8263854384422302,
+        "status": "tracked",
+        "inference_ms": 16.689901240170002
+      },
+      {
+        "frame": 52,
+        "confidence": 0.8353846669197083,
+        "status": "tracked",
+        "inference_ms": 20.0244621373713
+      },
+      {
+        "frame": 53,
+        "confidence": 0.8264405727386475,
+        "status": "tracked",
+        "inference_ms": 14.179014135152102
+      },
+      {
+        "frame": 54,
+        "confidence": 0.8326952457427979,
+        "status": "tracked",
+        "inference_ms": 17.36427377909422
+      },
+      {
+        "frame": 55,
+        "confidence": 0.8256658911705017,
+        "status": "tracked",
+        "inference_ms": 13.258541002869606
+      },
+      {
+        "frame": 56,
+        "confidence": 0.8253898620605469,
+        "status": "tracked",
+        "inference_ms": 14.277169946581125
+      },
+      {
+        "frame": 57,
+        "confidence": 0.8255409598350525,
+        "status": "tracked",
+        "inference_ms": 14.715227764099836
+      },
+      {
+        "frame": 58,
+        "confidence": 0.8267910480499268,
+        "status": "tracked",
+        "inference_ms": 18.14993331208825
+      },
+      {
+        "frame": 59,
+        "confidence": 0.8327750563621521,
+        "status": "tracked",
+        "inference_ms": 15.263803768903017
+      },
+      {
+        "frame": 60,
+        "confidence": 0.8257324695587158,
+        "status": "tracked",
+        "inference_ms": 17.123898025602102
+      },
+      {
+        "frame": 61,
+        "confidence": 0.8293434381484985,
+        "status": "tracked",
+        "inference_ms": 19.197334069758654
+      },
+      {
+        "frame": 62,
+        "confidence": 0.8216149210929871,
+        "status": "tracked",
+        "inference_ms": 16.945580020546913
+      },
+      {
+        "frame": 63,
+        "confidence": 0.8245647549629211,
+        "status": "tracked",
+        "inference_ms": 17.26477686315775
+      },
+      {
+        "frame": 64,
+        "confidence": 0.8192494511604309,
+        "status": "tracked",
+        "inference_ms": 13.844817876815796
+      },
+      {
+        "frame": 65,
+        "confidence": 0.8210044503211975,
+        "status": "tracked",
+        "inference_ms": 15.344096813350916
+      },
+      {
+        "frame": 66,
+        "confidence": 0.8238292932510376,
+        "status": "tracked",
+        "inference_ms": 19.303700886666775
+      },
+      {
+        "frame": 67,
+        "confidence": 0.8238736391067505,
+        "status": "tracked",
+        "inference_ms": 16.409562900662422
+      },
+      {
+        "frame": 68,
+        "confidence": 0.8287767171859741,
+        "status": "tracked",
+        "inference_ms": 22.275777999311686
+      },
+      {
+        "frame": 69,
+        "confidence": 0.8268899917602539,
+        "status": "tracked",
+        "inference_ms": 16.497300937771797
+      },
+      {
+        "frame": 70,
+        "confidence": 0.8218427896499634,
+        "status": "tracked",
+        "inference_ms": 19.29707219824195
+      },
+      {
+        "frame": 71,
+        "confidence": 0.8228653073310852,
+        "status": "tracked",
+        "inference_ms": 13.402124866843224
+      },
+      {
+        "frame": 72,
+        "confidence": 0.8222561478614807,
+        "status": "tracked",
+        "inference_ms": 18.48796522244811
+      },
+      {
+        "frame": 73,
+        "confidence": 0.8169260025024414,
+        "status": "tracked",
+        "inference_ms": 15.294389799237251
+      },
+      {
+        "frame": 74,
+        "confidence": 0.8129639029502869,
+        "status": "tracked",
+        "inference_ms": 15.671635046601295
+      },
+      {
+        "frame": 75,
+        "confidence": 0.8009496927261353,
+        "status": "tracked",
+        "inference_ms": 21.910315845161676
+      },
+      {
+        "frame": 76,
+        "confidence": 0.8108831644058228,
+        "status": "tracked",
+        "inference_ms": 15.961261931806803
+      },
+      {
+        "frame": 77,
+        "confidence": 0.8088750243186951,
+        "status": "tracked",
+        "inference_ms": 17.913836985826492
+      },
+      {
+        "frame": 78,
+        "confidence": 0.8130536675453186,
+        "status": "tracked",
+        "inference_ms": 16.432347241789103
+      },
+      {
+        "frame": 79,
+        "confidence": 0.8095180988311768,
+        "status": "tracked",
+        "inference_ms": 17.10231462493539
+      },
+      {
+        "frame": 80,
+        "confidence": 0.8092634677886963,
+        "status": "tracked",
+        "inference_ms": 16.859973780810833
+      },
+      {
+        "frame": 81,
+        "confidence": 0.8109411001205444,
+        "status": "tracked",
+        "inference_ms": 12.66120932996273
+      },
+      {
+        "frame": 82,
+        "confidence": 0.8129708766937256,
+        "status": "tracked",
+        "inference_ms": 20.993925165385008
+      },
+      {
+        "frame": 83,
+        "confidence": 0.8099192976951599,
+        "status": "tracked",
+        "inference_ms": 15.863046981394291
+      },
+      {
+        "frame": 84,
+        "confidence": 0.82648104429245,
+        "status": "tracked",
+        "inference_ms": 18.45116913318634
+      },
+      {
+        "frame": 85,
+        "confidence": 0.8271616697311401,
+        "status": "tracked",
+        "inference_ms": 14.508406165987253
+      },
+      {
+        "frame": 86,
+        "confidence": 0.8274024128913879,
+        "status": "tracked",
+        "inference_ms": 19.852877128869295
+      },
+      {
+        "frame": 87,
+        "confidence": 0.822072446346283,
+        "status": "tracked",
+        "inference_ms": 12.725214939564466
+      },
+      {
+        "frame": 88,
+        "confidence": 0.8276786804199219,
+        "status": "tracked",
+        "inference_ms": 18.01815489307046
+      },
+      {
+        "frame": 89,
+        "confidence": 0.8189504146575928,
+        "status": "tracked",
+        "inference_ms": 14.534556772559881
+      },
+      {
+        "frame": 90,
+        "confidence": 0.825779139995575,
+        "status": "tracked",
+        "inference_ms": 14.018415939062834
+      },
+      {
+        "frame": 91,
+        "confidence": 0.8217343091964722,
+        "status": "tracked",
+        "inference_ms": 16.72948757186532
+      },
+      {
+        "frame": 92,
+        "confidence": 0.8174116015434265,
+        "status": "tracked",
+        "inference_ms": 13.0895278416574
+      },
+      {
+        "frame": 93,
+        "confidence": 0.814060628414154,
+        "status": "tracked",
+        "inference_ms": 15.525781083852053
+      },
+      {
+        "frame": 94,
+        "confidence": 0.8194556832313538,
+        "status": "tracked",
+        "inference_ms": 16.526886261999607
+      },
+      {
+        "frame": 95,
+        "confidence": 0.8137576580047607,
+        "status": "tracked",
+        "inference_ms": 18.546873703598976
+      },
+      {
+        "frame": 96,
+        "confidence": 0.8132545351982117,
+        "status": "tracked",
+        "inference_ms": 15.108657069504261
+      },
+      {
+        "frame": 97,
+        "confidence": 0.8131445646286011,
+        "status": "tracked",
+        "inference_ms": 14.57182364538312
+      },
+      {
+        "frame": 98,
+        "confidence": 0.8199459314346313,
+        "status": "tracked",
+        "inference_ms": 16.297703608870506
+      },
+      {
+        "frame": 99,
+        "confidence": 0.8189347386360168,
+        "status": "tracked",
+        "inference_ms": 17.151993233710527
+      }
+    ]
+  },
+  "yolov8x": {
+    "model": "yolov8x",
+    "parameters_M": 68.200608,
+    "total_frames": 391,
+    "tracked_frames": 385,
+    "tracking_rate": 0.9846547314578005,
+    "avg_confidence": 0.7676838007840243,
+    "avg_inference_ms": 13.236812923265541,
+    "fps": 75.54688623289076,
+    "lost_at_frame": 391,
+    "frame_results": [
+      {
+        "frame": 0,
+        "confidence": 0.8585039973258972,
+        "status": "tracked",
+        "inference_ms": 506.855386774987
+      },
+      {
+        "frame": 1,
+        "confidence": 0.8615677356719971,
+        "status": "tracked",
+        "inference_ms": 11.196598410606384
+      },
+      {
+        "frame": 2,
+        "confidence": 0.8663526177406311,
+        "status": "tracked",
+        "inference_ms": 9.858130011707544
+      },
+      {
+        "frame": 3,
+        "confidence": 0.8609139919281006,
+        "status": "tracked",
+        "inference_ms": 9.864372666925192
+      },
+      {
+        "frame": 4,
+        "confidence": 0.8584321141242981,
+        "status": "tracked",
+        "inference_ms": 12.239448726177216
+      },
+      {
+        "frame": 5,
+        "confidence": 0.8605537414550781,
+        "status": "tracked",
+        "inference_ms": 9.260099846869707
+      },
+      {
+        "frame": 6,
+        "confidence": 0.8596287369728088,
+        "status": "tracked",
+        "inference_ms": 11.143571231514215
+      },
+      {
+        "frame": 7,
+        "confidence": 0.8615172505378723,
+        "status": "tracked",
+        "inference_ms": 13.385750818997622
+      },
+      {
+        "frame": 8,
+        "confidence": 0.8544855117797852,
+        "status": "tracked",
+        "inference_ms": 11.580593883991241
+      },
+      {
+        "frame": 9,
+        "confidence": 0.8586470484733582,
+        "status": "tracked",
+        "inference_ms": 13.260581064969301
+      },
+      {
+        "frame": 10,
+        "confidence": 0.864163339138031,
+        "status": "tracked",
+        "inference_ms": 10.73724590241909
+      },
+      {
+        "frame": 11,
+        "confidence": 0.8674483299255371,
+        "status": "tracked",
+        "inference_ms": 9.197079110890627
+      },
+      {
+        "frame": 12,
+        "confidence": 0.8643693923950195,
+        "status": "tracked",
+        "inference_ms": 11.365472804754972
+      },
+      {
+        "frame": 13,
+        "confidence": 0.8618988990783691,
+        "status": "tracked",
+        "inference_ms": 9.720645379275084
+      },
+      {
+        "frame": 14,
+        "confidence": 0.865278422832489,
+        "status": "tracked",
+        "inference_ms": 9.919933043420315
+      },
+      {
+        "frame": 15,
+        "confidence": 0.8597708344459534,
+        "status": "tracked",
+        "inference_ms": 11.886574793606997
+      },
+      {
+        "frame": 16,
+        "confidence": 0.8662273287773132,
+        "status": "tracked",
+        "inference_ms": 9.249543771147728
+      },
+      {
+        "frame": 17,
+        "confidence": 0.8690914511680603,
+        "status": "tracked",
+        "inference_ms": 9.702703915536404
+      },
+      {
+        "frame": 18,
+        "confidence": 0.8625902533531189,
+        "status": "tracked",
+        "inference_ms": 12.644847854971886
+      },
+      {
+        "frame": 19,
+        "confidence": 0.8678183555603027,
+        "status": "tracked",
+        "inference_ms": 12.025334872305393
+      },
+      {
+        "frame": 20,
+        "confidence": 0.868248701095581,
+        "status": "tracked",
+        "inference_ms": 12.519979383796453
+      },
+      {
+        "frame": 21,
+        "confidence": 0.8654641509056091,
+        "status": "tracked",
+        "inference_ms": 10.153539944440126
+      },
+      {
+        "frame": 22,
+        "confidence": 0.8634669184684753,
+        "status": "tracked",
+        "inference_ms": 9.083119221031666
+      },
+      {
+        "frame": 23,
+        "confidence": 0.8672618865966797,
+        "status": "tracked",
+        "inference_ms": 12.063049711287022
+      },
+      {
+        "frame": 24,
+        "confidence": 0.8558074831962585,
+        "status": "tracked",
+        "inference_ms": 9.372564032673836
+      },
+      {
+        "frame": 25,
+        "confidence": 0.8586043119430542,
+        "status": "tracked",
+        "inference_ms": 9.05717397108674
+      },
+      {
+        "frame": 26,
+        "confidence": 0.8648611903190613,
+        "status": "tracked",
+        "inference_ms": 11.632792185992002
+      },
+      {
+        "frame": 27,
+        "confidence": 0.8540094494819641,
+        "status": "tracked",
+        "inference_ms": 9.797626174986362
+      },
+      {
+        "frame": 28,
+        "confidence": 0.8524292707443237,
+        "status": "tracked",
+        "inference_ms": 9.833010844886303
+      },
+      {
+        "frame": 29,
+        "confidence": 0.8573143482208252,
+        "status": "tracked",
+        "inference_ms": 12.568495236337185
+      },
+      {
+        "frame": 30,
+        "confidence": 0.8725259900093079,
+        "status": "tracked",
+        "inference_ms": 11.428819969296455
+      },
+      {
+        "frame": 31,
+        "confidence": 0.8719096779823303,
+        "status": "tracked",
+        "inference_ms": 12.5245270319283
+      },
+      {
+        "frame": 32,
+        "confidence": 0.8745844960212708,
+        "status": "tracked",
+        "inference_ms": 11.483809910714626
+      },
+      {
+        "frame": 33,
+        "confidence": 0.8744305372238159,
+        "status": "tracked",
+        "inference_ms": 10.252568870782852
+      },
+      {
+        "frame": 34,
+        "confidence": 0.8712587952613831,
+        "status": "tracked",
+        "inference_ms": 14.530691783875227
+      },
+      {
+        "frame": 35,
+        "confidence": 0.8710651397705078,
+        "status": "tracked",
+        "inference_ms": 9.751949924975634
+      },
+      {
+        "frame": 36,
+        "confidence": 0.8736249804496765,
+        "status": "tracked",
+        "inference_ms": 10.090779978781939
+      },
+      {
+        "frame": 37,
+        "confidence": 0.87196946144104,
+        "status": "tracked",
+        "inference_ms": 15.05931280553341
+      },
+      {
+        "frame": 38,
+        "confidence": 0.8779802918434143,
+        "status": "tracked",
+        "inference_ms": 10.814986191689968
+      },
+      {
+        "frame": 39,
+        "confidence": 0.8713210821151733,
+        "status": "tracked",
+        "inference_ms": 11.868877336382866
+      },
+      {
+        "frame": 40,
+        "confidence": 0.8698814511299133,
+        "status": "tracked",
+        "inference_ms": 11.750050354748964
+      },
+      {
+        "frame": 41,
+        "confidence": 0.8716868758201599,
+        "status": "tracked",
+        "inference_ms": 9.905132930725813
+      },
+      {
+        "frame": 42,
+        "confidence": 0.8715038299560547,
+        "status": "tracked",
+        "inference_ms": 12.364063877612352
+      },
+      {
+        "frame": 43,
+        "confidence": 0.8683586716651917,
+        "status": "tracked",
+        "inference_ms": 12.262358330190182
+      },
+      {
+        "frame": 44,
+        "confidence": 0.859806478023529,
+        "status": "tracked",
+        "inference_ms": 11.858739890158176
+      },
+      {
+        "frame": 45,
+        "confidence": 0.8731979727745056,
+        "status": "tracked",
+        "inference_ms": 13.796728104352951
+      },
+      {
+        "frame": 46,
+        "confidence": 0.8716230392456055,
+        "status": "tracked",
+        "inference_ms": 11.651153676211834
+      },
+      {
+        "frame": 47,
+        "confidence": 0.8680498600006104,
+        "status": "tracked",
+        "inference_ms": 12.809334322810173
+      },
+      {
+        "frame": 48,
+        "confidence": 0.8694226741790771,
+        "status": "tracked",
+        "inference_ms": 12.080808635801077
+      },
+      {
+        "frame": 49,
+        "confidence": 0.872067928314209,
+        "status": "tracked",
+        "inference_ms": 10.594518855214119
+      },
+      {
+        "frame": 50,
+        "confidence": 0.8664469122886658,
+        "status": "tracked",
+        "inference_ms": 13.494670856744051
+      },
+      {
+        "frame": 51,
+        "confidence": 0.8650522232055664,
+        "status": "tracked",
+        "inference_ms": 9.99125698581338
+      },
+      {
+        "frame": 52,
+        "confidence": 0.8594503998756409,
+        "status": "tracked",
+        "inference_ms": 9.894757997244596
+      },
+      {
+        "frame": 53,
+        "confidence": 0.8569912910461426,
+        "status": "tracked",
+        "inference_ms": 12.591592036187649
+      },
+      {
+        "frame": 54,
+        "confidence": 0.8639731407165527,
+        "status": "tracked",
+        "inference_ms": 11.632422916591167
+      },
+      {
+        "frame": 55,
+        "confidence": 0.8673598170280457,
+        "status": "tracked",
+        "inference_ms": 11.60238916054368
+      },
+      {
+        "frame": 56,
+        "confidence": 0.8692928552627563,
+        "status": "tracked",
+        "inference_ms": 10.432141833007336
+      },
+      {
+        "frame": 57,
+        "confidence": 0.8599087595939636,
+        "status": "tracked",
+        "inference_ms": 8.96901497617364
+      },
+      {
+        "frame": 58,
+        "confidence": 0.8627005219459534,
+        "status": "tracked",
+        "inference_ms": 11.873951181769371
+      },
+      {
+        "frame": 59,
+        "confidence": 0.8613407015800476,
+        "status": "tracked",
+        "inference_ms": 10.537936817854643
+      },
+      {
+        "frame": 60,
+        "confidence": 0.8643942475318909,
+        "status": "tracked",
+        "inference_ms": 9.323816746473312
+      },
+      {
+        "frame": 61,
+        "confidence": 0.8653931617736816,
+        "status": "tracked",
+        "inference_ms": 10.996869299560785
+      },
+      {
+        "frame": 62,
+        "confidence": 0.8633930683135986,
+        "status": "tracked",
+        "inference_ms": 10.446938220411539
+      },
+      {
+        "frame": 63,
+        "confidence": 0.8474899530410767,
+        "status": "tracked",
+        "inference_ms": 9.150733705610037
+      },
+      {
+        "frame": 64,
+        "confidence": 0.8527867197990417,
+        "status": "tracked",
+        "inference_ms": 11.614170856773853
+      },
+      {
+        "frame": 65,
+        "confidence": 0.8537998199462891,
+        "status": "tracked",
+        "inference_ms": 9.202399756759405
+      },
+      {
+        "frame": 66,
+        "confidence": 0.8546594381332397,
+        "status": "tracked",
+        "inference_ms": 10.051571298390627
+      },
+      {
+        "frame": 67,
+        "confidence": 0.8535393476486206,
+        "status": "tracked",
+        "inference_ms": 14.404487796127796
+      },
+      {
+        "frame": 68,
+        "confidence": 0.8533058762550354,
+        "status": "tracked",
+        "inference_ms": 11.540382634848356
+      },
+      {
+        "frame": 69,
+        "confidence": 0.8543952703475952,
+        "status": "tracked",
+        "inference_ms": 12.109232135117054
+      },
+      {
+        "frame": 70,
+        "confidence": 0.849707305431366,
+        "status": "tracked",
+        "inference_ms": 11.123596224933863
+      },
+      {
+        "frame": 71,
+        "confidence": 0.8442605137825012,
+        "status": "tracked",
+        "inference_ms": 9.089537896215916
+      },
+      {
+        "frame": 72,
+        "confidence": 0.8356549143791199,
+        "status": "tracked",
+        "inference_ms": 11.260204948484898
+      },
+      {
+        "frame": 73,
+        "confidence": 0.8483774662017822,
+        "status": "tracked",
+        "inference_ms": 10.427909903228283
+      },
+      {
+        "frame": 74,
+        "confidence": 0.8549773097038269,
+        "status": "tracked",
+        "inference_ms": 9.136929176747799
+      },
+      {
+        "frame": 75,
+        "confidence": 0.8401620388031006,
+        "status": "tracked",
+        "inference_ms": 11.841594241559505
+      },
+      {
+        "frame": 76,
+        "confidence": 0.8425011038780212,
+        "status": "tracked",
+        "inference_ms": 10.46374998986721
+      },
+      {
+        "frame": 77,
+        "confidence": 0.8455564975738525,
+        "status": "tracked",
+        "inference_ms": 9.331659879535437
+      },
+      {
+        "frame": 78,
+        "confidence": 0.8470990657806396,
+        "status": "tracked",
+        "inference_ms": 11.507602874189615
+      },
+      {
+        "frame": 79,
+        "confidence": 0.8684274554252625,
+        "status": "tracked",
+        "inference_ms": 10.385691188275814
+      },
+      {
+        "frame": 80,
+        "confidence": 0.898479700088501,
+        "status": "tracked",
+        "inference_ms": 9.054689202457666
+      },
+      {
+        "frame": 81,
+        "confidence": 0.8649630546569824,
+        "status": "tracked",
+        "inference_ms": 11.419910006225109
+      },
+      {
+        "frame": 82,
+        "confidence": 0.8490599393844604,
+        "status": "tracked",
+        "inference_ms": 9.153577033430338
+      },
+      {
+        "frame": 83,
+        "confidence": 0.8466382622718811,
+        "status": "tracked",
+        "inference_ms": 10.074365884065628
+      },
+      {
+        "frame": 84,
+        "confidence": 0.8426605463027954,
+        "status": "tracked",
+        "inference_ms": 11.616890784353018
+      },
+      {
+        "frame": 85,
+        "confidence": 0.8471038937568665,
+        "status": "tracked",
+        "inference_ms": 8.733546361327171
+      },
+      {
+        "frame": 86,
+        "confidence": 0.8458008766174316,
+        "status": "tracked",
+        "inference_ms": 10.151347145438194
+      },
+      {
+        "frame": 87,
+        "confidence": 0.8519430756568909,
+        "status": "tracked",
+        "inference_ms": 11.588749010115862
+      },
+      {
+        "frame": 88,
+        "confidence": 0.839915931224823,
+        "status": "tracked",
+        "inference_ms": 9.498975239694118
+      },
+      {
+        "frame": 89,
+        "confidence": 0.8446648120880127,
+        "status": "tracked",
+        "inference_ms": 12.392939999699593
+      },
+      {
+        "frame": 90,
+        "confidence": 0.8483622670173645,
+        "status": "tracked",
+        "inference_ms": 11.679106391966343
+      },
+      {
+        "frame": 91,
+        "confidence": 0.8574320077896118,
+        "status": "tracked",
+        "inference_ms": 9.723853785544634
+      },
+      {
+        "frame": 92,
+        "confidence": 0.8557672500610352,
+        "status": "tracked",
+        "inference_ms": 13.484359718859196
+      },
+      {
+        "frame": 93,
+        "confidence": 0.8518206477165222,
+        "status": "tracked",
+        "inference_ms": 10.33200602978468
+      },
+      {
+        "frame": 94,
+        "confidence": 0.8458396792411804,
+        "status": "tracked",
+        "inference_ms": 14.334067236632109
+      },
+      {
+        "frame": 95,
+        "confidence": 0.8435302376747131,
+        "status": "tracked",
+        "inference_ms": 12.047545984387398
+      },
+      {
+        "frame": 96,
+        "confidence": 0.8450897932052612,
+        "status": "tracked",
+        "inference_ms": 10.384889785200357
+      },
+      {
+        "frame": 97,
+        "confidence": 0.8447960019111633,
+        "status": "tracked",
+        "inference_ms": 13.873056974262
+      },
+      {
+        "frame": 98,
+        "confidence": 0.84710693359375,
+        "status": "tracked",
+        "inference_ms": 10.32575499266386
+      },
+      {
+        "frame": 99,
+        "confidence": 0.8602724671363831,
+        "status": "tracked",
+        "inference_ms": 10.384764056652784
+      }
+    ]
+  },
+  "Adaptive": {
+    "model": "Adaptive",
+    "parameters_M": 16.704381443298967,
+    "total_frames": 388,
+    "tracked_frames": 381,
+    "tracking_rate": 0.9819587628865979,
+    "avg_confidence": 0.7415551923391387,
+    "avg_inference_ms": 13.639928511411105,
+    "fps": 73.31416723800307,
+    "lost_at_frame": 388,
+    "model_switches": 16,
+    "model_usage": {
+      "yolov8n": 13,
+      "yolov8s": 272,
+      "yolov8m": 76,
+      "yolov8x": 10,
+      "yolov8l": 17
+    },
+    "switches": [
+      {
+        "frame": 3,
+        "from": "yolov8n",
+        "to": "yolov8s"
+      },
+      {
+        "frame": 106,
+        "from": "yolov8s",
+        "to": "yolov8n"
+      },
+      {
+        "frame": 116,
+        "from": "yolov8n",
+        "to": "yolov8s"
+      },
+      {
+        "frame": 126,
+        "from": "yolov8s",
+        "to": "yolov8m"
+      },
+      {
+        "frame": 143,
+        "from": "yolov8m",
+        "to": "yolov8s"
+      },
+      {
+        "frame": 191,
+        "from": "yolov8s",
+        "to": "yolov8m"
+      },
+      {
+        "frame": 201,
+        "from": "yolov8m",
+        "to": "yolov8x"
+      },
+      {
+        "frame": 211,
+        "from": "yolov8x",
+        "to": "yolov8m"
+      },
+      {
+        "frame": 221,
+        "from": "yolov8m",
+        "to": "yolov8l"
+      },
+      {
+        "frame": 238,
+        "from": "yolov8l",
+        "to": "yolov8m"
+      }
+    ],
+    "frame_results": [
+      {
+        "frame": 0,
+        "model": "yolov8n",
+        "confidence": 0.733553946018219,
+        "status": "tracked",
+        "inference_ms": 78.5935940220952
+      },
+      {
+        "frame": 1,
+        "model": "yolov8n",
+        "confidence": 0.7410666942596436,
+        "status": "tracked",
+        "inference_ms": 13.372712768614292
+      },
+      {
+        "frame": 2,
+        "model": "yolov8n",
+        "confidence": 0.7409496903419495,
+        "status": "tracked",
+        "inference_ms": 9.476838633418083
+      },
+      {
+        "frame": 3,
+        "model": "yolov8s",
+        "confidence": 0.8317230939865112,
+        "status": "tracked",
+        "inference_ms": 112.26839991286397
+      },
+      {
+        "frame": 4,
+        "model": "yolov8s",
+        "confidence": 0.8328222632408142,
+        "status": "tracked",
+        "inference_ms": 10.025687981396914
+      },
+      {
+        "frame": 5,
+        "model": "yolov8s",
+        "confidence": 0.834814190864563,
+        "status": "tracked",
+        "inference_ms": 8.955940138548613
+      },
+      {
+        "frame": 6,
+        "model": "yolov8s",
+        "confidence": 0.8294664025306702,
+        "status": "tracked",
+        "inference_ms": 9.163132403045893
+      },
+      {
+        "frame": 7,
+        "model": "yolov8s",
+        "confidence": 0.8254287838935852,
+        "status": "tracked",
+        "inference_ms": 10.759660974144936
+      },
+      {
+        "frame": 8,
+        "model": "yolov8s",
+        "confidence": 0.822512686252594,
+        "status": "tracked",
+        "inference_ms": 8.547351229935884
+      },
+      {
+        "frame": 9,
+        "model": "yolov8s",
+        "confidence": 0.8204270601272583,
+        "status": "tracked",
+        "inference_ms": 9.921978693455458
+      },
+      {
+        "frame": 10,
+        "model": "yolov8s",
+        "confidence": 0.827567994594574,
+        "status": "tracked",
+        "inference_ms": 9.802491869777441
+      },
+      {
+        "frame": 11,
+        "model": "yolov8s",
+        "confidence": 0.8268911242485046,
+        "status": "tracked",
+        "inference_ms": 8.928366005420685
+      },
+      {
+        "frame": 12,
+        "model": "yolov8s",
+        "confidence": 0.8244050145149231,
+        "status": "tracked",
+        "inference_ms": 8.969989605247974
+      },
+      {
+        "frame": 13,
+        "model": "yolov8s",
+        "confidence": 0.8240546584129333,
+        "status": "tracked",
+        "inference_ms": 10.509859770536423
+      },
+      {
+        "frame": 14,
+        "model": "yolov8s",
+        "confidence": 0.8279359936714172,
+        "status": "tracked",
+        "inference_ms": 9.680671151727438
+      },
+      {
+        "frame": 15,
+        "model": "yolov8s",
+        "confidence": 0.8237257599830627,
+        "status": "tracked",
+        "inference_ms": 10.918483138084412
+      },
+      {
+        "frame": 16,
+        "model": "yolov8s",
+        "confidence": 0.8256219625473022,
+        "status": "tracked",
+        "inference_ms": 8.629046380519867
+      },
+      {
+        "frame": 17,
+        "model": "yolov8s",
+        "confidence": 0.8265436291694641,
+        "status": "tracked",
+        "inference_ms": 8.116223383694887
+      },
+      {
+        "frame": 18,
+        "model": "yolov8s",
+        "confidence": 0.8223181962966919,
+        "status": "tracked",
+        "inference_ms": 12.738700024783611
+      },
+      {
+        "frame": 19,
+        "model": "yolov8s",
+        "confidence": 0.8215343356132507,
+        "status": "tracked",
+        "inference_ms": 10.329821147024632
+      },
+      {
+        "frame": 20,
+        "model": "yolov8s",
+        "confidence": 0.8223155736923218,
+        "status": "tracked",
+        "inference_ms": 9.34005156159401
+      },
+      {
+        "frame": 21,
+        "model": "yolov8s",
+        "confidence": 0.8233697414398193,
+        "status": "tracked",
+        "inference_ms": 10.640936903655529
+      },
+      {
+        "frame": 22,
+        "model": "yolov8s",
+        "confidence": 0.8230687975883484,
+        "status": "tracked",
+        "inference_ms": 9.270667098462582
+      },
+      {
+        "frame": 23,
+        "model": "yolov8s",
+        "confidence": 0.8280616402626038,
+        "status": "tracked",
+        "inference_ms": 10.470353066921234
+      },
+      {
+        "frame": 24,
+        "model": "yolov8s",
+        "confidence": 0.8288915753364563,
+        "status": "tracked",
+        "inference_ms": 10.97168494015932
+      },
+      {
+        "frame": 25,
+        "model": "yolov8s",
+        "confidence": 0.8297165036201477,
+        "status": "tracked",
+        "inference_ms": 8.358743973076344
+      },
+      {
+        "frame": 26,
+        "model": "yolov8s",
+        "confidence": 0.8303871154785156,
+        "status": "tracked",
+        "inference_ms": 10.049607139080763
+      },
+      {
+        "frame": 27,
+        "model": "yolov8s",
+        "confidence": 0.8301942348480225,
+        "status": "tracked",
+        "inference_ms": 12.079541105777025
+      },
+      {
+        "frame": 28,
+        "model": "yolov8s",
+        "confidence": 0.8363244533538818,
+        "status": "tracked",
+        "inference_ms": 8.554735220968723
+      },
+      {
+        "frame": 29,
+        "model": "yolov8s",
+        "confidence": 0.8318660259246826,
+        "status": "tracked",
+        "inference_ms": 9.892294649034739
+      },
+      {
+        "frame": 30,
+        "model": "yolov8s",
+        "confidence": 0.830599844455719,
+        "status": "tracked",
+        "inference_ms": 11.261784005910158
+      },
+      {
+        "frame": 31,
+        "model": "yolov8s",
+        "confidence": 0.8302615880966187,
+        "status": "tracked",
+        "inference_ms": 8.680683560669422
+      },
+      {
+        "frame": 32,
+        "model": "yolov8s",
+        "confidence": 0.8267632722854614,
+        "status": "tracked",
+        "inference_ms": 9.19206440448761
+      },
+      {
+        "frame": 33,
+        "model": "yolov8s",
+        "confidence": 0.8289269208908081,
+        "status": "tracked",
+        "inference_ms": 11.527769733220339
+      },
+      {
+        "frame": 34,
+        "model": "yolov8s",
+        "confidence": 0.8317769169807434,
+        "status": "tracked",
+        "inference_ms": 9.882928803563118
+      },
+      {
+        "frame": 35,
+        "model": "yolov8s",
+        "confidence": 0.8331046104431152,
+        "status": "tracked",
+        "inference_ms": 10.068375151604414
+      },
+      {
+        "frame": 36,
+        "model": "yolov8s",
+        "confidence": 0.8299036622047424,
+        "status": "tracked",
+        "inference_ms": 9.748056996613741
+      },
+      {
+        "frame": 37,
+        "model": "yolov8s",
+        "confidence": 0.8293518424034119,
+        "status": "tracked",
+        "inference_ms": 9.069109335541725
+      },
+      {
+        "frame": 38,
+        "model": "yolov8s",
+        "confidence": 0.8316919207572937,
+        "status": "tracked",
+        "inference_ms": 10.929281823337078
+      },
+      {
+        "frame": 39,
+        "model": "yolov8s",
+        "confidence": 0.8287714719772339,
+        "status": "tracked",
+        "inference_ms": 9.372618980705738
+      },
+      {
+        "frame": 40,
+        "model": "yolov8s",
+        "confidence": 0.8313797116279602,
+        "status": "tracked",
+        "inference_ms": 8.85883579030633
+      },
+      {
+        "frame": 41,
+        "model": "yolov8s",
+        "confidence": 0.8328946232795715,
+        "status": "tracked",
+        "inference_ms": 11.40847010537982
+      },
+      {
+        "frame": 42,
+        "model": "yolov8s",
+        "confidence": 0.8363941311836243,
+        "status": "tracked",
+        "inference_ms": 9.31987026706338
+      },
+      {
+        "frame": 43,
+        "model": "yolov8s",
+        "confidence": 0.8317797780036926,
+        "status": "tracked",
+        "inference_ms": 9.362276177853346
+      },
+      {
+        "frame": 44,
+        "model": "yolov8s",
+        "confidence": 0.8346248865127563,
+        "status": "tracked",
+        "inference_ms": 12.429394759237766
+      },
+      {
+        "frame": 45,
+        "model": "yolov8s",
+        "confidence": 0.8307362198829651,
+        "status": "tracked",
+        "inference_ms": 9.079081937670708
+      },
+      {
+        "frame": 46,
+        "model": "yolov8s",
+        "confidence": 0.8313669562339783,
+        "status": "tracked",
+        "inference_ms": 10.097308084368706
+      },
+      {
+        "frame": 47,
+        "model": "yolov8s",
+        "confidence": 0.8306187987327576,
+        "status": "tracked",
+        "inference_ms": 13.115733861923218
+      },
+      {
+        "frame": 48,
+        "model": "yolov8s",
+        "confidence": 0.826163113117218,
+        "status": "tracked",
+        "inference_ms": 9.60462773218751
+      },
+      {
+        "frame": 49,
+        "model": "yolov8s",
+        "confidence": 0.827762246131897,
+        "status": "tracked",
+        "inference_ms": 9.497366845607758
+      },
+      {
+        "frame": 50,
+        "model": "yolov8s",
+        "confidence": 0.825556218624115,
+        "status": "tracked",
+        "inference_ms": 10.223030112683773
+      },
+      {
+        "frame": 51,
+        "model": "yolov8s",
+        "confidence": 0.8215610384941101,
+        "status": "tracked",
+        "inference_ms": 9.059224743396044
+      },
+      {
+        "frame": 52,
+        "model": "yolov8s",
+        "confidence": 0.8172231912612915,
+        "status": "tracked",
+        "inference_ms": 10.319243185222149
+      },
+      {
+        "frame": 53,
+        "model": "yolov8s",
+        "confidence": 0.8206493854522705,
+        "status": "tracked",
+        "inference_ms": 10.031266137957573
+      },
+      {
+        "frame": 54,
+        "model": "yolov8s",
+        "confidence": 0.8241211175918579,
+        "status": "tracked",
+        "inference_ms": 9.117177221924067
+      },
+      {
+        "frame": 55,
+        "model": "yolov8s",
+        "confidence": 0.8213563561439514,
+        "status": "tracked",
+        "inference_ms": 12.243595905601978
+      },
+      {
+        "frame": 56,
+        "model": "yolov8s",
+        "confidence": 0.8302046060562134,
+        "status": "tracked",
+        "inference_ms": 8.826461154967546
+      },
+      {
+        "frame": 57,
+        "model": "yolov8s",
+        "confidence": 0.8292754292488098,
+        "status": "tracked",
+        "inference_ms": 9.649829007685184
+      },
+      {
+        "frame": 58,
+        "model": "yolov8s",
+        "confidence": 0.8304367661476135,
+        "status": "tracked",
+        "inference_ms": 12.140661012381315
+      },
+      {
+        "frame": 59,
+        "model": "yolov8s",
+        "confidence": 0.8349263072013855,
+        "status": "tracked",
+        "inference_ms": 10.784518904983997
+      },
+      {
+        "frame": 60,
+        "model": "yolov8s",
+        "confidence": 0.8314070105552673,
+        "status": "tracked",
+        "inference_ms": 10.501719079911709
+      },
+      {
+        "frame": 61,
+        "model": "yolov8s",
+        "confidence": 0.8342117667198181,
+        "status": "tracked",
+        "inference_ms": 9.681961964815855
+      },
+      {
+        "frame": 62,
+        "model": "yolov8s",
+        "confidence": 0.8348185420036316,
+        "status": "tracked",
+        "inference_ms": 8.328209165483713
+      },
+      {
+        "frame": 63,
+        "model": "yolov8s",
+        "confidence": 0.8265478014945984,
+        "status": "tracked",
+        "inference_ms": 10.119089856743813
+      },
+      {
+        "frame": 64,
+        "model": "yolov8s",
+        "confidence": 0.8314428925514221,
+        "status": "tracked",
+        "inference_ms": 9.55436797812581
+      },
+      {
+        "frame": 65,
+        "model": "yolov8s",
+        "confidence": 0.8283629417419434,
+        "status": "tracked",
+        "inference_ms": 7.995041087269783
+      },
+      {
+        "frame": 66,
+        "model": "yolov8s",
+        "confidence": 0.8287593126296997,
+        "status": "tracked",
+        "inference_ms": 9.646653197705746
+      },
+      {
+        "frame": 67,
+        "model": "yolov8s",
+        "confidence": 0.8278796672821045,
+        "status": "tracked",
+        "inference_ms": 10.279981885105371
+      },
+      {
+        "frame": 68,
+        "model": "yolov8s",
+        "confidence": 0.8272956013679504,
+        "status": "tracked",
+        "inference_ms": 8.888889104127884
+      },
+      {
+        "frame": 69,
+        "model": "yolov8s",
+        "confidence": 0.8255043625831604,
+        "status": "tracked",
+        "inference_ms": 9.243407286703587
+      },
+      {
+        "frame": 70,
+        "model": "yolov8s",
+        "confidence": 0.8238616585731506,
+        "status": "tracked",
+        "inference_ms": 10.391344781965017
+      },
+      {
+        "frame": 71,
+        "model": "yolov8s",
+        "confidence": 0.8265330791473389,
+        "status": "tracked",
+        "inference_ms": 10.011720936745405
+      },
+      {
+        "frame": 72,
+        "model": "yolov8s",
+        "confidence": 0.8233304023742676,
+        "status": "tracked",
+        "inference_ms": 8.241694886237383
+      },
+      {
+        "frame": 73,
+        "model": "yolov8s",
+        "confidence": 0.8278746008872986,
+        "status": "tracked",
+        "inference_ms": 10.28029015287757
+      },
+      {
+        "frame": 74,
+        "model": "yolov8s",
+        "confidence": 0.8307377099990845,
+        "status": "tracked",
+        "inference_ms": 9.70723107457161
+      },
+      {
+        "frame": 75,
+        "model": "yolov8s",
+        "confidence": 0.8335851430892944,
+        "status": "tracked",
+        "inference_ms": 9.113548323512077
+      },
+      {
+        "frame": 76,
+        "model": "yolov8s",
+        "confidence": 0.8269035220146179,
+        "status": "tracked",
+        "inference_ms": 10.697913356125355
+      },
+      {
+        "frame": 77,
+        "model": "yolov8s",
+        "confidence": 0.830397367477417,
+        "status": "tracked",
+        "inference_ms": 11.766117997467518
+      },
+      {
+        "frame": 78,
+        "model": "yolov8s",
+        "confidence": 0.8304465413093567,
+        "status": "tracked",
+        "inference_ms": 12.720914091914892
+      },
+      {
+        "frame": 79,
+        "model": "yolov8s",
+        "confidence": 0.8307856321334839,
+        "status": "tracked",
+        "inference_ms": 9.779475163668394
+      },
+      {
+        "frame": 80,
+        "model": "yolov8s",
+        "confidence": 0.8321918845176697,
+        "status": "tracked",
+        "inference_ms": 11.213828809559345
+      },
+      {
+        "frame": 81,
+        "model": "yolov8s",
+        "confidence": 0.838196337223053,
+        "status": "tracked",
+        "inference_ms": 10.139950085431337
+      },
+      {
+        "frame": 82,
+        "model": "yolov8s",
+        "confidence": 0.8344733119010925,
+        "status": "tracked",
+        "inference_ms": 9.536977857351303
+      },
+      {
+        "frame": 83,
+        "model": "yolov8s",
+        "confidence": 0.8368138074874878,
+        "status": "tracked",
+        "inference_ms": 11.911300010979176
+      },
+      {
+        "frame": 84,
+        "model": "yolov8s",
+        "confidence": 0.8358743190765381,
+        "status": "tracked",
+        "inference_ms": 10.205426719039679
+      },
+      {
+        "frame": 85,
+        "model": "yolov8s",
+        "confidence": 0.8356475830078125,
+        "status": "tracked",
+        "inference_ms": 8.804895915091038
+      },
+      {
+        "frame": 86,
+        "model": "yolov8s",
+        "confidence": 0.835674524307251,
+        "status": "tracked",
+        "inference_ms": 12.52383692190051
+      },
+      {
+        "frame": 87,
+        "model": "yolov8s",
+        "confidence": 0.83360755443573,
+        "status": "tracked",
+        "inference_ms": 9.399381000548601
+      },
+      {
+        "frame": 88,
+        "model": "yolov8s",
+        "confidence": 0.835699200630188,
+        "status": "tracked",
+        "inference_ms": 9.626410901546478
+      },
+      {
+        "frame": 89,
+        "model": "yolov8s",
+        "confidence": 0.8398441076278687,
+        "status": "tracked",
+        "inference_ms": 11.93099794909358
+      },
+      {
+        "frame": 90,
+        "model": "yolov8s",
+        "confidence": 0.838211178779602,
+        "status": "tracked",
+        "inference_ms": 9.625061880797148
+      },
+      {
+        "frame": 91,
+        "model": "yolov8s",
+        "confidence": 0.8390757441520691,
+        "status": "tracked",
+        "inference_ms": 9.875775314867496
+      },
+      {
+        "frame": 92,
+        "model": "yolov8s",
+        "confidence": 0.8441336154937744,
+        "status": "tracked",
+        "inference_ms": 9.995914995670319
+      },
+      {
+        "frame": 93,
+        "model": "yolov8s",
+        "confidence": 0.8441723585128784,
+        "status": "tracked",
+        "inference_ms": 8.140337187796831
+      },
+      {
+        "frame": 94,
+        "model": "yolov8s",
+        "confidence": 0.8449769020080566,
+        "status": "tracked",
+        "inference_ms": 10.973752941936255
+      },
+      {
+        "frame": 95,
+        "model": "yolov8s",
+        "confidence": 0.8419849276542664,
+        "status": "tracked",
+        "inference_ms": 9.931661188602448
+      },
+      {
+        "frame": 96,
+        "model": "yolov8s",
+        "confidence": 0.8376575112342834,
+        "status": "tracked",
+        "inference_ms": 9.580652695149183
+      },
+      {
+        "frame": 97,
+        "model": "yolov8s",
+        "confidence": 0.8369237184524536,
+        "status": "tracked",
+        "inference_ms": 9.467744268476963
+      },
+      {
+        "frame": 98,
+        "model": "yolov8s",
+        "confidence": 0.8399047255516052,
+        "status": "tracked",
+        "inference_ms": 10.419163387268782
+      },
+      {
+        "frame": 99,
+        "model": "yolov8s",
+        "confidence": 0.8416264653205872,
+        "status": "tracked",
+        "inference_ms": 8.763411082327366
+      }
+    ]
+  }
+}

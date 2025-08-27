@@ -2,16 +2,25 @@
 
 Real-time adaptive model selection system that dynamically switches between YOLOv8 models (nano→xlarge) based on tracking difficulty, achieving **93.5% tracking success** with **62% computational savings**.
 
+## 📊 Visual Results
+
+![Adaptive Tracking Analysis](results/adaptive/adaptive_tracking_analysis.png)
+*Comprehensive analysis showing model switching patterns, confidence evolution, and efficiency metrics*
+
 ## 🎬 Video Demonstrations
 
 ### MOT17-04: 398 Frames Tracked (High Confidence Object)
-[Watch MOT17-04 Adaptive Tracking Demo](results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4)
+
+https://github.com/user-attachments/assets/MOT17-04_adaptive_tracking_1050frames.mp4
+
 - **398 consecutive frames** tracked before loss
 - **10 model switches** including 3 bidirectional (scaling down)
 - Color-coded models: 🟢Green=nano, 🟡Yellow=small, 🟠Orange=medium, 🟣Magenta=large, 🔴Red=xlarge
 
 ### MOT17-02: Initial Demo (Medium Confidence Object)
-[Watch MOT17-02 Adaptive Tracking Demo](results/adaptive/adaptive_tracking_demo.mp4)
+
+https://github.com/user-attachments/assets/adaptive_tracking_demo.mp4
+
 - 75 frames tracked with 5 model switches
 - Demonstrates initial adaptive concept
 
