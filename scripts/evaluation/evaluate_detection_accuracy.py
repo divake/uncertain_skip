@@ -128,7 +128,7 @@ class DetectionAccuracyEvaluator:
         print(f"\nEvaluating {model_name} on {sequence} (up to {max_frames} frames)...")
         
         # Load model on GPU 1
-        model = YOLO(f'{model_name}.pt')
+        model = YOLO(f'models/{model_name}.pt')
         model.to(self.device)
         
         # Load ground truth

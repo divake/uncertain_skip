@@ -80,7 +80,7 @@ class YOLOBaselineEvaluator:
         Path(model_path).parent.mkdir(parents=True, exist_ok=True)
         
         # Load model (will download if not present)
-        model = YOLO(f"{model_name}.pt")
+        model = YOLO(f"models/{model_name}.pt")
         model.to(self.device)
         
         # Get model info

@@ -45,7 +45,7 @@ def evaluate_model(model_name, num_frames=50):
     print(f"{'='*60}")
     
     # Load model
-    model = YOLO(f'{model_name}.pt')
+    model = YOLO(f'models/{model_name}.pt')
     model.to('cuda')
     
     # Load ground truth

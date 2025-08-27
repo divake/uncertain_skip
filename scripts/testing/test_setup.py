@@ -77,7 +77,7 @@ def test_yolo_model():
         
         # Load nano model (smallest)
         print("Loading YOLOv8n...")
-        model = YOLO('yolov8n.pt')
+        model = YOLO('models/yolov8n.pt')
         
         # Create dummy image
         dummy_img = np.random.randint(0, 255, (640, 640, 3), dtype=np.uint8)

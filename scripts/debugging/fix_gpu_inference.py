@@ -28,7 +28,7 @@ for model_name in models_to_test:
     print(f"\nTesting {model_name}:")
     
     # Load model and EXPLICITLY move to GPU
-    model = YOLO(f'{model_name}.pt')
+    model = YOLO(f'models/{model_name}.pt')
     model.to('cuda')  # Force GPU
     
     # Verify it's on GPU

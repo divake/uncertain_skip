@@ -28,7 +28,7 @@ models = ['yolov8n', 'yolov8x']  # Test smallest and largest
 
 for model_name in models:
     print(f"\n   Testing {model_name}:")
-    model = YOLO(f'{model_name}.pt')
+    model = YOLO(f'models/{model_name}.pt')
     
     # Check if model is on GPU
     device = next(model.model.parameters()).device
@@ -72,6 +72,6 @@ print("   If both are similar, likely CPU bottleneck or sync issue")
 # 4. Check if models are actually different sizes
 print("\n4. MODEL SIZES:")
 for model_name in models:
-    model = YOLO(f'{model_name}.pt')
+    model = YOLO(f'models/{model_name}.pt')
     params = sum(p.numel() for p in model.model.parameters())
     print(f"   {model_name}: {params/1e6:.1f}M parameters")

@@ -49,7 +49,7 @@ class PerformanceDebugger:
         print(f"{'='*80}")
         
         # Load model
-        model = YOLO(f"{model_name}.pt")
+        model = YOLO(f"models/{model_name}.pt")
         
         # Verify model is on GPU
         print(f"Model device: {next(model.model.parameters()).device}")
@@ -145,7 +145,7 @@ class PerformanceDebugger:
         print(f"{'='*80}")
         
         # Load model
-        model = YOLO(f"{model_name}.pt")
+        model = YOLO(f"models/{model_name}.pt")
         
         # Load ground truth
         gt_path = Path(f"data/MOT17/train/{sequence}/gt/gt.txt")
