@@ -1,0 +1,6 @@
+Model,Parameters_M,Precision,Recall,F1_Score,True_Positives,False_Positives,False_Negatives,Avg_Confidence,Detections_Per_Frame,Quality_Score,F1_Improvement_%
+yolov8n,3.152,0.654,0.381,0.481,300,159,488,0.553,9.18,0.24,0.0
+yolov8s,11.157,0.757,0.503,0.604,396,127,392,0.595,10.46,0.373,25.556
+yolov8m,25.886,0.687,0.552,0.612,435,198,353,0.566,12.66,0.377,27.245
+yolov8l,43.668,0.691,0.549,0.612,433,194,355,0.572,12.54,0.377,27.197
+yolov8x,68.201,0.709,0.633,0.669,499,205,289,0.591,14.08,0.448,39.02

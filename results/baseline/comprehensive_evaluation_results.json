@@ -1,0 +1,97 @@
+{
+  "evaluation_info": {
+    "dataset": "MOT17-02-FRCNN",
+    "frames_evaluated": 50,
+    "confidence_threshold": 0.25,
+    "gpu_device": 1,
+    "tracking_algorithm": "SORT"
+  },
+  "models": {
+    "yolov8n": {
+      "parameters_M": 3.152,
+      "precision": 0.654,
+      "recall": 0.381,
+      "f1_score": 0.481,
+      "true_positives": 300,
+      "false_positives": 159,
+      "false_negatives": 488,
+      "avg_confidence": 0.553,
+      "detections_per_frame": 9.18
+    },
+    "yolov8s": {
+      "parameters_M": 11.157,
+      "precision": 0.757,
+      "recall": 0.503,
+      "f1_score": 0.604,
+      "true_positives": 396,
+      "false_positives": 127,
+      "false_negatives": 392,
+      "avg_confidence": 0.595,
+      "detections_per_frame": 10.46
+    },
+    "yolov8m": {
+      "parameters_M": 25.886,
+      "precision": 0.687,
+      "recall": 0.552,
+      "f1_score": 0.612,
+      "true_positives": 435,
+      "false_positives": 198,
+      "false_negatives": 353,
+      "avg_confidence": 0.566,
+      "detections_per_frame": 12.66
+    },
+    "yolov8l": {
+      "parameters_M": 43.668,
+      "precision": 0.691,
+      "recall": 0.549,
+      "f1_score": 0.612,
+      "true_positives": 433,
+      "false_positives": 194,
+      "false_negatives": 355,
+      "avg_confidence": 0.572,
+      "detections_per_frame": 12.54
+    },
+    "yolov8x": {
+      "parameters_M": 68.201,
+      "precision": 0.709,
+      "recall": 0.633,
+      "f1_score": 0.669,
+      "true_positives": 499,
+      "false_positives": 205,
+      "false_negatives": 289,
+      "avg_confidence": 0.591,
+      "detections_per_frame": 14.08
+    }
+  },
+  "key_findings": {
+    "best_precision": {
+      "model": "yolov8s",
+      "value": 0.757
+    },
+    "best_recall": {
+      "model": "yolov8x",
+      "value": 0.633
+    },
+    "best_f1": {
+      "model": "yolov8x",
+      "value": 0.669
+    },
+    "f1_improvement_nano_to_xlarge": "39.02%"
+  },
+  "adaptive_strategy": {
+    "complexity_thresholds": {
+      "simple": {
+        "range": "[0.0, 0.3)",
+        "recommended_model": "yolov8n"
+      },
+      "moderate": {
+        "range": "[0.3, 0.6)",
+        "recommended_model": "yolov8s or yolov8m"
+      },
+      "complex": {
+        "range": "[0.6, 1.0]",
+        "recommended_model": "yolov8l or yolov8x"
+      }
+    }
+  }
+}

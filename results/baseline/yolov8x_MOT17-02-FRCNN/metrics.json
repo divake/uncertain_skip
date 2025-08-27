@@ -1,0 +1,21 @@
+{
+  "mota": 0.628127328861916,
+  "motp": 0.46928829248623,
+  "idf1": 1.3736263736263736,
+  "mt": 0,
+  "ml": 52,
+  "fp": 6,
+  "fn": 9328,
+  "id_switches": 0,
+  "fragmentations": 0,
+  "num_objects": 9393,
+  "num_predictions": 71,
+  "mt_percentage": 0.0,
+  "ml_percentage": 0.5536037474715213,
+  "avg_inference_time": 0.08391761223475139,
+  "fps": 11.916449638755175,
+  "max_memory_gb": 0.0021142959594726562,
+  "total_frames": 600,
+  "total_detections": 11648,
+  "avg_detections_per_frame": 19.413333333333334
+}

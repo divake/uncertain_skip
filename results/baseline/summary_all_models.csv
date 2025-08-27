@@ -1,0 +1,4 @@
+model,model_params_M,model_size_mb,mota,motp,idf1,mt_percentage,ml_percentage,fp,fn,id_switches,fps,max_memory_gb,avg_detections_per_frame
+yolov8l,43.69,166.67,0.68,0.47,1.4,0.0,0.55,0,9327,2,13.39,0.0,18.89
+yolov8m,25.9,98.81,0.61,0.47,1.35,0.0,0.55,7,9329,0,13.23,0.05,20.3
+yolov8x,68.23,260.28,0.63,0.47,1.37,0.0,0.55,6,9328,0,11.92,0.0,19.41
