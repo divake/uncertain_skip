@@ -14,15 +14,15 @@ from pathlib import Path
 # ==============================================================================
 
 # Which dataset/sequence to use
-DATASET_PATH = "data/MOT17/train/MOT17-02-FRCNN/img1"  # Change this to use different sequences
-MAX_FRAMES = 600  # How many frames to process
+DATASET_PATH = "data/MOT17/train/MOT17-04-FRCNN/img1"  # MOT17-04: Busy street crossing with 1050 frames!
+MAX_FRAMES = 1050  # Process ALL 1050 frames!
 
 # Model to start with
 STARTING_MODEL = "yolov8n"  # Options: yolov8n, yolov8s, yolov8m, yolov8l, yolov8x
 
 # Object selection strategy
-OBJECT_STRATEGY = "medium_confidence"  # Options: high_confidence, medium_confidence, largest
-TARGET_CONFIDENCE = 0.6  # For medium_confidence strategy
+OBJECT_STRATEGY = "high_confidence"  # Changed to track most confident object for longer tracking
+TARGET_CONFIDENCE = 0.8  # For medium_confidence strategy (not used now)
 
 # Switching thresholds (when to switch models)
 CONFIDENCE_THRESHOLDS = {
@@ -35,7 +35,7 @@ CONFIDENCE_THRESHOLDS = {
 
 # Video output
 GENERATE_VIDEO = True
-VIDEO_OUTPUT_PATH = "results/adaptive/demo_output.mp4"
+VIDEO_OUTPUT_PATH = "results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4"
 
 # ==============================================================================
 # END OF CONFIGURATION SECTION

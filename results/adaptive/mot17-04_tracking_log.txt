@@ -1,0 +1,69 @@
+============================================================
+ADAPTIVE SINGLE OBJECT TRACKING DEMO
+============================================================
+✓ Configuration updated
+
+📋 Current Configuration:
+  Dataset: data/MOT17/train/MOT17-04-FRCNN/img1
+  Max frames: 1050
+  Starting model: yolov8n
+  Object selection: high_confidence
+  Generate video: True
+
+🚀 Starting adaptive tracking...
+Loading models...
+  ✓ yolov8n loaded
+  ✓ yolov8s loaded
+  ✓ yolov8m loaded
+  ✓ yolov8l loaded
+  ✓ yolov8x loaded
+Processing 1050 frames...
+Initial object: confidence=0.817
+Starting with model: yolov8n
+Frame 0: model=yolov8n, conf=0.817, uncertainty=0.000
+Frame 3: Switching yolov8n → yolov8s (conf=0.823, uncertainty=0.000)
+Frame 28: Switching yolov8s → yolov8n (conf=0.859, uncertainty=0.044)
+Frame 38: Switching yolov8n → yolov8s (conf=0.785, uncertainty=0.061)
+Frame 50: Switching yolov8s → yolov8n (conf=0.859, uncertainty=0.044)
+Frame 50: model=yolov8n, conf=0.842, uncertainty=0.044
+Frame 60: Switching yolov8n → yolov8s (conf=0.838, uncertainty=0.046)
+Frame 70: Switching yolov8s → yolov8n (conf=0.869, uncertainty=0.039)
+Frame 93: Switching yolov8n → yolov8s (conf=0.825, uncertainty=0.046)
+Frame 100: model=yolov8s, conf=0.846, uncertainty=0.048
+Frame 150: model=yolov8s, conf=0.782, uncertainty=0.064
+Frame 200: model=yolov8s, conf=0.710, uncertainty=0.081
+Frame 222: Switching yolov8s → yolov8m (conf=0.675, uncertainty=0.092)
+Frame 250: model=yolov8m, conf=0.604, uncertainty=0.112
+Frame 300: model=yolov8m, conf=0.580, uncertainty=0.125
+Frame 307: Switching yolov8m → yolov8l (conf=0.476, uncertainty=0.155)
+Frame 317: Switching yolov8l → yolov8x (conf=0.259, uncertainty=0.242)
+Frame 350: model=yolov8x, conf=0.301, uncertainty=0.202
+Object lost after frame 398
+✓ Video saved to results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4
+✓ Analysis plot saved to results/adaptive/adaptive_tracking_analysis.png
+
+✅ Tracking Complete!
+  Frames tracked: 373/399
+  Success rate: 93.5%
+  Video saved to: results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4
+
+📊 Model Usage:
+  yolov8l: 10 frames (2.5%)
+  yolov8m: 85 frames (21.3%)
+  yolov8n: 46 frames (11.5%)
+  yolov8s: 176 frames (44.1%)
+  yolov8x: 82 frames (20.6%)
+
+🔄 Total model switches: 10
+
+🔀 Switching Pattern:
+  Frame 3: yolov8n ↑ yolov8s
+  Frame 28: yolov8s ↓ yolov8n
+  Frame 38: yolov8n ↑ yolov8s
+  Frame 50: yolov8s ↓ yolov8n
+  Frame 60: yolov8n ↑ yolov8s
+  Frame 70: yolov8s ↓ yolov8n
+  Frame 93: yolov8n ↑ yolov8s
+  Frame 222: yolov8s ↓ yolov8m
+  Frame 307: yolov8m ↓ yolov8l
+  Frame 317: yolov8l ↑ yolov8x

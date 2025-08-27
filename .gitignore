@@ -50,3 +50,4 @@ MOT17/
 # Ignore specific markdown files but not documentation
 LICENSE.md
 CONTRIBUTING.md
+*.md
