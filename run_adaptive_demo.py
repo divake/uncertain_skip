@@ -35,7 +35,7 @@ CONFIDENCE_THRESHOLDS = {
 
 # Video output
 GENERATE_VIDEO = True
-VIDEO_OUTPUT_PATH = "results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4"
+VIDEO_OUTPUT_PATH = "results/adaptive/MOT17-04_adaptive_tracking_1050frames.webm"
 
 # ==============================================================================
 # END OF CONFIGURATION SECTION

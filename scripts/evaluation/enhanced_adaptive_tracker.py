@@ -280,8 +280,11 @@ class EnhancedAdaptiveTracker:
         # Video writer setup
         if save_video:
             output_path = Path(self.config['visualization']['output_video_path'])
+            # Change extension to .webm for GitHub compatibility
+            output_path = output_path.with_suffix('.webm')
             output_path.parent.mkdir(parents=True, exist_ok=True)
-            fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+            # Use VP80 codec for WebM format (GitHub compatible)
+            fourcc = cv2.VideoWriter_fourcc(*'VP80')
             self.video_writer = cv2.VideoWriter(
                 str(output_path), fourcc, 
                 self.config['visualization']['fps'],
