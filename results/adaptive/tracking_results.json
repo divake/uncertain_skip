@@ -1,0 +1,1093 @@
+{
+  "config": {
+    "dataset": {
+      "source": "MOT17",
+      "sequence": "MOT17-02-FRCNN",
+      "path": "data/MOT17/train/MOT17-02-FRCNN/img1",
+      "max_frames": 600
+    },
+    "models": {
+      "available": [
+        "yolov8n",
+        "yolov8s",
+        "yolov8m",
+        "yolov8l",
+        "yolov8x"
+      ],
+      "starting_model": "yolov8n",
+      "parameters": {
+        "yolov8n": 3.2,
+        "yolov8s": 11.2,
+        "yolov8m": 25.9,
+        "yolov8l": 43.7,
+        "yolov8x": 68.2
+      },
+      "colors": {
+        "yolov8n": [
+          0,
+          255,
+          0
+        ],
+        "yolov8s": [
+          0,
+          255,
+          255
+        ],
+        "yolov8m": [
+          255,
+          165,
+          0
+        ],
+        "yolov8l": [
+          255,
+          0,
+          255
+        ],
+        "yolov8x": [
+          255,
+          0,
+          0
+        ]
+      }
+    },
+    "object_selection": {
+      "strategy": "medium_confidence",
+      "target_confidence": 0.6,
+      "specific_object_id": null
+    },
+    "adaptive_thresholds": {
+      "confidence_levels": {
+        "very_high": 0.85,
+        "high": 0.7,
+        "medium": 0.5,
+        "low": 0.35,
+        "very_low": 0.25
+      },
+      "uncertainty": {
+        "variance_threshold": 0.15,
+        "smoothing_window": 5
+      },
+      "hysteresis": {
+        "frames_before_switch": 3,
+        "cooldown_frames": 10
+      }
+    },
+    "tracking": {
+      "iou_threshold": 0.3,
+      "max_lost_frames": 5,
+      "confidence_threshold": 0.25
+    },
+    "visualization": {
+      "generate_video": true,
+      "output_video_path": "results/adaptive/adaptive_tracking_demo.mp4",
+      "fps": 30,
+      "show_confidence": true,
+      "show_model_name": true,
+      "show_fps": true,
+      "show_uncertainty": true,
+      "font_scale": 0.7,
+      "box_thickness": 3,
+      "text_color": [
+        255,
+        255,
+        255
+      ]
+    },
+    "output": {
+      "results_dir": "results/adaptive",
+      "save_metrics": true,
+      "save_frame_data": true,
+      "generate_plots": true,
+      "markdown_report": "results/adaptive/ADAPTIVE_TRACKING_RESULTS.md"
+    }
+  },
+  "summary": {
+    "total_frames": 75,
+    "tracked_frames": 52,
+    "tracking_rate": 0.6933333333333334,
+    "avg_confidence": 0.4745632696610231,
+    "avg_uncertainty": 0.19768889287735153,
+    "avg_model_params": 46.71733333333332,
+    "model_switches": 5,
+    "model_usage": {
+      "yolov8n": 3,
+      "yolov8m": 19,
+      "yolov8l": 25,
+      "yolov8x": 28
+    }
+  },
+  "switches": [
+    {
+      "frame": 3,
+      "from": "yolov8n",
+      "to": "yolov8m",
+      "confidence": 0.5975725650787354,
+      "uncertainty": 0.0
+    },
+    {
+      "frame": 22,
+      "from": "yolov8m",
+      "to": "yolov8l",
+      "confidence": 0.43300941586494446,
+      "uncertainty": 0.18114100006541925
+    },
+    {
+      "frame": 37,
+      "from": "yolov8l",
+      "to": "yolov8x",
+      "confidence": 0.26699090003967285,
+      "uncertainty": 0.23879798731145513
+    },
+    {
+      "frame": 62,
+      "from": "yolov8x",
+      "to": "yolov8l",
+      "confidence": 0.26455220580101013,
+      "uncertainty": 0.20021321687802734
+    },
+    {
+      "frame": 72,
+      "from": "yolov8l",
+      "to": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384
+    }
+  ],
+  "frame_results": [
+    {
+      "frame": 0,
+      "model": "yolov8n",
+      "confidence": 0.5424416065216064,
+      "uncertainty": 0.0,
+      "bbox": [
+        732.2757568359375,
+        458.5377502441406,
+        37.203369140625,
+        112.53732299804688
+      ],
+      "status": "tracked",
+      "fps": 99.46415613365268
+    },
+    {
+      "frame": 1,
+      "model": "yolov8n",
+      "confidence": 0.5504215359687805,
+      "uncertainty": 0.0,
+      "bbox": [
+        733.0972900390625,
+        465.35650634765625,
+        37.0855712890625,
+        106.33551025390625
+      ],
+      "status": "tracked",
+      "fps": 107.15883600316803
+    },
+    {
+      "frame": 2,
+      "model": "yolov8n",
+      "confidence": 0.523896336555481,
+      "uncertainty": 0.0,
+      "bbox": [
+        732.4498291015625,
+        460.7080078125,
+        38.0728759765625,
+        110.16015625
+      ],
+      "status": "tracked",
+      "fps": 108.15915830733128
+    },
+    {
+      "frame": 3,
+      "model": "yolov8m",
+      "confidence": 0.5975725650787354,
+      "uncertainty": 0.0,
+      "bbox": [
+        733.1632690429688,
+        477.012939453125,
+        33.63348388671875,
+        91.3370361328125
+      ],
+      "status": "tracked",
+      "fps": 2.0934685421001746
+    },
+    {
+      "frame": 4,
+      "model": "yolov8m",
+      "confidence": 0.6087859869003296,
+      "uncertainty": 0.13169059817082315,
+      "bbox": [
+        733.1910400390625,
+        477.02984619140625,
+        33.4383544921875,
+        90.8360595703125
+      ],
+      "status": "tracked",
+      "fps": 63.49906892949601
+    },
+    {
+      "frame": 5,
+      "model": "yolov8m",
+      "confidence": 0.5847699642181396,
+      "uncertainty": 0.12906199604066784,
+      "bbox": [
+        732.71533203125,
+        474.7107238769531,
+        34.3056640625,
+        94.09262084960938
+      ],
+      "status": "tracked",
+      "fps": 56.146393049810584
+    },
+    {
+      "frame": 6,
+      "model": "yolov8m",
+      "confidence": 0.6199541091918945,
+      "uncertainty": 0.12503314767960205,
+      "bbox": [
+        732.4810180664062,
+        475.8197937011719,
+        33.81475830078125,
+        93.36087036132812
+      ],
+      "status": "tracked",
+      "fps": 58.81294520163778
+    },
+    {
+      "frame": 7,
+      "model": "yolov8m",
+      "confidence": 0.5910073518753052,
+      "uncertainty": 0.12003324148192973,
+      "bbox": [
+        732.8577880859375,
+        474.0216064453125,
+        34.41400146484375,
+        96.42333984375
+      ],
+      "status": "tracked",
+      "fps": 33.25355384481214
+    },
+    {
+      "frame": 8,
+      "model": "yolov8m",
+      "confidence": 0.5599073171615601,
+      "uncertainty": 0.1225630132372555,
+      "bbox": [
+        731.862548828125,
+        474.550048828125,
+        33.74114990234375,
+        95.1126708984375
+      ],
+      "status": "tracked",
+      "fps": 59.17638759558678
+    },
+    {
+      "frame": 9,
+      "model": "yolov8m",
+      "confidence": 0.5775521993637085,
+      "uncertainty": 0.12439446851200615,
+      "bbox": [
+        732.129638671875,
+        475.50384521484375,
+        33.88494873046875,
+        95.04730224609375
+      ],
+      "status": "tracked",
+      "fps": 67.6882756394739
+    },
+    {
+      "frame": 10,
+      "model": "yolov8m",
+      "confidence": 0.64947110414505,
+      "uncertainty": 0.12113384762494434,
+      "bbox": [
+        732.01318359375,
+        473.36700439453125,
+        34.736572265625,
+        99.0589599609375
+      ],
+      "status": "tracked",
+      "fps": 60.65866427559078
+    },
+    {
+      "frame": 11,
+      "model": "yolov8m",
+      "confidence": 0.6693758964538574,
+      "uncertainty": 0.11896214374104147,
+      "bbox": [
+        731.9749145507812,
+        474.4159240722656,
+        34.461181640625,
+        98.02938842773438
+      ],
+      "status": "tracked",
+      "fps": 55.84363849390211
+    },
+    {
+      "frame": 12,
+      "model": "yolov8m",
+      "confidence": 0.6482958793640137,
+      "uncertainty": 0.11562703457431382,
+      "bbox": [
+        731.4932861328125,
+        475.1650390625,
+        34.68304443359375,
+        99.22882080078125
+      ],
+      "status": "tracked",
+      "fps": 56.61704597608056
+    },
+    {
+      "frame": 13,
+      "model": "yolov8m",
+      "confidence": 0.6276267170906067,
+      "uncertainty": 0.11064490742779953,
+      "bbox": [
+        732.015869140625,
+        478.00103759765625,
+        34.31396484375,
+        96.65447998046875
+      ],
+      "status": "tracked",
+      "fps": 58.117001524179024
+    },
+    {
+      "frame": 14,
+      "model": "yolov8m",
+      "confidence": 0.6199164986610413,
+      "uncertainty": 0.10742578937615321,
+      "bbox": [
+        730.2518920898438,
+        470.290283203125,
+        36.72930908203125,
+        104.06488037109375
+      ],
+      "status": "tracked",
+      "fps": 55.19256783430271
+    },
+    {
+      "frame": 15,
+      "model": "yolov8m",
+      "confidence": 0.6208441853523254,
+      "uncertainty": 0.10919970658230427,
+      "bbox": [
+        730.12353515625,
+        474.98565673828125,
+        36.34332275390625,
+        100.50384521484375
+      ],
+      "status": "tracked",
+      "fps": 56.13286760080834
+    },
+    {
+      "frame": 16,
+      "model": "yolov8m",
+      "confidence": 0.6234591603279114,
+      "uncertainty": 0.11170129873294798,
+      "bbox": [
+        728.797119140625,
+        469.15081787109375,
+        35.7552490234375,
+        108.4295654296875
+      ],
+      "status": "tracked",
+      "fps": 60.759716649041735
+    },
+    {
+      "frame": 17,
+      "model": "yolov8m",
+      "confidence": 0.5757365226745605,
+      "uncertainty": 0.1163090022261866,
+      "bbox": [
+        728.7793579101562,
+        467.7803649902344,
+        36.24774169921875,
+        107.99380493164062
+      ],
+      "status": "tracked",
+      "fps": 63.89178484926958
+    },
+    {
+      "frame": 18,
+      "model": "yolov8m",
+      "confidence": 0.5838596224784851,
+      "uncertainty": 0.11899449403685024,
+      "bbox": [
+        728.3053588867188,
+        471.623046875,
+        37.55548095703125,
+        104.70037841796875
+      ],
+      "status": "tracked",
+      "fps": 53.7207848762744
+    },
+    {
+      "frame": 19,
+      "model": "yolov8m",
+      "confidence": 0.5048547387123108,
+      "uncertainty": 0.12731904682828257,
+      "bbox": [
+        727.2703857421875,
+        473.83026123046875,
+        38.15313720703125,
+        101.165771484375
+      ],
+      "status": "tracked",
+      "fps": 54.967616800996005
+    },
+    {
+      "frame": 20,
+      "model": "yolov8m",
+      "confidence": 0.37411102652549744,
+      "uncertainty": 0.14800514737227388,
+      "bbox": [
+        726.1380004882812,
+        472.45013427734375,
+        40.93499755859375,
+        102.9613037109375
+      ],
+      "status": "tracked",
+      "fps": 62.25404458693264
+    },
+    {
+      "frame": 21,
+      "model": "yolov8m",
+      "confidence": 0.27401697635650635,
+      "uncertainty": 0.1757818770983546,
+      "bbox": [
+        723.393798828125,
+        470.707275390625,
+        45.1219482421875,
+        101.1463623046875
+      ],
+      "status": "tracked",
+      "fps": 59.57818181818182
+    },
+    {
+      "frame": 22,
+      "model": "yolov8l",
+      "confidence": 0.43300941586494446,
+      "uncertainty": 0.18114100006541925,
+      "bbox": [
+        724.6591186523438,
+        473.466796875,
+        43.40093994140625,
+        101.4947509765625
+      ],
+      "status": "tracked",
+      "fps": 1.6092264839376766
+    },
+    {
+      "frame": 23,
+      "model": "yolov8l",
+      "confidence": 0.4689919054508209,
+      "uncertainty": 0.1832572227339967,
+      "bbox": [
+        724.120361328125,
+        474.492919921875,
+        43.54925537109375,
+        102.35723876953125
+      ],
+      "status": "tracked",
+      "fps": 61.43160114828051
+    },
+    {
+      "frame": 24,
+      "model": "yolov8l",
+      "confidence": 0.5006148815155029,
+      "uncertainty": 0.1833553127066207,
+      "bbox": [
+        722.520263671875,
+        473.40789794921875,
+        47.412841796875,
+        102.61566162109375
+      ],
+      "status": "tracked",
+      "fps": 56.72807931076457
+    },
+    {
+      "frame": 25,
+      "model": "yolov8l",
+      "confidence": 0.49606382846832275,
+      "uncertainty": 0.17665977734694074,
+      "bbox": [
+        721.3843994140625,
+        469.7216491699219,
+        49.188232421875,
+        105.43801879882812
+      ],
+      "status": "tracked",
+      "fps": 57.28984319510463
+    },
+    {
+      "frame": 26,
+      "model": "yolov8l",
+      "confidence": 0.42092999815940857,
+      "uncertainty": 0.16186521197498926,
+      "bbox": [
+        723.564453125,
+        474.0552062988281,
+        48.740478515625,
+        99.81442260742188
+      ],
+      "status": "tracked",
+      "fps": 46.28503956123992
+    },
+    {
+      "frame": 27,
+      "model": "yolov8l",
+      "confidence": 0.3908326029777527,
+      "uncertainty": 0.1652019599256406,
+      "bbox": [
+        723.4263916015625,
+        470.06622314453125,
+        47.635986328125,
+        101.5711669921875
+      ],
+      "status": "tracked",
+      "fps": 56.84571180743793
+    },
+    {
+      "frame": 28,
+      "model": "yolov8l",
+      "confidence": 0.4734622836112976,
+      "uncertainty": 0.16496108417251817,
+      "bbox": [
+        723.63720703125,
+        474.5689697265625,
+        48.1549072265625,
+        98.80615234375
+      ],
+      "status": "tracked",
+      "fps": 56.21863900170225
+    },
+    {
+      "frame": 29,
+      "model": "yolov8l",
+      "confidence": 0.5663860440254211,
+      "uncertainty": 0.16287068267071558,
+      "bbox": [
+        721.8795776367188,
+        474.521484375,
+        47.68927001953125,
+        99.1346435546875
+      ],
+      "status": "tracked",
+      "fps": 53.96754976260631
+    },
+    {
+      "frame": 30,
+      "model": "yolov8l",
+      "confidence": 0.47386619448661804,
+      "uncertainty": 0.1640458269815064,
+      "bbox": [
+        723.8175048828125,
+        475.4570617675781,
+        42.7288818359375,
+        99.64559936523438
+      ],
+      "status": "tracked",
+      "fps": 51.64508582264142
+    },
+    {
+      "frame": 31,
+      "model": "yolov8l",
+      "confidence": 0.5188258290290833,
+      "uncertainty": 0.15797600767270592,
+      "bbox": [
+        722.32421875,
+        475.76019287109375,
+        41.47967529296875,
+        99.45721435546875
+      ],
+      "status": "tracked",
+      "fps": 59.516467299533154
+    },
+    {
+      "frame": 32,
+      "model": "yolov8l",
+      "confidence": 0.37149128317832947,
+      "uncertainty": 0.1599223518839596,
+      "bbox": [
+        718.31787109375,
+        477.20782470703125,
+        43.3575439453125,
+        99.16876220703125
+      ],
+      "status": "tracked",
+      "fps": 57.62593941059284
+    },
+    {
+      "frame": 33,
+      "model": "yolov8l",
+      "confidence": 0.30660927295684814,
+      "uncertainty": 0.1748780711605186,
+      "bbox": [
+        718.197265625,
+        487.8988952636719,
+        40.43896484375,
+        90.34036254882812
+      ],
+      "status": "tracked",
+      "fps": 59.91178151068449
+    },
+    {
+      "frame": 34,
+      "model": "yolov8l",
+      "confidence": 0.4512104094028473,
+      "uncertainty": 0.17843100612246623,
+      "bbox": [
+        716.9261474609375,
+        484.09228515625,
+        39.33935546875,
+        94.090576171875
+      ],
+      "status": "tracked",
+      "fps": 60.11356828572657
+    },
+    {
+      "frame": 35,
+      "model": "yolov8l",
+      "confidence": 0.45453470945358276,
+      "uncertainty": 0.1792681908579056,
+      "bbox": [
+        718.5026245117188,
+        477.0484313964844,
+        38.14837646484375,
+        100.07339477539062
+      ],
+      "status": "tracked",
+      "fps": 60.07826510442032
+    },
+    {
+      "frame": 36,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.1792681908579056,
+      "bbox": null,
+      "status": "searching",
+      "fps": 57.65207829338025
+    },
+    {
+      "frame": 37,
+      "model": "yolov8x",
+      "confidence": 0.26699090003967285,
+      "uncertainty": 0.23879798731145513,
+      "bbox": [
+        731.0015869140625,
+        460.382080078125,
+        30.13641357421875,
+        76.6864013671875
+      ],
+      "status": "tracked",
+      "fps": 1.2260977954055945
+    },
+    {
+      "frame": 38,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.23879798731145513,
+      "bbox": null,
+      "status": "searching",
+      "fps": 53.51379213554824
+    },
+    {
+      "frame": 39,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.23879798731145513,
+      "bbox": null,
+      "status": "searching",
+      "fps": 56.7012383063862
+    },
+    {
+      "frame": 40,
+      "model": "yolov8x",
+      "confidence": 0.2940518260002136,
+      "uncertainty": 0.28529680223552706,
+      "bbox": [
+        734.3263549804688,
+        459.291015625,
+        27.78277587890625,
+        85.20611572265625
+      ],
+      "status": "tracked",
+      "fps": 54.21659212533285
+    },
+    {
+      "frame": 41,
+      "model": "yolov8x",
+      "confidence": 0.29807236790657043,
+      "uncertainty": 0.26824949529484426,
+      "bbox": [
+        734.842529296875,
+        458.23907470703125,
+        29.197265625,
+        107.33935546875
+      ],
+      "status": "tracked",
+      "fps": 54.61831156485617
+    },
+    {
+      "frame": 42,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26824949529484426,
+      "bbox": null,
+      "status": "searching",
+      "fps": 59.07220821655423
+    },
+    {
+      "frame": 43,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26824949529484426,
+      "bbox": null,
+      "status": "searching",
+      "fps": 56.9971190955047
+    },
+    {
+      "frame": 44,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26824949529484426,
+      "bbox": null,
+      "status": "searching",
+      "fps": 57.58084621509569
+    },
+    {
+      "frame": 45,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26824949529484426,
+      "bbox": null,
+      "status": "searching",
+      "fps": 59.56464439900023
+    },
+    {
+      "frame": 46,
+      "model": "yolov8x",
+      "confidence": 0.5334449410438538,
+      "uncertainty": 0.3135234643574137,
+      "bbox": [
+        736.2451171875,
+        454.6954345703125,
+        32.0833740234375,
+        103.90045166015625
+      ],
+      "status": "tracked",
+      "fps": 58.960105710028394
+    },
+    {
+      "frame": 47,
+      "model": "yolov8x",
+      "confidence": 0.2953573167324066,
+      "uncertainty": 0.29715522716815285,
+      "bbox": [
+        735.7849731445312,
+        455.6294860839844,
+        34.59674072265625,
+        106.88467407226562
+      ],
+      "status": "tracked",
+      "fps": 53.66442334757798
+    },
+    {
+      "frame": 48,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.29715522716815285,
+      "bbox": null,
+      "status": "searching",
+      "fps": 59.33712474888946
+    },
+    {
+      "frame": 49,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.29715522716815285,
+      "bbox": null,
+      "status": "searching",
+      "fps": 54.5763805756519
+    },
+    {
+      "frame": 50,
+      "model": "yolov8x",
+      "confidence": 0.28560373187065125,
+      "uncertainty": 0.27413340049696694,
+      "bbox": [
+        740.9357299804688,
+        451.389404296875,
+        35.880615234375,
+        111.26312255859375
+      ],
+      "status": "tracked",
+      "fps": 52.083745188128646
+    },
+    {
+      "frame": 51,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.27413340049696694,
+      "bbox": null,
+      "status": "searching",
+      "fps": 53.02533501896334
+    },
+    {
+      "frame": 52,
+      "model": "yolov8x",
+      "confidence": 0.45837604999542236,
+      "uncertainty": 0.2915565954285857,
+      "bbox": [
+        742.2431640625,
+        455.1554260253906,
+        33.87646484375,
+        103.73934936523438
+      ],
+      "status": "tracked",
+      "fps": 50.517958229952065
+    },
+    {
+      "frame": 53,
+      "model": "yolov8x",
+      "confidence": 0.34093695878982544,
+      "uncertainty": 0.26940644314177004,
+      "bbox": [
+        742.3974609375,
+        457.4812316894531,
+        33.7750244140625,
+        105.39620971679688
+      ],
+      "status": "tracked",
+      "fps": 58.890567521271514
+    },
+    {
+      "frame": 54,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26940644314177004,
+      "bbox": null,
+      "status": "searching",
+      "fps": 62.22818313996617
+    },
+    {
+      "frame": 55,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26940644314177004,
+      "bbox": null,
+      "status": "searching",
+      "fps": 57.21950287850263
+    },
+    {
+      "frame": 56,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.26940644314177004,
+      "bbox": null,
+      "status": "searching",
+      "fps": 52.12193212461632
+    },
+    {
+      "frame": 57,
+      "model": "yolov8x",
+      "confidence": 0.5554528832435608,
+      "uncertainty": 0.29902920259645926,
+      "bbox": [
+        746.1199951171875,
+        456.99114990234375,
+        38.0849609375,
+        106.568115234375
+      ],
+      "status": "tracked",
+      "fps": 57.95478914497319
+    },
+    {
+      "frame": 58,
+      "model": "yolov8x",
+      "confidence": 0.26793861389160156,
+      "uncertainty": 0.29954136913325835,
+      "bbox": [
+        745.927001953125,
+        455.4597473144531,
+        37.92919921875,
+        110.30929565429688
+      ],
+      "status": "tracked",
+      "fps": 56.93522289189336
+    },
+    {
+      "frame": 59,
+      "model": "yolov8x",
+      "confidence": 0.5127755403518677,
+      "uncertainty": 0.27706783588828104,
+      "bbox": [
+        747.5364990234375,
+        456.39825439453125,
+        37.674072265625,
+        106.9478759765625
+      ],
+      "status": "tracked",
+      "fps": 55.83769103786144
+    },
+    {
+      "frame": 60,
+      "model": "yolov8x",
+      "confidence": 0.3221866190433502,
+      "uncertainty": 0.23990570232136435,
+      "bbox": [
+        748.8577880859375,
+        459.01861572265625,
+        36.536865234375,
+        106.2474365234375
+      ],
+      "status": "tracked",
+      "fps": 53.547268572304
+    },
+    {
+      "frame": 61,
+      "model": "yolov8x",
+      "confidence": 0.4949771761894226,
+      "uncertainty": 0.18373967973912683,
+      "bbox": [
+        746.60986328125,
+        460.3307189941406,
+        38.584716796875,
+        104.21261596679688
+      ],
+      "status": "tracked",
+      "fps": 53.87050951078231
+    },
+    {
+      "frame": 62,
+      "model": "yolov8l",
+      "confidence": 0.26455220580101013,
+      "uncertainty": 0.20021321687802734,
+      "bbox": [
+        748.68212890625,
+        459.60186767578125,
+        38.0057373046875,
+        105.79833984375
+      ],
+      "status": "tracked",
+      "fps": 59.35895839230116
+    },
+    {
+      "frame": 63,
+      "model": "yolov8l",
+      "confidence": 0.31981220841407776,
+      "uncertainty": 0.19536204024553605,
+      "bbox": [
+        748.5086669921875,
+        462.2328186035156,
+        37.883056640625,
+        102.11013793945312
+      ],
+      "status": "tracked",
+      "fps": 53.57052174468357
+    },
+    {
+      "frame": 64,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.19536204024553605,
+      "bbox": null,
+      "status": "searching",
+      "fps": 50.20893735709925
+    },
+    {
+      "frame": 65,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.19536204024553605,
+      "bbox": null,
+      "status": "searching",
+      "fps": 54.33458558955359
+    },
+    {
+      "frame": 66,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.19536204024553605,
+      "bbox": null,
+      "status": "searching",
+      "fps": 60.29764232317424
+    },
+    {
+      "frame": 67,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.19536204024553605,
+      "bbox": null,
+      "status": "searching",
+      "fps": 62.27160567144236
+    },
+    {
+      "frame": 68,
+      "model": "yolov8l",
+      "confidence": 0.31205472350120544,
+      "uncertainty": 0.29685722066343384,
+      "bbox": [
+        749.9454345703125,
+        465.3694152832031,
+        38.7000732421875,
+        103.24777221679688
+      ],
+      "status": "tracked",
+      "fps": 59.722397835682756
+    },
+    {
+      "frame": 69,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384,
+      "bbox": null,
+      "status": "searching",
+      "fps": 61.350729894977036
+    },
+    {
+      "frame": 70,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384,
+      "bbox": null,
+      "status": "searching",
+      "fps": 56.67365690195655
+    },
+    {
+      "frame": 71,
+      "model": "yolov8l",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384,
+      "bbox": null,
+      "status": "searching",
+      "fps": 52.770488915729345
+    },
+    {
+      "frame": 72,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384,
+      "bbox": null,
+      "status": "searching",
+      "fps": 50.376583912850265
+    },
+    {
+      "frame": 73,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384,
+      "bbox": null,
+      "status": "searching",
+      "fps": 55.48461518109903
+    },
+    {
+      "frame": 74,
+      "model": "yolov8x",
+      "confidence": 0.0,
+      "uncertainty": 0.29685722066343384,
+      "bbox": null,
+      "status": "lost",
+      "fps": 51.03677204253973
+    }
+  ]
+}

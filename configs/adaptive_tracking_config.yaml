@@ -1,0 +1,86 @@
+# Adaptive Single Object Tracking Configuration
+
+# Dataset Configuration
+dataset:
+  source: "MOT17"  # Dataset name
+  sequence: "MOT17-02-FRCNN"  # Which sequence to use
+  path: "data/MOT17/train/MOT17-02-FRCNN/img1"  # Path to images
+  max_frames: 600  # Maximum frames to process
+  
+# Model Configuration  
+models:
+  available: ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x"]
+  starting_model: "yolov8n"  # Which model to start with
+  
+  # Model parameters (millions)
+  parameters:
+    yolov8n: 3.2
+    yolov8s: 11.2
+    yolov8m: 25.9
+    yolov8l: 43.7
+    yolov8x: 68.2
+    
+  # Model colors for visualization (BGR format for OpenCV)
+  colors:
+    yolov8n: [0, 255, 0]      # Green - smallest/fastest
+    yolov8s: [0, 255, 255]    # Yellow - small
+    yolov8m: [255, 165, 0]    # Orange - medium  
+    yolov8l: [255, 0, 255]    # Magenta - large
+    yolov8x: [255, 0, 0]      # Red - largest/most accurate
+
+# Object Selection Strategy
+object_selection:
+  strategy: "medium_confidence"  # Options: high_confidence, medium_confidence, largest, specific_id
+  target_confidence: 0.6  # For medium_confidence strategy
+  specific_object_id: null  # For tracking a specific object ID
+  
+# Adaptive Switching Thresholds
+adaptive_thresholds:
+  # Confidence-based switching (bidirectional)
+  confidence_levels:
+    very_high: 0.85   # Switch DOWN to smaller model
+    high: 0.70        # Consider switching down
+    medium: 0.50      # Stay at current or consider switching up
+    low: 0.35         # Switch UP to larger model
+    very_low: 0.25    # Switch to largest model
+    
+  # Uncertainty metrics
+  uncertainty:
+    variance_threshold: 0.15  # High variance triggers model switch
+    smoothing_window: 5       # Frames to average for stability
+    
+  # Hysteresis to prevent oscillation
+  hysteresis:
+    frames_before_switch: 3   # Wait this many frames before switching
+    cooldown_frames: 10       # Don't switch again for this many frames
+    
+# Tracking Parameters
+tracking:
+  iou_threshold: 0.3         # Minimum IoU for track association
+  max_lost_frames: 5         # Frames before declaring object lost
+  confidence_threshold: 0.25  # Minimum detection confidence
+  
+# Visualization Configuration
+visualization:
+  generate_video: true
+  output_video_path: "results/adaptive/adaptive_tracking_demo.mp4"
+  fps: 30
+  
+  # Display settings
+  show_confidence: true
+  show_model_name: true
+  show_fps: true
+  show_uncertainty: true
+  
+  # Text and box settings
+  font_scale: 0.7
+  box_thickness: 3
+  text_color: [255, 255, 255]  # White text
+  
+# Output Configuration
+output:
+  results_dir: "results/adaptive"
+  save_metrics: true
+  save_frame_data: true
+  generate_plots: true
+  markdown_report: "results/adaptive/ADAPTIVE_TRACKING_RESULTS.md"

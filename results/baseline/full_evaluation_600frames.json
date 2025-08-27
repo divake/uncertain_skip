@@ -1,0 +1,104 @@
+{
+  "evaluation_info": {
+    "dataset": "MOT17-02-FRCNN",
+    "frames": 600,
+    "confidence_threshold": 0.25,
+    "iou_threshold": 0.5
+  },
+  "models": [
+    {
+      "model": "yolov8n",
+      "params_M": 3.151904,
+      "precision": 0.6854293441514537,
+      "recall": 0.45520880107768297,
+      "f1": 0.5470858067997841,
+      "tp": 4055,
+      "fp": 1861,
+      "fn": 4853,
+      "avg_confidence": 0.570460847351622,
+      "detections_per_frame": 9.86,
+      "avg_inference_ms": 11.043590482634803,
+      "std_inference_ms": 61.30313704428694,
+      "fps": 90.55026094750825,
+      "total_frames": 600
+    },
+    {
+      "model": "yolov8s",
+      "params_M": 11.156544,
+      "precision": 0.7302338929545128,
+      "recall": 0.5712842388863942,
+      "f1": 0.6410530956729861,
+      "tp": 5089,
+      "fp": 1880,
+      "fn": 3819,
+      "avg_confidence": 0.5987890351920238,
+      "detections_per_frame": 11.615,
+      "avg_inference_ms": 10.932662276706347,
+      "std_inference_ms": 7.18167531315633,
+      "fps": 91.46902874066163,
+      "total_frames": 600
+    },
+    {
+      "model": "yolov8m",
+      "params_M": 25.88608,
+      "precision": 0.692823693203392,
+      "recall": 0.6145038167938931,
+      "f1": 0.6513177464453566,
+      "tp": 5474,
+      "fp": 2427,
+      "fn": 3434,
+      "avg_confidence": 0.5836626639804905,
+      "detections_per_frame": 13.168333333333333,
+      "avg_inference_ms": 11.658885623328388,
+      "std_inference_ms": 16.951716336331014,
+      "fps": 85.77149071598141,
+      "total_frames": 600
+    },
+    {
+      "model": "yolov8l",
+      "params_M": 43.668288,
+      "precision": 0.7060420909708078,
+      "recall": 0.5837449483610238,
+      "f1": 0.6390954341547348,
+      "tp": 5200,
+      "fp": 2165,
+      "fn": 3708,
+      "avg_confidence": 0.6042099997168565,
+      "detections_per_frame": 12.275,
+      "avg_inference_ms": 13.372039933068057,
+      "std_inference_ms": 22.84782264422462,
+      "fps": 74.7829056004443,
+      "total_frames": 600
+    },
+    {
+      "model": "yolov8x",
+      "params_M": 68.200608,
+      "precision": 0.7092834890965732,
+      "recall": 0.6389762011674899,
+      "f1": 0.6722966987539125,
+      "tp": 5692,
+      "fp": 2333,
+      "fn": 3216,
+      "avg_confidence": 0.6135903206792576,
+      "detections_per_frame": 13.375,
+      "avg_inference_ms": 12.742390014075985,
+      "std_inference_ms": 20.181734931418333,
+      "fps": 78.47821318413122,
+      "total_frames": 600
+    }
+  ],
+  "best_metrics": {
+    "precision": {
+      "model": "yolov8s",
+      "value": 0.7302338929545128
+    },
+    "recall": {
+      "model": "yolov8x",
+      "value": 0.6389762011674899
+    },
+    "f1": {
+      "model": "yolov8x",
+      "value": 0.6722966987539125
+    }
+  }
+}
