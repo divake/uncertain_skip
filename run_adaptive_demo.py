@@ -35,7 +35,7 @@ CONFIDENCE_THRESHOLDS = {
 
 # Video output
 GENERATE_VIDEO = True
-VIDEO_OUTPUT_PATH = "results/adaptive/MOT17-04_adaptive_tracking_1050frames.webm"
+VIDEO_OUTPUT_PATH = "results/adaptive/MOT17-04_adaptive_tracking_1050frames.mp4"
 
 # ==============================================================================
 # END OF CONFIGURATION SECTION
@@ -89,9 +89,10 @@ def run_demo():
     os.environ['CUDA_VISIBLE_DEVICES'] = '1'  # Use GPU 1
     
     # Import and run the tracker
-    from scripts.evaluation.enhanced_adaptive_tracker import EnhancedAdaptiveTracker
+    from src.core.adaptive_tracker import EnhancedAdaptiveTracker
     
-    tracker = EnhancedAdaptiveTracker()
+    # Create tracker (use_rl=False for rule-based, use_rl=True for RL-based)
+    tracker = EnhancedAdaptiveTracker(use_rl=False)
     results, state = tracker.run_adaptive_tracking(save_video=GENERATE_VIDEO)
     
     if results:

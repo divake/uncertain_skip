@@ -21,7 +21,7 @@ from collections import deque
 import time
 import sys
 sys.path.append(str(Path(__file__).parent.parent.parent))
-from src.rl_model_selector import RLModelSelector
+from src.core.rl_model_selector import RLModelSelector
 
 @dataclass
 class TrackingState:

@@ -2,7 +2,7 @@ dataset:
   source: MOT17
   sequence: MOT17-02-FRCNN
   path: data/MOT17/train/MOT17-04-FRCNN/img1
-  max_frames: 1050
+  max_frames: 50
 models:
   available:
   - yolov8n
