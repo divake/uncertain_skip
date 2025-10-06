@@ -1,0 +1,8 @@
+sequence,frames,has_gt
+MOT17-01,450,False
+MOT17-03,1500,False
+MOT17-06,1194,False
+MOT17-07,500,False
+MOT17-08,625,False
+MOT17-12,900,False
+MOT17-14,750,False
