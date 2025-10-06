@@ -50,3 +50,4 @@ MOT17/
 # Ignore all markdown files except README
 *.md
 !README.md
+results/adaptive/MOT17-04_adaptive_tracking_1050frames.webm

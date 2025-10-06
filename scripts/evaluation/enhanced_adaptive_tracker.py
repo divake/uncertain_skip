@@ -19,6 +19,9 @@ from typing import List, Tuple, Optional, Dict
 import matplotlib.pyplot as plt
 from collections import deque
 import time
+import sys
+sys.path.append(str(Path(__file__).parent.parent.parent))
+from src.rl_model_selector import RLModelSelector
 
 @dataclass
 class TrackingState:
@@ -38,8 +41,14 @@ class EnhancedAdaptiveTracker:
     Enhanced tracker with bidirectional switching and uncertainty metrics
     """
     
-    def __init__(self, config_path='configs/adaptive_tracking_config.yaml'):
-        """Initialize with configuration file"""
+    def __init__(self, config_path='configs/adaptive_tracking_config.yaml', use_rl=False, rl_weights_path=None):
+        """Initialize with configuration file
+        
+        Args:
+            config_path: Path to configuration file
+            use_rl: Whether to use RL-based model selection instead of rule-based
+            rl_weights_path: Path to pretrained RL weights (optional)
+        """
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
         
@@ -51,6 +60,18 @@ class EnhancedAdaptiveTracker:
             self.models[name] = YOLO(f'models/{name}.pt')
             self.models[name].to('cuda')
             print(f"  ✓ {name} loaded")
+        
+        # Initialize RL model selector if requested
+        self.use_rl = use_rl
+        if use_rl:
+            print("\n🤖 Using RL-based model selection")
+            self.rl_selector = RLModelSelector(
+                model_names=self.model_list,
+                pretrained_path=rl_weights_path,
+                training_mode=True  # Collect experiences for analysis
+            )
+        else:
+            print("\n📏 Using rule-based model selection")
         
         # Model colors for visualization
         self.model_colors = {}
@@ -305,8 +326,25 @@ class EnhancedAdaptiveTracker:
             if state.switch_cooldown > 0:
                 state.switch_cooldown -= 1
             
-            # Get adaptive model
-            new_model = self.select_adaptive_model_bidirectional(state)
+            # Get adaptive model using RL or rule-based selection
+            if self.use_rl:
+                # For RL, we need to calculate IoU from previous frame
+                # This is a simplified version - in production you'd track the previous bbox
+                iou_value = 0.8 if frame_idx > 0 and len(state.confidence_history) > 0 and state.confidence_history[-1] > 0 else 0.0
+                
+                # Use RL-based selection
+                new_model = self.rl_selector.select_adaptive_model_rl(
+                    confidence=state.confidence,
+                    confidence_history=state.confidence_history,
+                    current_model=state.model_used,
+                    cooldown_frames=state.switch_cooldown,
+                    iou=iou_value,
+                    bbox=state.bbox,
+                    frame_shape=frame.shape[:2]
+                )
+            else:
+                # Use original rule-based selection
+                new_model = self.select_adaptive_model_bidirectional(state)
             
             # Check for model switch
             if new_model != state.model_used:
@@ -370,6 +408,15 @@ class EnhancedAdaptiveTracker:
         if self.video_writer:
             self.video_writer.release()
             print(f"✓ Video saved to {self.config['visualization']['output_video_path']}")
+        
+        # Save RL experiences if using RL mode
+        if self.use_rl and hasattr(self.rl_selector, 'experiences'):
+            exp_path = Path(self.config['output']['results_dir']) / 'rl_experiences.json'
+            self.rl_selector.save_experiences(str(exp_path))
+            
+            # Also save the current RL model weights
+            weights_path = Path(self.config['output']['results_dir']) / 'rl_model_weights.pth'
+            self.rl_selector.save_weights(str(weights_path))
         
         return results, state
     
@@ -451,10 +498,22 @@ class EnhancedAdaptiveTracker:
 def main():
     """Run enhanced adaptive tracking with all features"""
     
-    tracker = EnhancedAdaptiveTracker()
+    import argparse
+    parser = argparse.ArgumentParser(description='Enhanced Adaptive Tracker')
+    parser.add_argument('--use-rl', action='store_true', 
+                       help='Use RL-based model selection instead of rule-based')
+    parser.add_argument('--rl-weights', type=str, default=None,
+                       help='Path to pretrained RL weights')
+    args = parser.parse_args()
+    
+    tracker = EnhancedAdaptiveTracker(use_rl=args.use_rl, rl_weights_path=args.rl_weights)
     
     print("="*60)
     print("ENHANCED ADAPTIVE SINGLE OBJECT TRACKING")
+    if args.use_rl:
+        print("🤖 MODE: RL-based Model Selection (DQN)")
+    else:
+        print("📏 MODE: Rule-based Model Selection")
     print("="*60)
     
     # Run tracking
