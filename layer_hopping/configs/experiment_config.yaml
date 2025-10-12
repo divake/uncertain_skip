@@ -1,0 +1,123 @@
+# Experiment Configuration for Multi-Exit YOLOS
+# Date: 2025-10-11
+
+# Dataset Configuration
+dataset:
+  name: "MOT17"
+  root_path: "/ssd_4TB/divake/uncertain_skip/data/MOT17/train"
+  train_sequences:
+    - "MOT17-02-FRCNN"
+    - "MOT17-04-FRCNN"
+    - "MOT17-05-FRCNN"
+    - "MOT17-09-FRCNN"
+    - "MOT17-10-FRCNN"
+  val_sequences:
+    - "MOT17-11-FRCNN"
+    - "MOT17-13-FRCNN"
+  task: "person_detection"  # Single class: person (class_id=0)
+
+# Model Configuration
+model:
+  name: "hustvl/yolos-small"
+  type: "multi_exit_yolos"
+
+  # Architecture
+  hidden_dim: 384
+  num_transformer_layers: 12
+  num_attention_heads: 6
+  ffn_dim: 1536
+
+  # Exit points
+  exit_layers: [3, 6, 9, 12]
+
+  # Detection head
+  num_queries: 100
+  num_classes: 92  # 91 COCO classes + 1 no-object
+  person_class_id: 0
+  no_object_class_id: 91
+
+  # Pretrained weights
+  pretrained_path: "models/pretrained/yolos-small"
+
+# Image Processing
+image:
+  size: 512  # 512x512 input
+  patch_size: 16  # 16x16 patches
+  sequence_length: 1024  # (512/16)^2 = 1024 tokens
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+# GFLOPs Calculation (for reference)
+gflops:
+  patch_embedding: 0.15
+  per_transformer_layer: 5.8
+  detection_head: 0.04
+  total_12_layers: 69.79
+
+  # Early exit savings
+  layer_3: 17.6   # 75% savings
+  layer_6: 35.0   # 50% savings
+  layer_9: 52.4   # 25% savings
+  layer_12: 69.8  # 0% savings
+
+# Experiment 1: Attention Visualization
+experiment_1:
+  name: "attention_visualization"
+  description: "Visualize attention maps at layers 3, 6, 9, 12 to understand what each layer focuses on"
+
+  # Sample images
+  num_samples: 10
+  sample_sequences: ["MOT17-02-FRCNN", "MOT17-04-FRCNN"]
+
+  # Visualization
+  attention_layers: [3, 6, 9, 12]
+  save_attention_maps: true
+  overlay_on_image: true
+
+  # Output
+  output_dir: "results/experiment_01_attention"
+
+# Experiment 2: Feature Analysis
+experiment_2:
+  name: "feature_analysis"
+  description: "PCA/t-SNE analysis of layer features to check semantic clustering"
+
+  num_samples: 100
+  feature_layers: [3, 6, 9, 12]
+  reduction_method: "pca"  # or "tsne"
+  n_components: 2
+
+  output_dir: "results/experiment_02_features"
+
+# Experiment 3: Linear Probe
+experiment_3:
+  name: "linear_probe"
+  description: "Train simple linear detection head to test layer capability"
+
+  probe_layers: [3, 6, 9, 12]
+
+  # Training
+  epochs: 1
+  batch_size: 8
+  learning_rate: 1e-3
+  optimizer: "adam"
+
+  # Evaluation
+  confidence_threshold: 0.3
+  iou_threshold: 0.5
+
+  output_dir: "results/experiment_03_linear_probe"
+
+# Paths
+paths:
+  models: "models"
+  pretrained: "models/pretrained"
+  results: "results"
+  logs: "logs"
+  visualizations: "visualization"
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  save_to_file: true

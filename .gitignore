@@ -8,14 +8,41 @@ env/
 venv/
 ENV/
 
+# Logs and temporary files
+*.log
+*.json
+*.jsonl
+*.txt
+!requirements.txt
+
+# Results and checkpoints
+results/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# Plots and figures
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.svg
+
+# Archive folders
+archive/
+archive_naive/
+results_archive/
+
 # Dataset
+data/
 bdd100k/
+MOT17/
 *.zip
 *.tar.gz
 
-# Jupyter
-.ipynb_checkpoints
-*.ipynb
+# Models
+models/
 
 # IDE
 .vscode/
@@ -23,31 +50,16 @@ bdd100k/
 *.swp
 *.swo
 
-# OS
+# System files
 .DS_Store
 Thumbs.db
 
-# Model checkpoints
-*.pth
-*.pt
-*.ckpt
-checkpoints/
-models/
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
 
-# Logs
-*.log
-logs/
-
-# Temporary files
-*.tmp
-temp/
-tmp/
-
-# Data directories
-bdd100k/
-MOT17/
-
-# Ignore all markdown files except README
+# Markdown - ignore all except specific ones
 *.md
 !README.md
-results/adaptive/MOT17-04_adaptive_tracking_1050frames.webm
+!Status_*.md
+!CLAUDE.md
