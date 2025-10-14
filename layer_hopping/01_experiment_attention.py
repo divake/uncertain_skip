@@ -1,30 +1,104 @@
 """
-Experiment 1: Attention Visualization
+Experiment 1: Attention Visualization with Quality Sample Selection
 
-Goal: Visualize attention maps at layers 3, 6, 9, 12 to understand
-      what each layer focuses on and whether intermediate layers
-      contain enough information for object detection.
+Filters:
+1. ≥8 people in frame
+2. Average person size ≥2% of image (clearly visible)
+3. No people smaller than 0.5% of image (filters out distant/tiny people)
 
-Success Criteria:
-- Layer 3 attention focuses on person regions (not random) → early exit feasible
-- Layer 6 attention focuses on object boundaries → medium exit feasible
-- Layer 12 attention focuses on full objects → baseline
-
-If layer 3 attention is scattered/random → early exit NOT feasible
+Goal: Visualize attention maps at layers 3, 6, 9, 12 with high-quality samples
 """
 
 import torch
 from transformers import YolosForObjectDetection
 from tqdm import tqdm
 from pathlib import Path
+import numpy as np
 
-from src.architecture_constants import MODEL_NAME, EXIT_LAYERS, VAL_SEQUENCES
-from src.data_loader import get_sample_dataset
+from src.architecture_constants import MODEL_NAME, EXIT_LAYERS, VAL_SEQUENCES, DATASET_ROOT
+from src.data_loader import MOT17DetectionDataset
 from visualization.attention_viz import (
     visualize_attention_single_layer,
     visualize_multi_layer_attention,
     denormalize_image
 )
+
+
+def get_quality_samples(min_people=8, min_avg_size=0.02, min_person_size=0.005, num_samples=10):
+    """
+    Get high-quality samples with clearly visible people
+
+    Args:
+        min_people: Minimum number of people in frame
+        min_avg_size: Minimum average person size (fraction of image area)
+        min_person_size: Minimum size for any single person (filters tiny/distant people)
+        num_samples: Number of samples to return
+    """
+
+    # Load full dataset
+    dataset = MOT17DetectionDataset(
+        root_path=DATASET_ROOT,
+        sequences=VAL_SEQUENCES[:2]
+    )
+
+    print(f"Filtering {len(dataset)} samples for high-quality frames...")
+    print(f"  Criteria:")
+    print(f"    - ≥{min_people} people")
+    print(f"    - Average person size ≥{min_avg_size*100:.1f}% of image")
+    print(f"    - All people ≥{min_person_size*100:.1f}% of image (no tiny people)")
+
+    # Filter samples
+    quality_samples = []
+
+    for idx in range(len(dataset)):
+        _, target = dataset[idx]
+        boxes = target['boxes']
+        num_people = boxes.shape[0]
+
+        if num_people < min_people:
+            continue
+
+        # Calculate person sizes (area = width × height)
+        areas = (boxes[:, 2] * boxes[:, 3]).numpy()
+        avg_area = areas.mean()
+        min_area = areas.min()
+
+        # Quality check
+        if avg_area >= min_avg_size and min_area >= min_person_size:
+            quality_samples.append({
+                'idx': idx,
+                'num_people': num_people,
+                'avg_size': avg_area,
+                'min_size': min_area,
+                'sequence': target['sequence'],
+                'frame_id': target['frame_id']
+            })
+
+    print(f"\nFound {len(quality_samples)} high-quality frames")
+
+    if len(quality_samples) == 0:
+        print("\n⚠ WARNING: No frames found with current criteria!")
+        print("   Try relaxing the filters (e.g., min_people=5, min_avg_size=0.01)")
+        return None
+
+    # Sort by number of people, then by average size
+    quality_samples.sort(key=lambda x: (x['num_people'], x['avg_size']), reverse=True)
+
+    # Take top num_samples
+    selected = quality_samples[:min(num_samples, len(quality_samples))]
+    selected_indices = [s['idx'] for s in selected]
+
+    # Print selected samples
+    print("\nSelected samples:")
+    print(f"{'#':<4} {'Sequence':<20} {'Frame':<6} {'People':<8} {'Avg Size':<10} {'Min Size':<10}")
+    print("-" * 70)
+    for i, s in enumerate(selected):
+        print(f"{i:<4} {s['sequence']:<20} {s['frame_id']:<6} {s['num_people']:<8} "
+              f"{s['avg_size']*100:>6.2f}%    {s['min_size']*100:>6.2f}%")
+
+    # Create subset
+    subset = torch.utils.data.Subset(dataset, selected_indices)
+    return subset
 
 
 def extract_attentions(model, pixel_values, layer_indices):
@@ -54,10 +128,10 @@ def run_experiment():
     """Main experiment function"""
 
     print("=" * 80)
-    print(" " * 20 + "EXPERIMENT 1: ATTENTION VISUALIZATION")
+    print(" " * 12 + "EXPERIMENT 1: ATTENTION VISUALIZATION")
     print("=" * 80)
-    print("\nGoal: Determine if intermediate transformer layers contain enough")
-    print("      semantic information to support object detection.\n")
+    print("\nQuality filters: ≥8 people, avg size ≥2%, all people ≥0.5%")
+    print("\nGoal: Determine if intermediate transformer layers can detect people\n")
     print("Critical Question: Does layer 3 attention focus on people or is it random?")
     print("=" * 80)
 
@@ -71,13 +145,18 @@ def run_experiment():
     model.eval()
     print(f"      ✓ Model loaded: {MODEL_NAME}")
 
-    # Get dataset
-    print("\n[2/5] Loading sample data...")
-    num_samples = 10
-    sample_sequences = VAL_SEQUENCES[:2]  # First 2 validation sequences
+    # Get quality dataset
+    print("\n[2/5] Loading quality sample data...")
+    dataset = get_quality_samples(
+        min_people=8,
+        min_avg_size=0.02,      # 2% of image
+        min_person_size=0.005,  # 0.5% of image (filters tiny people)
+        num_samples=10
+    )
 
-    dataset = get_sample_dataset(sequences=sample_sequences, num_samples=num_samples)
-    print(f"      ✓ Loaded {len(dataset)} samples from {sample_sequences}")
+    if dataset is None:
+        print("\n✗ No suitable samples found. Please check your dataset or relax criteria.")
+        return
 
     # Create output directory
     print("\n[3/5] Setting up output directory...")
@@ -106,8 +185,11 @@ def run_experiment():
         frame_id = target['frame_id']
         num_boxes = target['boxes'].shape[0]
 
+        # Calculate avg person size for naming
+        avg_size = (target['boxes'][:, 2] * target['boxes'][:, 3]).mean().item()
+
         # Create sample directory
-        sample_dir = output_dir / f"sample_{idx:03d}_{sequence}_frame{frame_id:04d}"
+        sample_dir = output_dir / f"sample_{idx:03d}_{sequence}_frame{frame_id:04d}_{num_boxes}ppl_{avg_size*100:.1f}pct"
         sample_dir.mkdir(parents=True, exist_ok=True)
 
         # Save original image
@@ -136,57 +218,24 @@ def run_experiment():
         )
 
         # Log
-        tqdm.write(f"      ✓ Sample {idx}: {sequence} frame {frame_id} ({num_boxes} people)")
+        tqdm.write(f"      ✓ Sample {idx}: {sequence} frame {frame_id} ({num_boxes} people, avg size {avg_size*100:.1f}%)")
 
     # Summary
     print("\n[5/5] Experiment completed!")
     print(f"      Results saved to: {output_dir}")
     print(f"      Total samples: {len(dataset)}")
     print(f"      Layers analyzed: {EXIT_LAYERS}")
+    print(f"      All samples have clearly visible people (avg size ≥2%)")
 
     # Analysis instructions
     print("\n" + "=" * 80)
     print(" " * 25 + "NEXT STEPS - MANUAL ANALYSIS")
     print("=" * 80)
-    print("\nPlease examine the visualizations and answer:")
-    print("\n1. LAYER 3 (Early Exit) - Most Critical:")
-    print("   - Does attention focus on person regions?")
-    print("   - Or is it scattered randomly across the image?")
-    print("   - ✓ If FOCUSED → early exit is FEASIBLE")
-    print("   - ✗ If RANDOM → early exit is NOT FEASIBLE")
-
-    print("\n2. LAYER 6 (Medium Exit):")
-    print("   - Does attention focus on object boundaries?")
-    print("   - Is it more refined than Layer 3?")
-
-    print("\n3. LAYER 9 (Late Exit):")
-    print("   - Does attention cover full object regions?")
-    print("   - Is it more refined than Layer 6?")
-
-    print("\n4. LAYER 12 (Full Model - Baseline):")
-    print("   - Should show clear, focused attention on people")
-
-    print("\n5. HIERARCHY CHECK:")
-    print("   - Is there clear progression: Layer 3 < 6 < 9 < 12?")
-    print("   - Does attention become more focused/refined at deeper layers?")
-
-    print("\n" + "=" * 80)
-    print(" " * 30 + "DECISION POINT")
-    print("=" * 80)
-    print("\nBased on Layer 3 attention patterns:")
-    print("\n✓ IF FOCUSED ON PEOPLE:")
-    print("  → Multi-exit YOLOS is architecturally feasible")
-    print("  → Proceed to Experiment 2 (Feature Analysis)")
-    print("  → Proceed to Experiment 3 (Linear Probe)")
-
-    print("\n✗ IF RANDOM/SCATTERED:")
-    print("  → Layer 3 cannot support detection")
-    print("  → Consider different exit points (e.g., layers 8, 10, 12)")
-    print("  → Or pivot to different architecture entirely")
-
-    print("\n" + "=" * 80)
-    print("\nExperiment 1 complete. Review visualizations to make decision.")
-    print("=" * 80 + "\n")
+    print("\nExamine the visualizations in:", output_dir)
+    print("\nKey Question: Does Layer 3 attention focus on people or is it random?")
+    print("\n✓ IF FOCUSED → Multi-exit YOLOS is feasible, continue experiments")
+    print("✗ IF RANDOM → Layer 3 cannot detect, pivot strategy")
+    print("\n" + "=" * 80 + "\n")
 
 
 if __name__ == "__main__":

@@ -62,4 +62,4 @@ Thumbs.db
 *.md
 !README.md
 !Status_*.md
-!CLAUDE.md
+CLAUDE.md
