@@ -257,14 +257,28 @@ def build_multi_exit_yolos(config: dict) -> MultiExitYOLOS:
     Returns:
         MultiExitYOLOS model
     """
+    # Handle both Phase 1 and Phase 2 config formats
+    if 'phase1' in config['training']:
+        # Phase 1 config format
+        freeze_backbone = config['training']['phase1']['freeze_backbone']
+        freeze_layer12_head = config['training']['phase1']['freeze_layer12_head']
+    elif 'freeze' in config['training']:
+        # Phase 2 config format
+        freeze_backbone = config['training']['freeze']['backbone']
+        freeze_layer12_head = config['training']['freeze']['layer_12_bbox']
+    else:
+        # Fallback defaults
+        freeze_backbone = True
+        freeze_layer12_head = True
+
     model = MultiExitYOLOS(
         pretrained_model_name=config['model']['backbone'],
         exit_layers=config['model']['exit_layers'],
         hidden_dim=config['model']['hidden_dim'],
         num_classes=config['model']['num_classes'],
         num_detection_tokens=config['model']['num_detection_tokens'],
-        freeze_backbone=config['training']['phase1']['freeze_backbone'],
-        freeze_layer12_head=config['training']['phase1']['freeze_layer12_head']
+        freeze_backbone=freeze_backbone,
+        freeze_layer12_head=freeze_layer12_head
     )
 
     return model

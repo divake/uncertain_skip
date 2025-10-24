@@ -1,0 +1,204 @@
+# Phase 2 Training Configuration
+# Fine-tune entire model with layer-wise learning rates
+
+# ============================================================================
+# Model Configuration
+# ============================================================================
+model:
+  backbone: "hustvl/yolos-small"
+  hidden_dim: 384
+  num_classes: 1
+  num_detection_tokens: 100
+  exit_layers: [8, 10, 12]
+
+  head_architecture:
+    input_dim: 384
+    hidden_dim: 384
+    num_layers: 3
+
+# ============================================================================
+# Dataset Configuration
+# ============================================================================
+dataset:
+  name: "MOT17"
+  root_path: "/ssd_4TB/divake/uncertain_skip/data/MOT17/train"
+
+  train_sequences:
+    - "MOT17-02-FRCNN"
+    - "MOT17-04-FRCNN"
+    - "MOT17-05-FRCNN"
+    - "MOT17-09-FRCNN"
+    - "MOT17-10-FRCNN"
+
+  val_sequences:
+    - "MOT17-11-FRCNN"
+    - "MOT17-13-FRCNN"
+
+  image_size: 512
+  normalize_mean: [0.485, 0.456, 0.406]
+  normalize_std: [0.229, 0.224, 0.225]
+
+# ============================================================================
+# Loss Configuration
+# ============================================================================
+loss:
+  losses: ["labels", "boxes"]
+
+  weight_dict:
+    loss_ce: 1.0
+    loss_bbox: 5.0
+    loss_giou: 2.0
+
+  # Exit-specific loss weights (for joint training)
+  exit_weights:
+    layer_8: 0.3   # Early exit
+    layer_10: 0.3  # Middle exit
+    layer_12: 0.4  # Final exit (slightly higher weight)
+
+  aux_loss: true
+
+  matcher:
+    cost_class: 1.0
+    cost_bbox: 5.0
+    cost_giou: 2.0
+
+  eos_coef: 0.1
+
+# ============================================================================
+# Phase 2 Training Configuration
+# ============================================================================
+training:
+  epochs: 25
+  batch_size: 8
+
+  # Layer-wise learning rates (gradual unfreezing approach)
+  # REDUCED 10x to prevent NaN loss when unfreezing backbone
+  layer_wise_lr:
+    enabled: true
+    backbone_early: 1.0e-7    # Layers 1-7 (very conservative)
+    backbone_mid: 5.0e-7      # Layers 8-9 (moderate)
+    backbone_late: 1.0e-6     # Layers 10-11 (more freedom)
+    layer_12: 1.0e-6          # Layer 12
+    detection_heads: 1.0e-5   # Detection heads (most freedom)
+
+  weight_decay: 0.0001
+
+  # Freeze settings for Phase 2
+  freeze:
+    backbone: false           # UNFREEZE backbone
+    layer_12_bbox: true       # Keep pretrained bbox head frozen
+
+  # Optimizer
+  optimizer: "AdamW"
+  lr_scheduler: "StepLR"
+  lr_drop: 15  # Drop LR after 15 epochs
+  lr_drop_rate: 0.1
+
+  # Gradient clipping
+  clip_max_norm: 0.1
+
+  # Mixed precision
+  use_amp: true
+
+  # Checkpointing
+  save_every: 5
+  save_best: true  # Save only if validation mAP improves
+
+  # Load Phase 1 checkpoint
+  pretrained_checkpoint: "results/multi_exit_training/20251020_165209/best_model.pt"
+
+# ============================================================================
+# Evaluation Configuration
+# ============================================================================
+evaluation:
+  # Evaluate every epoch during training
+  eval_during_training: true
+  eval_every_n_epochs: 1
+
+  metrics:
+    - "mAP"
+    - "AP50"
+    - "AP75"
+    - "precision"
+    - "recall"
+    - "f1_score"
+
+  evaluate_all_exits: true
+  conf_threshold: 0.1  # Lower threshold based on Phase 1 findings
+  iou_threshold: 0.5
+
+# ============================================================================
+# Logging Configuration
+# ============================================================================
+logging:
+  log_every_n_steps: 50
+
+  log_metrics:
+    - "loss_total"
+    - "loss_ce"
+    - "loss_bbox"
+    - "loss_giou"
+    - "loss_ce_0"
+    - "loss_bbox_0"
+    - "loss_giou_0"
+    - "loss_ce_1"
+    - "loss_bbox_1"
+    - "loss_giou_1"
+    - "learning_rate"
+    - "grad_norm"
+
+  val_metrics:
+    - "mAP_layer_8"
+    - "mAP_layer_10"
+    - "mAP_layer_12"
+    - "AP50_layer_8"
+    - "AP50_layer_10"
+    - "AP50_layer_12"
+    - "f1_score_layer_8"
+    - "f1_score_layer_10"
+    - "f1_score_layer_12"
+
+  output_dir: "results/phase2_training"
+  save_train_log: true
+  save_val_log: true
+  save_loss_curves: true
+  save_metric_plots: true
+
+# ============================================================================
+# Hardware Configuration
+# ============================================================================
+hardware:
+  device: "cuda"
+  num_workers: 4
+  pin_memory: true
+  distributed: false
+
+# ============================================================================
+# Reproducibility
+# ============================================================================
+seed: 42
+deterministic: true
+
+# ============================================================================
+# Experiment Info
+# ============================================================================
+experiment:
+  name: "phase2_multi_exit_yolos"
+  description: "Phase 2: Fine-tune entire model with layer-wise learning rates to improve early exits"
+  tags: ["phase2", "fine-tuning", "unfrozen-backbone", "layer-wise-lr"]
+  notes: |
+    Phase 2 Training Strategy:
+    - Load best checkpoint from Phase 1
+    - Unfreeze entire backbone with layer-wise learning rates
+    - Early layers (1-7): 1e-6 LR (minimal changes)
+    - Mid layers (8-9): 5e-6 LR (moderate adaptation)
+    - Late layers (10-11): 1e-5 LR (more freedom)
+    - Detection heads: 1e-4 LR (maximum adaptation)
+    - Train all exits jointly with weighted losses (0.3, 0.3, 0.4)
+    - Evaluate every epoch to track improvement
+    - Save only if mAP improves over previous best
+
+    Expected improvements:
+    - Layer 8: 1.34% → 15-20% mAP (10-15x improvement)
+    - Layer 10: 4.24% → 20-25% mAP (5-6x improvement)
+    - Layer 12: 21.04% → 30-35% mAP (1.5x improvement)

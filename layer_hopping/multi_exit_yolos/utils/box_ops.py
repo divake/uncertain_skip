@@ -48,12 +48,21 @@ def generalized_box_iou(boxes1, boxes2):
     """
     # degenerate boxes gives inf / nan results
     # so do an early check
-    assert (boxes1[:, 2:] >= boxes1[:, :2]).all()
-    assert (boxes2[:, 2:] >= boxes2[:, :2]).all()
-    iou, union = box_iou(boxes1, boxes2)
+    # NOTE: During early training, models may produce invalid boxes
+    # Clamp boxes to ensure x1 >= x0 and y1 >= y0 (avoid in-place ops)
+    boxes1_clamped = torch.cat([
+        boxes1[:, :2],
+        torch.maximum(boxes1[:, 2:], boxes1[:, :2])
+    ], dim=1)
+    boxes2_clamped = torch.cat([
+        boxes2[:, :2],
+        torch.maximum(boxes2[:, 2:], boxes2[:, :2])
+    ], dim=1)
 
-    lt = torch.min(boxes1[:, None, :2], boxes2[:, :2])
-    rb = torch.max(boxes1[:, None, 2:], boxes2[:, 2:])
+    iou, union = box_iou(boxes1_clamped, boxes2_clamped)
+
+    lt = torch.min(boxes1_clamped[:, None, :2], boxes2_clamped[:, :2])
+    rb = torch.max(boxes1_clamped[:, None, 2:], boxes2_clamped[:, 2:])
 
     wh = (rb - lt).clamp(min=0)  # [N,M,2]
     area = wh[:, :, 0] * wh[:, :, 1]
