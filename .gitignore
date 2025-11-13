@@ -64,3 +64,21 @@ Thumbs.db
 !Status_*.md
 CLAUDE.md
 official_yolos_reference/
+
+# Patrick's work - ignore to prevent accidental commits
+scripts/compare_uncertainty_methods.py
+scripts/evaluation/evaluate_gradient_uncertainty.py
+scripts/evaluation/evaluate_mc_tta_full_dataset.py
+scripts/evaluation/evaluate_mc_tta_uncertainty.py
+scripts/evaluation/evaluate_weight_perturbation.py
+scripts/evaluation/evaluate_with_uncertainty.py
+scripts/evaluation/generate_uncertainty_report.py
+scripts/evaluation/plot_mc_tta_results.py
+scripts/evaluation/plot_weight_perturbation_results.py
+scripts/evaluation/run_uncertainty_evaluation.sh
+scripts/fit_laplace_hessian.py
+scripts/run_laplace_fitting.sh
+src/uncertainty/
+test_env_laplace.py
+test_fixed_uncertainty.py
+test_uncertainty_module.py

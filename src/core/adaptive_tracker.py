@@ -25,14 +25,24 @@ from src.core.rl_model_selector import RLModelSelector
 
 @dataclass
 class TrackingState:
-    """Enhanced tracking state with uncertainty metrics"""
+    """Enhanced tracking state with decomposed uncertainty"""
     frame_idx: int
     bbox: np.ndarray
     confidence: float
     model_used: str
-    uncertainty: float
+
+    # Decomposed uncertainty
+    aleatoric: float = 0.0  # Data uncertainty
+    epistemic: float = 0.0  # Model uncertainty
+    uncertainty: float = 0.0  # Combined (for backward compatibility)
+
+    # History tracking
     confidence_history: List[float] = field(default_factory=list)
+    aleatoric_history: List[float] = field(default_factory=list)
+    epistemic_history: List[float] = field(default_factory=list)
     model_history: List[str] = field(default_factory=list)
+
+    # Hysteresis
     switch_cooldown: int = 0
     frames_since_switch: int = 0
     
@@ -41,13 +51,14 @@ class EnhancedAdaptiveTracker:
     Enhanced tracker with bidirectional switching and uncertainty metrics
     """
     
-    def __init__(self, config_path='configs/adaptive_tracking_config.yaml', use_rl=False, rl_weights_path=None):
+    def __init__(self, config_path='configs/adaptive_tracking_config.yaml', use_rl=False, rl_weights_path=None, uncertainty_file='data/mot17_04_uncertainty.json'):
         """Initialize with configuration file
-        
+
         Args:
             config_path: Path to configuration file
             use_rl: Whether to use RL-based model selection instead of rule-based
             rl_weights_path: Path to pretrained RL weights (optional)
+            uncertainty_file: Path to pre-computed uncertainty data
         """
         with open(config_path, 'r') as f:
             self.config = yaml.safe_load(f)
@@ -72,7 +83,17 @@ class EnhancedAdaptiveTracker:
             )
         else:
             print("\n📏 Using rule-based model selection")
-        
+
+        # Load uncertainty data
+        from src.utils.uncertainty_loader import UncertaintyLoader
+        try:
+            self.uncertainty_loader = UncertaintyLoader(uncertainty_file)
+            print(f"✓ Loaded uncertainty from {uncertainty_file}")
+        except FileNotFoundError:
+            print(f"⚠️  Uncertainty file not found: {uncertainty_file}")
+            print("   Using fallback: mean values")
+            self.uncertainty_loader = None
+
         # Model colors for visualization
         self.model_colors = {}
         for model, color in self.config['models']['colors'].items():
@@ -170,16 +191,46 @@ class EnhancedAdaptiveTracker:
         
         return current_model
     
+    def load_ground_truth_bbox(self, sequence, track_id, frame_idx):
+        """Load ground truth bounding box for a specific track and frame"""
+        gt_file = Path(f"data/MOT17/train/{sequence}/gt/gt.txt")
+
+        with open(gt_file, 'r') as f:
+            for line in f:
+                parts = line.strip().split(',')
+                frame = int(parts[0])
+                tid = int(parts[1])
+
+                if frame == frame_idx and tid == track_id:
+                    x, y, w, h = map(float, parts[2:6])
+                    conf = float(parts[8]) if len(parts) > 8 else 0.8
+                    return {'bbox': [x, y, w, h], 'confidence': conf}
+
+        return None
+
     def select_initial_object(self, frame):
         """Select initial object based on configuration"""
         strategy = self.config['object_selection']['strategy']
+
+        # Check if using ground truth
+        if strategy == 'ground_truth':
+            track_id = self.config['object_selection'].get('ground_truth_track_id', 1)
+            sequence = Path(self.config['dataset']['path']).parent.name
+            print(f"Using ground truth track ID {track_id} from {sequence}")
+            gt_obj = self.load_ground_truth_bbox(sequence, track_id, frame_idx=1)
+            if gt_obj:
+                return gt_obj
+            else:
+                print(f"⚠️  Ground truth track {track_id} not found, falling back to detection")
+
+        # Fall back to detection-based selection
         model = self.models[self.config['models']['starting_model']]
-        
+
         results = model(frame, conf=0.25, device='cuda', verbose=False)
-        
+
         if results[0].boxes is None:
             return None
-            
+
         candidates = []
         for box in results[0].boxes:
             if int(box.cls) == 0:  # Person
@@ -361,9 +412,29 @@ class EnhancedAdaptiveTracker:
             if new_bbox is not None:
                 state.bbox = np.array(new_bbox)
                 state.confidence = confidence
+
+                # Get decomposed uncertainty
+                if self.uncertainty_loader is not None:
+                    aleatoric, epistemic = self.uncertainty_loader.get_uncertainty_for_detection(
+                        frame_id=frame_idx + 1,  # MOT17 frames start at 1
+                        bbox=state.bbox,
+                        iou_threshold=0.5
+                    )
+                    state.aleatoric = aleatoric
+                    state.epistemic = epistemic
+                    state.uncertainty = np.sqrt(aleatoric**2 + epistemic**2)  # Combined
+                else:
+                    # Fallback to old method
+                    state.aleatoric = 0.5
+                    state.epistemic = 0.5
+                    state.uncertainty = self.calculate_uncertainty(state.confidence_history)
+
+                # Update histories
                 state.confidence_history.append(confidence)
+                state.aleatoric_history.append(state.aleatoric)
+                state.epistemic_history.append(state.epistemic)
                 state.model_history.append(state.model_used)
-                state.uncertainty = self.calculate_uncertainty(state.confidence_history)
+
                 lost_frames = 0
                 status = 'tracked'
             else:
@@ -388,6 +459,8 @@ class EnhancedAdaptiveTracker:
                 'frame': frame_idx,
                 'model': state.model_used,
                 'confidence': confidence,
+                'aleatoric': state.aleatoric,  # NEW
+                'epistemic': state.epistemic,  # NEW
                 'uncertainty': state.uncertainty,
                 'bbox': state.bbox.tolist() if status == 'tracked' else None,
                 'status': status,
@@ -397,7 +470,7 @@ class EnhancedAdaptiveTracker:
             # Progress update
             if frame_idx % 50 == 0:
                 print(f"Frame {frame_idx}: model={state.model_used}, "
-                      f"conf={confidence:.3f}, uncertainty={state.uncertainty:.3f}")
+                      f"conf={confidence:.3f}, A={state.aleatoric:.3f}, E={state.epistemic:.3f}")
             
             # Stop if lost
             if lost_frames > self.max_lost_frames:

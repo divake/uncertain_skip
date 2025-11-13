@@ -14,7 +14,7 @@ import json
 
 class DQN(nn.Module):
     """Simple DQN for model selection"""
-    def __init__(self, state_dim=10, action_dim=5, hidden_dim=128):
+    def __init__(self, state_dim=12, action_dim=5, hidden_dim=128):
         super(DQN, self).__init__()
         self.fc1 = nn.Linear(state_dim, hidden_dim)
         self.fc2 = nn.Linear(hidden_dim, hidden_dim)
@@ -45,7 +45,7 @@ class RLModelSelector:
         """
         self.model_names = model_names
         self.action_dim = len(model_names)
-        self.state_dim = 10
+        self.state_dim = 12  # Updated to include aleatoric and epistemic
         self.training_mode = training_mode
         
         # Model parameters for reward calculation
@@ -86,16 +86,31 @@ class RLModelSelector:
         self.previous_action = None
         self.frames_since_switch = 0
         
-    def extract_state(self, 
+    def extract_state(self,
                      confidence: float,
                      confidence_history: list,
                      current_model: str,
                      iou: float = 0.5,
                      bbox: np.ndarray = None,
-                     frame_shape: tuple = (1080, 1920)) -> np.ndarray:
+                     frame_shape: tuple = (1080, 1920),
+                     aleatoric: float = 0.0,
+                     aleatoric_history: list = None,
+                     epistemic: float = 0.0,
+                     epistemic_history: list = None) -> np.ndarray:
         """
-        Extract state features from tracking information
-        Compatible with existing tracker
+        Extract state features from tracking information with real uncertainty
+
+        Args:
+            confidence: Current detection confidence
+            confidence_history: History of confidences
+            current_model: Current model name
+            iou: IoU with previous frame
+            bbox: Bounding box [x, y, w, h]
+            frame_shape: Frame dimensions (H, W)
+            aleatoric: Real data uncertainty (Mahalanobis)
+            aleatoric_history: History of aleatoric values
+            epistemic: Real model uncertainty (Triple-S)
+            epistemic_history: History of epistemic values
         """
         # Get confidence statistics
         if len(confidence_history) > 1:
@@ -123,21 +138,31 @@ class RLModelSelector:
             object_size = 0.1  # Default medium size
             edge_dist = 0.5    # Default center
         
-        # Uncertainty metric (combination of variance and low confidence)
-        uncertainty = conf_var + (1 - confidence) * 0.3
-        
-        # Build state vector
+        # Get uncertainty statistics
+        if aleatoric_history is not None and len(aleatoric_history) > 0:
+            aleatoric_mean = np.mean(aleatoric_history[-5:])
+        else:
+            aleatoric_mean = aleatoric
+
+        if epistemic_history is not None and len(epistemic_history) > 0:
+            epistemic_mean = np.mean(epistemic_history[-5:])
+        else:
+            epistemic_mean = epistemic
+
+        # Build state vector (12D with real uncertainty)
         state = np.array([
-            confidence,                       # Current confidence
-            conf_mean,                        # Mean confidence
-            conf_var,                         # Confidence variance (uncertainty)
-            conf_trend,                       # Confidence trend
-            iou,                             # Tracking continuity
-            self.frames_since_switch / 100.0, # Normalized time since switch
-            current_model_idx / 4.0,          # Normalized current model
-            object_size,                      # Object size
-            edge_dist,                        # Distance to edges
-            uncertainty                       # Combined uncertainty
+            confidence,                       # 0: Current confidence
+            conf_mean,                        # 1: Mean confidence (5 frames)
+            conf_trend,                       # 2: Confidence trend
+            iou,                             # 3: IoU with previous frame
+            self.frames_since_switch / 100.0, # 4: Normalized time since switch
+            current_model_idx / 4.0,          # 5: Normalized current model index
+            object_size,                      # 6: Normalized bbox area
+            edge_dist,                        # 7: Distance to frame edge
+            aleatoric,                        # 8: REAL data uncertainty (Mahalanobis)
+            aleatoric_mean,                   # 9: Mean aleatoric (5 frames)
+            epistemic,                        # 10: REAL model uncertainty (Triple-S)
+            epistemic_mean                    # 11: Mean epistemic (5 frames)
         ], dtype=np.float32)
         
         return state
@@ -218,23 +243,75 @@ class RLModelSelector:
         
         return selected_model
     
-    def calculate_reward(self, confidence: float, model_name: str) -> float:
+    def calculate_reward(self,
+                        confidence: float,
+                        model_name: str,
+                        iou: float = 0.5,
+                        aleatoric: float = 0.0,
+                        epistemic: float = 0.0) -> float:
         """
-        Simple reward function
+        Reward function incorporating orthogonal uncertainty
+
+        Key insight: With orthogonal aleatoric/epistemic (r=0.0063):
+        - Penalize big models on DATA issues (high aleatoric)
+        - Reward big models on MODEL issues (high epistemic)
+
+        Args:
+            confidence: Detection confidence
+            model_name: Selected model
+            iou: IoU with previous frame
+            aleatoric: Data uncertainty (Mahalanobis)
+            epistemic: Model uncertainty (Triple-S)
         """
-        # Tracking quality
-        tracking_reward = confidence
-        
-        # Computational cost
-        computation_cost = self.model_params[model_name] / self.model_params['yolov8x']
-        
-        # Combine
-        reward = tracking_reward - 0.3 * computation_cost
-        
-        # Bonus for stability
-        if self.frames_since_switch > 5:
-            reward += 0.1
-            
+        # Tracking quality (primary goal)
+        tracking_quality = iou  # IoU is more reliable than confidence
+
+        # Computational cost (normalized)
+        model_cost = self.model_params[model_name] / self.model_params['yolov8x']
+
+        # Base reward: quality is primary goal
+        reward = 2.0 * tracking_quality  # Doubled to emphasize tracking quality
+
+        # Cost penalty - reduced to allow larger models when needed
+        reward -= 0.1 * model_cost  # Reduced from 0.3
+
+        # CRITICAL: Epistemic-based model size matching
+        # When epistemic is HIGH, we NEED larger models
+        # Epistemic ranges from ~0.1 to ~1.0, mean ~0.4
+
+        # Penalty for using SMALL models when epistemic is HIGH
+        if epistemic > 0.5:  # High epistemic
+            model_idx = self.model_names.index(model_name)
+            required_model_idx = min(4, int(epistemic * 6))  # Maps 0.5→3, 0.7→4, 1.0→5→4
+            if model_idx < required_model_idx:
+                # Heavily penalize using too-small model for high epistemic
+                reward -= 1.5 * (required_model_idx - model_idx) / 4.0
+
+        # Bonus for using LARGE models when epistemic is HIGH
+        if epistemic > 0.6:  # Very high epistemic
+            model_idx = self.model_names.index(model_name)
+            if model_idx >= 3:  # Using L or X
+                reward += 0.8 * epistemic  # Strong bonus
+
+        # Penalty for using LARGE models when epistemic is LOW
+        if epistemic < 0.3:  # Low epistemic
+            model_idx = self.model_names.index(model_name)
+            if model_idx > 2:  # Using more than M
+                reward -= 0.6 * (1.0 - epistemic)
+
+        # Aleatoric-based penalty (data issues)
+        # When aleatoric is high, larger models won't help much
+        if aleatoric > 0.3:
+            reward -= 0.3 * model_cost * aleatoric
+
+        # Moderate stability bonus (not too strong to allow necessary switches)
+        if self.frames_since_switch > 3:
+            reward += 0.05  # Reduced from 0.1
+
+        # Light switch penalty (allow switches when needed)
+        if self.frames_since_switch < 2:
+            reward -= 0.05  # Reduced from 0.15
+
         return reward
     
     def save_weights(self, path: str):
@@ -247,8 +324,16 @@ class RLModelSelector:
     
     def load_weights(self, path: str):
         """Load model weights"""
-        checkpoint = torch.load(path, map_location=self.device)
-        self.q_network.load_state_dict(checkpoint['model_state'])
+        checkpoint = torch.load(path, map_location=self.device, weights_only=False)
+
+        # Handle both training checkpoint and exported model formats
+        if 'q_network_state' in checkpoint:
+            self.q_network.load_state_dict(checkpoint['q_network_state'])
+        elif 'model_state' in checkpoint:
+            self.q_network.load_state_dict(checkpoint['model_state'])
+        else:
+            raise KeyError(f"No model weights found in checkpoint. Keys: {checkpoint.keys()}")
+
         if 'model_names' in checkpoint:
             self.model_names = checkpoint['model_names']
     
